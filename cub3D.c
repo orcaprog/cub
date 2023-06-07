@@ -6,7 +6,7 @@
 /*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 10:27:29 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/07 15:58:23 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/06/07 18:30:18 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,7 @@ void cheak_wall(char *map)
 			i++;
 		else
 		{
-			ft_putendl_fd("Erorr",2);
-			exit(1);
+			ft_puterr("Error");
 		}
 	}
 }
@@ -32,13 +31,11 @@ void check_s(char **map,size_t i, size_t j)
 {
 	if (map[i - 1][j] == ' ' || map[i + 1][j] == ' ' || map[i][j - 1] == ' ' || map[i][j + 1] == ' '  || map[i][j + 1] == '\0')
 	{
-		ft_putendl_fd("Erorr",2);
-		exit(1);
+		ft_puterr("Error");
 	}
 	if (ft_strlen(map[i - 1]) <= j  || ft_strlen(map[i + 1]) <= j || j == 0)
 	{
-		ft_putendl_fd("Erorr",2);
-		exit(1);
+		ft_puterr("Error");
 	}
 }
 void cheak_map(char **map)
@@ -57,10 +54,8 @@ void cheak_map(char **map)
 		j = 0;
 		while (map[i][j])
 		{
-			if(map[i][j] == '0')
-			{
+			if(map[i][j] == '0' || map[i][j] == 'W' || map[i][j] == 'E' || map[i][j] == 'N' || map[i][j] == 'S')
 				check_s(map,i,j);
-			}
 			j++;
 		}
 		i++;
@@ -90,6 +85,8 @@ int main(int ac ,char **av)
 	i = 0;
 	map = get_map(av[1]);
 	cheak_map(map);
+	check_cmp(map);
+	check_cmp_valid(map);
 	while (map[i])
 	{
 		printf("%s\n",map[i]);

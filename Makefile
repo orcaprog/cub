@@ -2,6 +2,7 @@ NAME = cub3D
 
 SRC =	cub3D.c\
 		cub3D_parce.c\
+		free_err.c\
 
 OBJ = ${SRC:.c=.o}
 
