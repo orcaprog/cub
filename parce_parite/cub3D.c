@@ -6,7 +6,7 @@
 /*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 10:27:29 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/07 18:30:18 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/06/08 09:20:50 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,7 @@ char **get_map(char *file)
 	fd = open(file,O_RDONLY);
 	if (fd == -1)
 	{
-		perror(file);
-		exit(1);
+		ft_puterr("Error");
 	}
 	map = ft_split(get_next_line(fd),'\n');
 	return(map);

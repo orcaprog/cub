@@ -6,7 +6,7 @@ SRC =	cub3D.c\
 
 OBJ = ${SRC:.c=.o}
 
-CFLAGS = -Wall -Werror -Wextra #-fsanitize=address -g
+CFLAGS = -Wall -Werror -Wextra -fsanitize=address -g
 
 RM = rm -rf
 
