@@ -3,6 +3,8 @@ NAME = cub3D
 SRC =	abouassi/cub3D.c\
 		abouassi/cub3D_parce.c\
 		abouassi/free_err.c\
+		aelidrys/string_action.c\
+		aelidrys/parce_first_element.c\
 
 OBJ = ${SRC:.c=.o}
 
@@ -20,8 +22,8 @@ ${NAME} : ${OBJ}
 
 clean :
 	make clean -C libft
-	$(RM) $(OBJ) 
-	
+	$(RM) $(OBJ)
+
 fclean	:	clean
 		make fclean -C libft
 		$(RM) $(NAME)
