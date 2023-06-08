@@ -1,8 +1,8 @@
 NAME = cub3D
 
-SRC =	cub3D.c\
-		cub3D_parce.c\
-		free_err.c\
+SRC =	abouassi/cub3D.c\
+		abouassi/cub3D_parce.c\
+		abouassi/free_err.c\
 
 OBJ = ${SRC:.c=.o}
 

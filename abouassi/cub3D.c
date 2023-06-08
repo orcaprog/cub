@@ -6,11 +6,11 @@
 /*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 10:27:29 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/08 09:20:50 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/06/08 09:53:50 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
 void cheak_wall(char *map)
 {

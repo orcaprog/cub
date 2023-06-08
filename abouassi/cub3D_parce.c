@@ -6,11 +6,11 @@
 /*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 10:27:39 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/07 18:31:29 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/06/08 09:53:43 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
 void check_cmp(char **map)
 {
