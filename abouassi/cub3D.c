@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 10:27:29 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/08 15:01:46 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/06/08 13:59:24 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,9 +73,8 @@ char **get_map(char *file)
 	}
 	map = ft_split(get_next_line(fd),'\n');
 	return(map);
-
+	
 }
-
 int main(int ac ,char **av)
 {
 	(void)ac;
@@ -84,14 +83,16 @@ int main(int ac ,char **av)
 
 	i = 0;
 	map = get_map(av[1]);
-	cheak_map(map);
-	check_cmp(map);
-	check_cmp_valid(map);
+	check_first_element(map,i);
+	cheak_map(&map[6]);
+	check_cmp(&map[6]);
+	check_cmp_valid(&map[6]);
 	while (map[i])
 	{
 		printf("%s\n",map[i]);
 		i++;
 	}
+	
 
-
+	
 }
