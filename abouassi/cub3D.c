@@ -6,7 +6,7 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 10:27:29 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/08 14:00:02 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/06/08 15:01:46 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,22 +76,22 @@ char **get_map(char *file)
 
 }
 
-// int main(int ac ,char **av)
-// {
-// 	(void)ac;
-// 	char **map;
-// 	int i;
+int main(int ac ,char **av)
+{
+	(void)ac;
+	char **map;
+	int i;
 
-// 	i = 0;
-// 	map = get_map(av[1]);
-// 	cheak_map(map);
-// 	check_cmp(map);
-// 	check_cmp_valid(map);
-// 	while (map[i])
-// 	{
-// 		printf("%s\n",map[i]);
-// 		i++;
-// 	}
+	i = 0;
+	map = get_map(av[1]);
+	cheak_map(map);
+	check_cmp(map);
+	check_cmp_valid(map);
+	while (map[i])
+	{
+		printf("%s\n",map[i]);
+		i++;
+	}
 
 
-// }
+}

@@ -6,7 +6,7 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 16:20:40 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/06/08 14:47:06 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/06/08 15:01:56 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,10 @@ int	check_first_element(char **arry, int i)
 	return (1);
 }
 
-int main(int ac, char **av)
-{
-	char **map;
+// int main(int ac, char **av)
+// {
+// 	char **map;
 
-	map = get_map(av[1]);
-	check_first_element(map,ac);
-}
+// 	map = get_map(av[1]);
+// 	check_first_element(map,ac);
+// }
