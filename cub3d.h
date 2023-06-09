@@ -6,7 +6,7 @@
 /*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 10:27:45 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/09 09:12:04 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/06/09 14:59:44 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ typedef struct s_info
 	char	*ea;
 	int		f;
 	int		c;
+	int		p_v;
+	char	**map;
 }	t_info;
 
 
@@ -37,6 +39,7 @@ char	**get_map(char *file);
 void	check_nwline(char *map);
 void	store_info(char **map, t_info *cub);
 int		my_color(char *color);
+void	point_of_view(t_info *data);
 
 // aelidrys
 void	ft_free(char **str);

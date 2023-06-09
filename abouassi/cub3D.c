@@ -6,7 +6,7 @@
 /*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 10:27:29 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/09 09:15:47 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/06/09 15:00:21 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,9 @@ int main(int ac , char **av)
 	cheak_map(&map[6]);
 	check_cmp(&map[6]);
 	check_cmp_valid(&map[6]);
+	cub.map = &map[6];
 	store_info(map, &cub);
+	point_of_view(&cub);
 	// while (map[i])
 	// {
 	// 	printf("%s\n", map[i]);
@@ -105,4 +107,5 @@ int main(int ac , char **av)
 	printf("%s\n",cub.we);
 	printf("%d\n",cub.f);
 	printf("%d\n",cub.c);
+	printf("%d\n",cub.p_v);
 }
