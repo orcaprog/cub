@@ -6,7 +6,7 @@
 /*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 10:27:39 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/09 08:17:52 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/06/09 08:45:58 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,26 +109,28 @@ void	check_nwline(char *map)
 void store_info(char **map, t_info *cub)
 {
 	int i;
-
+	char **line;
 	i = 0;
 	while (i < 6)
 	{
-		if (ft_strnstr(map[i],"NO",ft_strlen(map[i])))
+		line = get_element(map[i]);
+		if (!ft_strncmp(line[0],"NO",2))
 		{
-			cub->no = map[i];
+			cub->no = ft_strdup(line[1]);
 		}
-		if (ft_strnstr(map[i],"SO",ft_strlen(map[i])))
+		if (!ft_strncmp(line[0],"SO",2))
 		{
-			cub->so = map[i];
+			cub->so = ft_strdup(line[1]);
 		}
-		if (ft_strnstr(map[i],"WE",ft_strlen(map[i])))
+		if (!ft_strncmp(line[0],"WE",2))
 		{
-			cub->we = map[i];
+			cub->we = ft_strdup(line[1]);
 		}
-		if (ft_strnstr(map[i],"EA",ft_strlen(map[i])))
+		if (!ft_strncmp(line[0],"EA",2))
 		{
-			cub->ea = map[i];
+			cub->ea = ft_strdup(line[1]);
 		}
+		ft_free(line);
 		i++;
 	}
 	
