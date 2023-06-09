@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 10:27:45 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/09 07:44:07 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/06/09 08:33:45 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,6 @@ void	ft_free(char **str);
 int		size_of_arry(char **arry);
 int		str_comp(char *s1, char *s2);
 int		check_first_element(char **arry, int i);
+char	**get_element(char *str);
+
 #endif

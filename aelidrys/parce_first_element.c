@@ -6,7 +6,7 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 16:20:40 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/06/08 15:13:44 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/06/09 08:06:50 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_error(void)
 {
-	write(2, "ERROR\n", 6);
+	write(2, "ERROR1\n", 7);
 	exit(1);
 }
 
@@ -48,7 +48,7 @@ int	check_first_element(char **arry, int i)
 	while (arry && arry[i] && i < 6)
 	{
 		str = ft_split(arry[i++], ' ');
-		if (size_of_arry(str) != 2)
+		if (size_of_arry(str) < 2)
 			ft_error();
 		chek_direction(str[0], direct);
 		ft_free(str);
