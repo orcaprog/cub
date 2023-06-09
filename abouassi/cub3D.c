@@ -6,12 +6,49 @@
 /*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 10:27:29 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/08 13:59:24 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/06/08 21:22:50 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
+void check_nwline(char *map)
+{
+    int i;
+    int check;
+    int k;
+
+    k = 0;
+    check = 0;
+    i = 0;
+    while (map[i])
+    {
+        while (map[i] && map[i] != '\n')
+        {
+            i++;
+            k++;
+        }
+        if(k != 0)
+            check++;
+        k = 0;
+        if (!map[i] || check == 6)
+           break;
+        i++;
+    }
+	while (map[i] && map[i] == '\n')
+	{
+		i++;
+	}
+    while (map[i])
+	{
+		if (map[i] == '\n' && map[i + 1] == '\n')
+		{
+			ft_puterr("Error");
+		}
+		i++;
+	}
+	
+}
 void cheak_wall(char *map)
 {
 	int i;
@@ -29,11 +66,11 @@ void cheak_wall(char *map)
 
 void check_s(char **map,size_t i, size_t j)
 {
-	if (map[i - 1][j] == ' ' || map[i + 1][j] == ' ' || map[i][j - 1] == ' ' || map[i][j + 1] == ' '  || map[i][j + 1] == '\0')
+	if (ft_strlen(map[i - 1]) <= j  || ft_strlen(map[i + 1]) <= j || j == 0)
 	{
 		ft_puterr("Error");
 	}
-	if (ft_strlen(map[i - 1]) <= j  || ft_strlen(map[i + 1]) <= j || j == 0)
+	if (map[i - 1][j] == ' ' || map[i + 1][j] == ' ' || map[i][j - 1] == ' ' || map[i][j + 1] == ' '  || map[i][j + 1] == '\0')
 	{
 		ft_puterr("Error");
 	}
@@ -65,13 +102,16 @@ char **get_map(char *file)
 {
 	int fd;
 	char **map;
+	char *maping;
 
 	fd = open(file,O_RDONLY);
 	if (fd == -1)
 	{
 		ft_puterr("Error");
 	}
-	map = ft_split(get_next_line(fd),'\n');
+	maping = get_next_line(fd);
+	check_nwline(maping);
+	map = ft_split(maping,'\n');
 	return(map);
 	
 }
