@@ -6,7 +6,7 @@
 /*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 10:27:29 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/09 07:29:18 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/06/09 07:49:00 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ int main(int ac , char **av)
 {
 	(void)ac;
 	char **map;
+	t_info cub;
 	int i;
 
 	i = 0;
@@ -92,9 +93,14 @@ int main(int ac , char **av)
 	cheak_map(&map[6]);
 	check_cmp(&map[6]);
 	check_cmp_valid(&map[6]);
-	while (map[i])
-	{
-		printf("%s\n", map[i]);
-		i++;
-	}
+	store_info(map, &cub);
+	// while (map[i])
+	// {
+	// 	printf("%s\n", map[i]);
+	// 	i++;
+	// }
+	printf("%s\n",cub.no);
+	printf("%s\n",cub.so);
+	printf("%s\n",cub.ea);
+	printf("%s\n",cub.we);
 }

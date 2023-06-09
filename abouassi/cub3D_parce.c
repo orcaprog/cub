@@ -6,7 +6,7 @@
 /*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 10:27:39 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/09 07:27:09 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/06/09 08:17:52 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,4 +104,32 @@ void	check_nwline(char *map)
 		i++;
 	}
 	check_mult_new(map, i);
+}
+
+void store_info(char **map, t_info *cub)
+{
+	int i;
+
+	i = 0;
+	while (i < 6)
+	{
+		if (ft_strnstr(map[i],"NO",ft_strlen(map[i])))
+		{
+			cub->no = map[i];
+		}
+		if (ft_strnstr(map[i],"SO",ft_strlen(map[i])))
+		{
+			cub->so = map[i];
+		}
+		if (ft_strnstr(map[i],"WE",ft_strlen(map[i])))
+		{
+			cub->we = map[i];
+		}
+		if (ft_strnstr(map[i],"EA",ft_strlen(map[i])))
+		{
+			cub->ea = map[i];
+		}
+		i++;
+	}
+	
 }
