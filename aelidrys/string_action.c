@@ -6,7 +6,7 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 18:30:14 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/06/09 08:35:28 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/06/09 08:40:31 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ char **get_element(char *str)
 	int		j;
 	char	**elm;
 
+	if (!str)
+		return (0);
 	elm = malloc(3 * sizeof(char *));
 	i = 0;
 	while (str && str[i] == ' ')
