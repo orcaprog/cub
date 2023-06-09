@@ -6,7 +6,7 @@
 /*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 10:27:29 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/09 07:49:00 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/06/09 09:15:47 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,4 +103,6 @@ int main(int ac , char **av)
 	printf("%s\n",cub.so);
 	printf("%s\n",cub.ea);
 	printf("%s\n",cub.we);
+	printf("%d\n",cub.f);
+	printf("%d\n",cub.c);
 }

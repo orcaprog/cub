@@ -3,6 +3,7 @@ NAME = cub3D
 SRC =	abouassi/cub3D.c\
 		abouassi/cub3D_parce.c\
 		abouassi/free_err.c\
+		abouassi/cub_tool1.c\
 		aelidrys/string_action.c\
 		aelidrys/parce_first_element.c\
 

@@ -6,7 +6,7 @@
 /*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 10:27:39 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/09 08:45:58 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/06/09 09:13:38 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,6 +129,14 @@ void store_info(char **map, t_info *cub)
 		if (!ft_strncmp(line[0],"EA",2))
 		{
 			cub->ea = ft_strdup(line[1]);
+		}
+		if (!ft_strncmp(line[0],"F",1))
+		{
+			cub->f = my_color(line[1]);
+		}
+		if (!ft_strncmp(line[0],"C",1))
+		{
+			cub->c = my_color(line[1]);
 		}
 		ft_free(line);
 		i++;
