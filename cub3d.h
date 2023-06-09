@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 10:27:45 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/08 13:56:52 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/06/09 07:18:08 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	check_cmp(char **map);
 void	ft_puterr(char *err);
 void	check_cmp_valid(char **map);
 char	**get_map(char *file);
+void	check_nwline(char *map);
 
 // aelidrys
 void	ft_free(char **str);
