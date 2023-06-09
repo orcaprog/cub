@@ -21,6 +21,9 @@ ${NAME} : ${OBJ}
 		${CC} ${CFLAGS} ${OBJ} libft/libft.a -o ${NAME}
 
 clean :
+	$(RM) $(OBJ)
+
+clean_all :
 	make clean -C libft
 	$(RM) $(OBJ)
 
