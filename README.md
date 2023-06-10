@@ -16,7 +16,7 @@
 
 |Name|Task|
 |:-|:-|
-| **aelidrys** | |
-| **abouassi**   |           |
+| **aelidrys** | rotate ray |
+| **abouassi**   | make player move |
 
 #### line of github repo [line](https://github.com/gxxpython/cub)
