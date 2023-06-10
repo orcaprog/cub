@@ -6,7 +6,7 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 10:29:23 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/06/10 14:30:16 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/06/10 14:34:32 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ int	ft_exit(void)
 
 void	draw_simple_map(t_info *cub)
 {
-	cub->mlx = malloc(sizeof(t_mlx));
 	cub->mlx->ptr = mlx_init();
 	cub->mlx->win = mlx_new_window(cub->mlx->ptr,1000,700,"CUB");
 	int a = 0;
