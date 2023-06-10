@@ -1,11 +1,14 @@
 NAME = cub3D
 
 SRC =	abouassi/cub3D.c\
+		abouassi/main.c\
 		abouassi/cub3D_parce.c\
 		abouassi/free_err.c\
 		abouassi/cub_tool1.c\
+		abouassi/put_cub.c\
 		aelidrys/string_action.c\
 		aelidrys/parce_first_element.c\
+		
 
 OBJ = ${SRC:.c=.o}
 
