@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 10:27:45 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/10 11:56:59 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/06/10 12:22:52 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <fcntl.h>
+# include <mlx.h>
+# include <math.h>
 # include "libft/libft.h"
 
 typedef struct s_mlx
@@ -57,9 +59,10 @@ void	cheak_map(char **map);
 
 // aelidrys
 void	ft_free(char **str);
+char	**get_element(char *str);
 int		size_of_arry(char **arry);
 int		str_comp(char *s1, char *s2);
-int		check_first_element(char **arry, int i);
-char	**get_element(char *str);
+void	draw_simple_map(t_info *cub);
+int		check_first_element(char **arry);
 
 #endif

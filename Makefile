@@ -8,7 +8,8 @@ SRC =	abouassi/cub3D.c\
 		abouassi/put_cub.c\
 		aelidrys/string_action.c\
 		aelidrys/parce_first_element.c\
-		
+		aelidrys/drawing.c\
+
 
 OBJ = ${SRC:.c=.o}
 

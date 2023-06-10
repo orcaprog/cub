@@ -6,7 +6,7 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 16:20:40 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/06/09 08:06:50 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/06/10 12:18:40 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,9 @@ void	chek_direction(char *str, char **direct)
 		ft_error();
 }
 
-int	check_first_element(char **arry, int i)
+int	check_first_element(char **arry)
 {
+	int		i;
 	char	**str;
 	char	**direct;
 
