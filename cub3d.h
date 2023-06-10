@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 10:27:45 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/09 14:59:44 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/06/10 11:35:43 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,18 @@
 # include <fcntl.h>
 # include "libft/libft.h"
 
+typedef struct s_mlx
+{
+	void	*ptr;
+	void	*win;
+	void	*img_b;
+	void	*img_n;
+	void	*img_s;
+	void	*img_w;
+	void	*img_e;
+}	t_mlx;
+
+
 typedef struct s_info
 {
 	char	*no;
@@ -29,6 +41,7 @@ typedef struct s_info
 	int		c;
 	int		p_v;
 	char	**map;
+	t_mlx	*mlx;
 }	t_info;
 
 

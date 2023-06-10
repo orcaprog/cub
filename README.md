@@ -4,13 +4,19 @@
 
 - ## Parcine
 
-	- [ ] parce first element
-	- [ ] parce map
+	- [x] parce first element
+	- [x] parce map
+
+- ## Ray_cast
+	- [x] draw a simple map
+	- [ ] make player move
+	- [ ] put one ray
+	- [ ] make ray rotate
 
 
 |Name|Task|
 |:-|:-|
-| **aelidrys** | parce first element|
-| **abouassi**   | parce map          |
+| **aelidrys** | |
+| **abouassi**   |           |
 
 #### line of github repo [line](https://github.com/gxxpython/cub)
