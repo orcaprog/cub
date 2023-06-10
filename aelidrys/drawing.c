@@ -6,7 +6,7 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 10:29:23 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/06/10 13:57:14 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/06/10 14:30:16 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,4 @@ void	draw_simple_map(t_info *cub)
 		b += 100;
 	}
 	mlx_hook(cub->mlx->win, 17, 0, ft_exit, NULL);
-	mlx_loop(cub->mlx->ptr);
 }
