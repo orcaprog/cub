@@ -6,7 +6,7 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 10:29:23 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/06/10 12:16:50 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/06/10 13:57:14 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,23 +36,23 @@ void	draw_simple_map(t_info *cub)
 		a += 100;
 	}
 	int b = 0;
-	void *img_b = mlx_xpm_file_to_image(cub->mlx->ptr,"box.xpm",&a,&b);
+	cub->mlx->img_b = mlx_xpm_file_to_image(cub->mlx->ptr,cub->no,&a,&b);
 	b = 0;
 	while (b < 700)
 	{
 		a = 0;
 		while (a < 1000){
 			if (b  == 0)
-				mlx_put_image_to_window(cub->mlx->ptr,cub->mlx->win,img_b,a,b);
+				mlx_put_image_to_window(cub->mlx->ptr,cub->mlx->win,cub->mlx->img_b,a,b);
 			else if (b == 300){
 				if (a != 400 && a != 500)
-					mlx_put_image_to_window(cub->mlx->ptr,cub->mlx->win,img_b,a,b);
+					mlx_put_image_to_window(cub->mlx->ptr,cub->mlx->win,cub->mlx->img_b,a,b);
 			}
 			else if (b == 600)
-				mlx_put_image_to_window(cub->mlx->ptr,cub->mlx->win,img_b,a,b);
+				mlx_put_image_to_window(cub->mlx->ptr,cub->mlx->win,cub->mlx->img_b,a,b);
 			else{
-				mlx_put_image_to_window(cub->mlx->ptr,cub->mlx->win,img_b,0,b);
-				mlx_put_image_to_window(cub->mlx->ptr,cub->mlx->win,img_b,900,b);
+				mlx_put_image_to_window(cub->mlx->ptr,cub->mlx->win,cub->mlx->img_b,0,b);
+				mlx_put_image_to_window(cub->mlx->ptr,cub->mlx->win,cub->mlx->img_b,900,b);
 				break;
 			}
 			a += 100;
