@@ -6,52 +6,52 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 10:29:23 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/06/11 15:44:14 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/06/11 16:21:38 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
-void	draw_ray(t_info *cub, int o)
+void	draw_ray(t_info *cub, int o, int color)
 {
 	double	x;
 	double	y;
 	double	res;
 	double	res0;
 
-	x = cub->x;
-	y = cub->y;
 	res0 = (3.14159265359 * (cub->corner+o))/180.0000;
 	res = (3.14159265359 * cub->corner)/180.0000;
 	printf("res0 = cos(%lf) = %lf\n", cub->corner-1,cos(res0));
 	printf("res = cos(%lf) = %lf\n", cub->corner,cos(res));
+	x = cub->x - 5 * cos(res0);
+	y = cub->y - 5 * sin(res0);
 	for (int i = 0; i < 50; i++){
 		mlx_pixel_put(cub->mlx->ptr,cub->mlx->win,x,y,0);
-		x += cos(res0);
-		y += sin(res0);
+		x -= cos(res0);
+		y -= sin(res0);
 	}
-	x = cub->x;
-	y = cub->y;
+	x = cub->x - 5 * cos(res);
+	y = cub->y - 5 * sin(res);
 	for (int i = 0; i < 50; i++){
-		mlx_pixel_put(cub->mlx->ptr,cub->mlx->win,x,y,16777215);
-		x += cos(res);
-		y += sin(res);
+		mlx_pixel_put(cub->mlx->ptr,cub->mlx->win,x,y,color);
+		x -= cos(res);
+		y -= sin(res);
 	}
 }
 
 int	a_event(int key, t_info *cub)
 {
-	input_key(key,cub);
-	draw_ray(cub,0);
-	if (key == 123)
-	{
-		cub->corner++;
-		draw_ray(cub,-1);
-	}
+	input_key(key, cub);
+	draw_ray(cub, 0, 16777215);
 	if (key == 124)
 	{
+		cub->corner++;
+		draw_ray(cub, -1, 16777215);
+	}
+	if (key == 123)
+	{
 		cub->corner--;
-		draw_ray(cub,1);
+		draw_ray(cub, 1, 16777215);
 	}
 	return (0);
 }
@@ -89,5 +89,5 @@ void	draw_simple_map(t_info *cub)
 		}
 		b += 100;
 	}
-	draw_ray(cub,0);
+	draw_ray(cub,0, 16777215);
 }
