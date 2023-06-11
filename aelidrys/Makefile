@@ -11,6 +11,7 @@ SRC =	../abouassi/cub3D.c\
 		main.c\
 		drawing.c\
 
+
 OBJ = ${SRC:.c=.o}
 
 CFLAGS = -Wall -Werror -Wextra -fsanitize=address -g
