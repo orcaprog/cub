@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 10:27:45 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/11 11:07:45 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/06/11 14:27:20 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,18 +59,21 @@ void	store_info(char **map, t_info *cub);
 int		my_color(char *color);
 void	point_of_view(t_info *data);
 void	cheak_map(char **map);
-void    put_pix(t_info *cub, int color);
-void    move_right(t_info *data);
-void    move_left(t_info *data);
-void    move_up(t_info *data);
-void    move_down(t_info *data);
+void	put_pix(t_info *cub, int color);
+void	move_right(t_info *data);
+void	move_left(t_info *data);
+void	move_up(t_info *data);
+void	move_down(t_info *data);
+int		input_key(int key, t_info *data);
 
 // aelidrys
+void	ft_error(void);
 void	ft_free(char **str);
 char	**get_element(char *str);
 int		size_of_arry(char **arry);
 int		str_comp(char *s1, char *s2);
 void	draw_simple_map(t_info *cub);
+int		a_event(int key, t_info *cub);
 int		check_first_element(char **arry);
 
 #endif

@@ -6,36 +6,67 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 10:29:23 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/06/10 14:34:32 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/06/11 15:00:56 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
-int	ft_exit(void)
+void	draw_ray(t_info *cub, int o)
 {
-	write(1,"YOU ARE EXIT FROM CUB\n",22);
-	exit(0);
+	double	x;
+	double	y;
+	double	res;
+	double	res0;
+
+	x = cub->x;
+	y = cub->y;
+	res0 = (3.14159265359 * (cub->corner+o))/180.0000;
+	res = (3.14159265359 * cub->corner)/180.0000;
+	printf("res0 = cos(%lf) = %lf\n", cub->corner-1,cos(res0));
+	printf("res = cos(%lf) = %lf\n", cub->corner,cos(res));
+	for (int i = 0; i < 50; i++){
+		mlx_pixel_put(cub->mlx->ptr,cub->mlx->win,x,y,0);
+		x += cos(res0);
+		y += sin(res0);
+	}
+	x = cub->x;
+	y = cub->y;
+	for (int i = 0; i < 50; i++){
+		mlx_pixel_put(cub->mlx->ptr,cub->mlx->win,x,y,16777215);
+		x += cos(res);
+		y += sin(res);
+	}
+}
+
+int	a_event(int key, t_info *cub)
+{
+	input_key(key,cub);
+	draw_ray(cub,0);
+	if (key == 123)
+	{
+		cub->corner++;
+		draw_ray(cub,-1);
+	}
+	if (key == 124)
+	{
+		cub->corner--;
+		draw_ray(cub,1);
+	}
+	return (0);
 }
 
 void	draw_simple_map(t_info *cub)
 {
+	int a = 0;
+	int b = 0;
+
+	cub->corner = 90;
 	cub->mlx->ptr = mlx_init();
 	cub->mlx->win = mlx_new_window(cub->mlx->ptr,1000,700,"CUB");
-	int a = 0;
-	while (a <= 700){
-		for (int i = 0; i <= 1000; i++)
-			mlx_pixel_put(cub->mlx->ptr,cub->mlx->win,i,a,16777215);
-		a += 100;
-	}
-	a = 0;
-	while (a <= 1000){
-		for (int i = 0; i <= 700; i++)
-			mlx_pixel_put(cub->mlx->ptr,cub->mlx->win,a,i,16777215);
-		a += 100;
-	}
-	int b = 0;
 	cub->mlx->img_b = mlx_xpm_file_to_image(cub->mlx->ptr,cub->no,&a,&b);
+	if (!cub->mlx->img_b)
+		ft_error();
 	b = 0;
 	while (b < 700)
 	{
@@ -58,5 +89,5 @@ void	draw_simple_map(t_info *cub)
 		}
 		b += 100;
 	}
-	mlx_hook(cub->mlx->win, 17, 0, ft_exit, NULL);
+	draw_ray(cub,0);
 }
