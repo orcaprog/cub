@@ -6,7 +6,7 @@
 /*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 14:42:41 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/11 10:04:41 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/06/11 13:50:54 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 int prm_moves(char **map,int x ,int y)
 {
-    printf("<<x = %d y = %d>>\n",x,y);
+
+     printf("|x = %d y = %d |\n",x ,y);
+    
     if (map[y][x] == '1')
     {
         return (1);
@@ -22,134 +24,135 @@ int prm_moves(char **map,int x ,int y)
     return (0);
     
 }
-void    put_pix(t_info *cub,int i, int j,int color)
+void    put_pix(t_info *cub, int color)
 {
-    mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, 450 + i , 250 + j, color);
-	mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, 449 + i, 250+ j, color);
-	mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, 451 + i, 250+ j, color);
-	mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, 450 + i, 249+ j, color);
-	mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, 450 + i, 251+ j, color);
+    mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, cub->x  , cub->y, color);
+	mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, cub->x  - 1, cub->y, color);
+	mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, cub->x  + 1, cub->y, color);
+	mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, cub->x , cub->y - 1, color);
+	mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, cub->x , cub->y + 1, color);
 	
-	mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, 449 + i, 249+ j, color);
-	mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, 449 + i, 251+ j, color);
-	mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, 451 + i, 249+ j, color);
-	mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, 451 + i, 251+ j, color);
+	mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, cub->x  - 1, cub->y - 1, color);
+	mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, cub->x  - 1, cub->y + 1, color);
+	mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, cub->x  + 1, cub->y - 1, color);
+	mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, cub->x  + 1, cub->y + 1, color);
+ 
+	mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, cub->x  - 2, cub->y, color);
+	mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, cub->x  + 2, cub->y, color);
+	mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, cub->x , cub->y - 2, color);
+	mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, cub->x , cub->y + 2, color);
 
-	mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, 448 + i, 250+ j, color);
-	mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, 452 + i, 250+ j, color);
-	mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, 450 + i, 248+ j, color);
-	mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, 450 + i, 252+ j, color);
+	mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, cub->x  - 2, cub->y - 1, color);
+	mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, cub->x  - 2, cub->y + 1, color);
+	mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, cub->x  + 2, cub->y - 1, color);
+	mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, cub->x  + 2, cub->y + 1, color);
 
-	mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, 448 + i, 249+ j, color);
-	mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, 448 + i, 251+ j, color);
-	mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, 452 + i, 249+ j, color);
-	mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, 452 + i, 251+ j, color);
+	mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, cub->x  - 1, cub->y - 2, color);
+	mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, cub->x  + 1, cub->y - 2, color);
+	mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, cub->x  - 1, cub->y + 2, color);
+	mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, cub->x  + 1, cub->y + 2, color);
 
-	mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, 449 + i, 248+ j, color);
-	mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, 451 + i, 248+ j, color);
-	mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, 449 + i, 252+ j, color);
-	mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, 451 + i, 252+ j, color);
-
-	mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, 448 + i, 248+ j, color);
-	mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, 452 + i, 248+ j, color);
-	mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, 448 + i, 252+ j, color);
-	mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, 452 + i, 252+ j, color);
+	mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, cub->x  - 2, cub->y - 2, color);
+	mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, cub->x  + 2, cub->y - 2, color);
+	mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, cub->x  - 2, cub->y + 2, color);
+	mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, cub->x  + 2, cub->y + 2, color);
 }
 void    move_right(t_info *data)
 {
-    // int x = 0;
-    // int y = 0;
     int check;
     check = 1;
-    printf("right i = %d j = %d\n",data->i,data->j);
-    if ((450 + data->i + 5) % 100 == 0)
+     printf("<<x = %d y = %d>>\n",data->x + 5,data->y);
+    if ((data->x  + 5) % 100 == 0)
     {
-        printf("djjdjdj\n");
-        if (prm_moves(data->map,((450 + data->i + 5) / 100),((250  + data->j )/ 100)))
+        if (data->y % 100 == 0)
+        {
+            if (prm_moves(data->map,((data->x + 5) / 100),((data->y )/ 100)) || prm_moves(data->map,((data->x + 5) / 100),((data->y )/ 100) - 1))
+                check = 0;
+        }
+        else if (prm_moves(data->map,((data->x + 5) / 100),((data->y )/ 100)))
         {
             check = 0;        
         }
     }
     if (check)
     {
-        data->i += 5;
-        put_pix(data,data->i - 5,data->j,0);
-        put_pix(data,data->i,data->j,14753280);
-    }
-    // if ((445 + i) % 100 == 0)
-    //     for (int a = (((250 + j) / 100) * 100) + 1; a % 100 != 0;a++)
-    //         mlx_pixel_put(data->mlx->ptr,data->mlx->win,445+i,a,16777215);
-    
+        put_pix(data,0);
+        data->x += 5;
+        put_pix(data,14753280);
+    }   
 }
 void    move_left(t_info *data)
 {
-    // int x = 0;
-    // int y = 0;
     int check;
     check = 1;
-    printf("left i = %d j = %d\n",data->i,data->j);
-    if ((455 + data->i - 5) % 100 == 0)
+     printf("<<x = %d y = %d>>\n",data->x - 5,data->y);
+
+    if ((data->x - 5) % 100 == 0)
     {
-        printf("djjdjdj\n");
-        if (prm_moves(data->map,((450 + data->i - 5) / 100),((250  + data->j )/ 100)))
-        {
-            printf("enter\n");
-            check = 0;        
+        if (data->y % 100 == 0){
+            if (prm_moves(data->map,((data->x  - 5 - 1)  / 100),((data->y)/ 100))
+                    || prm_moves(data->map,((data->x  - 5 - 1)  / 100),((data->y)/ 100) - 1))
+                check = 0;
         }
+        else if (prm_moves(data->map,((data->x  - 5 - 1)  / 100),((data->y)/ 100)))
+            check = 0;        
     }
     if (check)
     {
-        data->i -= 5;
-        put_pix(data,data->i + 5,data->j,0);
-        put_pix(data,data->i,data->j,14753280);
+        put_pix(data,0);
+        data->x -= 5;
+        put_pix(data,14753280);
     }
     
 }
 void    move_down(t_info *data)
 {
-    // int x = 0;
-    // int y = 0;
     int check;
     check = 1;
-    printf("down i = %d j = %d\n",data->i,data->j);
-    if ((245 + data->j + 5) % 100 == 0)
+     printf("<<x = %d y = %d>>\n",data->x ,data->y + 5);
+    if ((data->y  + 5) % 100 == 0)
     {
-        printf("djjdjdj\n");
-        if (prm_moves(data->map,((450 + data->i) / 100),((250  + data->j + 5)/ 100)))
+        if (data->x % 100 == 0)
         {
-            printf("enter\n");
+            if (prm_moves(data->map,((data->x ) / 100),((data->y  + 5)/ 100)) || prm_moves(data->map,((data->x ) / 100) - 1,((data->y  + 5)/ 100)))
+                check = 0;
+        }
+        else if (prm_moves(data->map,((data->x ) / 100),((data->y  + 5)/ 100)))
+        {
             check = 0;        
         }
     }
     if (check)
     {
-        data->j += 5;
-        put_pix(data,data->i ,data->j - 5,0);
-        put_pix(data,data->i,data->j,14753280);
+        put_pix(data,0);
+        data->y += 5;
+        put_pix(data,14753280);
     }	
  
     
 }
 void    move_up(t_info *data)
 {
-    // int x = 0;
-    // int y = 0;
     int check;
     check = 1;
-    printf("up  i = %d j = %d\n",data->i,data->j);
-    if ((255 + data->j - 5) % 100 == 0)
+     printf("<<x = %d y = %d>>\n",data->x ,data->y  - 5);
+
+    if ((data->y  - 5) % 100 == 0)
     {
-        printf("djjdjdj\n");
-        if (prm_moves(data->map,((450 + data->i) / 100),((250  + data->j -5 )/ 100)))
+        if (data->x % 100 == 0)
         {
-            printf("enter\n");
+            if (prm_moves(data->map,((data->x ) / 100),((data->y  - 5 - 1)/ 100)) || prm_moves(data->map,((data->x ) / 100) - 1,((data->y  - 5 - 1)/ 100)))
+                check = 0;
+        }
+        else if (prm_moves(data->map,((data->x ) / 100),((data->y  - 5 - 1)/ 100)))
+        {
             check = 0;        
         }
     }
     if (check)
     {
-        data->j -= 5;
-        put_pix(data,data->i,data->j + 5,0);
-        put_pix(data,data->i,data->j,14753280);
+        put_pix(data,0);
+        data->y -= 5;
+        put_pix(data,14753280);
     }   
 }

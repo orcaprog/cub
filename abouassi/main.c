@@ -6,7 +6,7 @@
 /*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 11:54:43 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/11 09:57:51 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/06/11 11:09:41 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ int main(int ac , char **av)
 	cub->mlx = malloc(sizeof(t_mlx));
 	int i;
 	
-	cub->i = 0;
-	cub->j = 0;
+	cub->x = 450;
+	cub->y = 250;
 	i = 0;
 	map = get_map(av[1]);
 	check_first_element(map);
@@ -58,7 +58,7 @@ int main(int ac , char **av)
 	store_info(map, cub);
 	point_of_view(cub);
 	draw_simple_map(cub);
-	put_pix(cub,0,0,14753280);
+	put_pix(cub,14753280);
 	mlx_hook(cub->mlx->win, 2, 0, input_key, cub);
 	mlx_loop(cub->mlx->ptr);
 }
