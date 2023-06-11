@@ -6,7 +6,7 @@
 /*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 11:54:43 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/11 11:09:41 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/06/11 14:03:17 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,19 @@
 int	input_key(int key, t_info *data)
 {
 
-	if (key == 124)
+	if (key == 2)
 	{
 		move_right(data);
 	}
-	if (key == 123)
+	if (key == 0)
 	{
 		move_left(data);
 	}
-	if (key == 125)
+	if (key == 125 || key == 1)
 	{
 		move_down(data);
 	}
-	if (key == 126)
+	if (key == 126 || key == 13)
 	{
 		move_up(data);
 	}
