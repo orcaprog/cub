@@ -4,7 +4,7 @@
 
 
 
-  NO ./path_to_the_north_texture
+  NO ../aelidrys/box.xpm
 SO ./path_to_the_south_texture
 
 

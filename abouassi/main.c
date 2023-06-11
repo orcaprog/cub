@@ -6,38 +6,59 @@
 /*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 11:54:43 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/10 11:55:57 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/06/11 09:57:51 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
+int	input_key(int key, t_info *data)
+{
 
+	if (key == 124)
+	{
+		move_right(data);
+	}
+	if (key == 123)
+	{
+		move_left(data);
+	}
+	if (key == 125)
+	{
+		move_down(data);
+	}
+	if (key == 126)
+	{
+		move_up(data);
+	}
+	
+	if (key == 53)
+	{
+		exit(0);
+	}
+	return (0);
+}
 int main(int ac , char **av)
 {
 	(void)ac;
 	char **map;
-	t_info cub;
+	t_info *cub;
+	cub = malloc(sizeof(t_info));
+	cub->mlx = malloc(sizeof(t_mlx));
 	int i;
-
+	
+	cub->i = 0;
+	cub->j = 0;
 	i = 0;
 	map = get_map(av[1]);
-	check_first_element(map, i);
+	check_first_element(map);
 	cheak_map(&map[6]);
 	check_cmp(&map[6]);
 	check_cmp_valid(&map[6]);
-	cub.map = &map[6];
-	store_info(map, &cub);
-	point_of_view(&cub);
-	// while (map[i])
-	// {
-	// 	printf("%s\n", map[i]);
-	// 	i++;
-	// }
-	printf("%s\n",cub.no);
-	printf("%s\n",cub.so);
-	printf("%s\n",cub.ea);
-	printf("%s\n",cub.we);
-	printf("%d\n",cub.f);
-	printf("%d\n",cub.c);
-	printf("%d\n",cub.p_v);
+	cub->map = &map[6];
+	store_info(map, cub);
+	point_of_view(cub);
+	draw_simple_map(cub);
+	put_pix(cub,0,0,14753280);
+	mlx_hook(cub->mlx->win, 2, 0, input_key, cub);
+	mlx_loop(cub->mlx->ptr);
 }

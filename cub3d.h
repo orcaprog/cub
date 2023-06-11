@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 10:27:45 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/10 12:22:52 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/06/11 10:07:44 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,9 @@ typedef struct s_info
 	int		c;
 	int		p_v;
 	char	**map;
+	int		i;
+	int		j;
+	double	corner;
 	t_mlx	*mlx;
 }	t_info;
 
@@ -56,6 +59,11 @@ void	store_info(char **map, t_info *cub);
 int		my_color(char *color);
 void	point_of_view(t_info *data);
 void	cheak_map(char **map);
+void    put_pix(t_info *cub,int i, int j,int color);
+void    move_right(t_info *data);
+void    move_left(t_info *data);
+void    move_up(t_info *data);
+void    move_down(t_info *data);
 
 // aelidrys
 void	ft_free(char **str);
