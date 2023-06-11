@@ -6,12 +6,12 @@
 /*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 11:16:44 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/08 09:54:02 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/06/11 14:50:00 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
-
+ 
 void ft_puterr(char *err)
 {
     ft_putendl_fd(err,2);

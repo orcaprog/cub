@@ -6,12 +6,12 @@
 /*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 09:01:55 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/09 14:59:11 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/06/11 14:49:52 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
-
+  
 int	rgb_to_int(int color1, int color2, int color3)
 {
 	int	rgbtoint;

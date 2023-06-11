@@ -6,11 +6,12 @@
 /*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 14:45:40 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/11 14:45:58 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/06/11 14:50:04 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
+
 int	input_key(int key, t_info *data)
 {
 

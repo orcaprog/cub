@@ -6,12 +6,12 @@
 /*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 10:27:29 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/10 11:55:21 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/06/11 14:49:57 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
-
+ 
 void	cheak_wall(char *map)
 {
 	int	i;

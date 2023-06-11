@@ -6,7 +6,7 @@
 /*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 14:42:41 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/11 13:50:54 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/06/11 14:50:15 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int prm_moves(char **map,int x ,int y)
 {
-
      printf("|x = %d y = %d |\n",x ,y);
     
     if (map[y][x] == '1')
