@@ -7,6 +7,7 @@ SRC =	abouassi/cub3D.c\
 		abouassi/cub_tool1.c\
 		abouassi/put_cub.c\
 		abouassi/moves.c\
+		abouassi/functions_mlx.c\
 		aelidrys/string_action.c\
 		aelidrys/parce_first_element.c\
 		aelidrys/drawing.c\

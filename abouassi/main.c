@@ -6,37 +6,13 @@
 /*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 11:54:43 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/11 14:03:17 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/06/11 14:45:36 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
-int	input_key(int key, t_info *data)
-{
 
-	if (key == 2)
-	{
-		move_right(data);
-	}
-	if (key == 0)
-	{
-		move_left(data);
-	}
-	if (key == 125 || key == 1)
-	{
-		move_down(data);
-	}
-	if (key == 126 || key == 13)
-	{
-		move_up(data);
-	}
-	
-	if (key == 53)
-	{
-		exit(0);
-	}
-	return (0);
-}
+
 int main(int ac , char **av)
 {
 	(void)ac;
