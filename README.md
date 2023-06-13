@@ -12,6 +12,7 @@
 	- [x] make player move
 	- [x] put one ray
 	- [x] make ray rotate
+	***
 	- [ ] determine the direction `<` `^` `>`
 	- [ ] determine the coordinates `there is thre steps`
 		- [ ] `1` det coordinates that is represent a wall at the intersictions with __x__
@@ -19,11 +20,13 @@
 			- in the two steps above we should write a function that that calculate the coord `(x,y)`
 				and other one that check if you can  move to this coordinates
 		- [ ] `3` choos the coordinates that have a ray __R__ less than other
+	- [ ] make the ray stop if there are a wall in the next position
 
+***
 
 |Name|Task|
 |:-|:-|
 | **aelidrys** |     |
 | **abouassi**   |    |
 
-#### line of github repo [line](https://github.com/gxxpython/cub)
+#### link of github repo [gxxpython](https://github.com/gxxpython/cub)
