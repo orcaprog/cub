@@ -11,6 +11,7 @@ SRC =	abouassi/cub3D.c\
 		aelidrys/string_action.c\
 		aelidrys/parce_first_element.c\
 		aelidrys/drawing.c\
+		aelidrys/det_coord.c\
 
 
 OBJ = ${SRC:.c=.o}
