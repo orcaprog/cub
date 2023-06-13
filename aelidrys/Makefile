@@ -10,6 +10,7 @@ SRC =	../abouassi/cub3D.c\
 		parce_first_element.c\
 		main.c\
 		drawing.c\
+		det_coord.c\
 
 
 OBJ = ${SRC:.c=.o}

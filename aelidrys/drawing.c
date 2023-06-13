@@ -6,7 +6,7 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 10:29:23 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/06/13 18:19:47 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/06/13 19:38:54 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,11 @@ void	draw_ray(t_info *cub, int o, int color)
 	x = cub->x + 5 * cos(cor_rd);
 	y = cub->y - 5 * sin(cor_rd);
 	for (int i = 0; i < 50; i++){
-		mlx_pixel_put(cub->mlx->ptr,cub->mlx->win,x,y,color);
+		mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, x, y, color);
 		x += cos(cor_rd);
 		y -= sin(cor_rd);
 	}
-	det_direction(cub);
+	det_direction(cub, cor_rd);
 }
 
 int	a_event(int key, t_info *cub)
@@ -62,18 +62,19 @@ void	draw_simple_map(t_info *cub)
 
 	cub->corner = 90;
 	cub->mlx->ptr = mlx_init();
-	cub->mlx->win = mlx_new_window(cub->mlx->ptr,1000,700,"CUB");
-	cub->mlx->img_b = mlx_xpm_file_to_image(cub->mlx->ptr,cub->no,&x,&y);
+	cub->mlx->win = mlx_new_window(cub->mlx->ptr, 1000, 700, "CUB");
+	cub->mlx->img_b = mlx_xpm_file_to_image(cub->mlx->ptr, cub->no, &x, &y);
 	if (!cub->mlx->img_b)
 		ft_error();
 	y = 0;
 	while (cub->map[y])
 	{
-		printf("map = %s\n", cub->map[y]);
+		// printf("map = %s\n", cub->map[y]);
 		x = 0;
 		while (cub->map[y][x]){
 			if (cub->map[y][x] == '1')
-				mlx_put_image_to_window(cub->mlx->ptr,cub->mlx->win,cub->mlx->img_b,x*100,y*100);
+				mlx_put_image_to_window(cub->mlx->ptr, cub->mlx->win,
+					cub->mlx->img_b, x * 100, y * 100);
 			x++;
 		}
 		y++;

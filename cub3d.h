@@ -6,7 +6,7 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 10:27:45 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/13 18:18:55 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/06/13 19:40:32 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,11 @@ typedef struct s_info
 
 	int		f;
 	int		c;
-	int		x;
-	int		y;
 	int		x_d;
 	int		y_d;
 	int		p_v;
+	int		x;
+	int		y;
 	char	*no;
 	char	*so;
 	char	*we;
@@ -79,6 +79,6 @@ void	draw_simple_map(t_info *cub);
 int		a_event(int key, t_info *cub);
 int		check_first_element(char **arry);
 void	draw_ray(t_info *cub, int o, int color);
-void	det_direction(t_info *cub);
+void	det_direction(t_info *cub, double cor_rd);
 
 #endif

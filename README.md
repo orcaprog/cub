@@ -22,37 +22,49 @@
 		- [ ] `3` choos the coordinates that have a ray __R__ less than other
 	- [ ] make the ray stop if there are a wall in the next position
 ***
-<div class="imge1">
-	<img src="image1.png" width="200" height="250">
-</div>
 
-***
 |Name|Task|
 |:-|:-|
 | **aelidrys** |  det coord that is represent a wall at the intersictions with x  |
 | **abouassi** |  det coord that is represent a wall at the intersictions with y  |
 <!-- <img src="w3schools.jpg" width="300" height="400"> -->
 ***
-#### imge explen how to det coord that is represent a wall at the intersictions with y
+
+	```
+		cos(o) = x/R           &&             sin(o) = y/R
+
+
+		tan(o) = sin(o)/cos(o)      =>        tan(o) = y/x
+
+
+		x = y/tan(o)           &&             y = tan(o)*x
+	```
 
 <div class="imge2">
 	<img src="image2.png" width="400" height="500">
 </div>
 
-<style>
+<div class="imge3">
+	<img src="image3.png" width="400" height="500">
+</div>
 
-	.imge1
-		{
-		display:flex;
-		justify-content:center;
-    	align-items: center;
-		}
+
+<style>
 	.imge2
 		{
 		display:flex;
-		justify-content:center;
-    	align-items: center;
+		/* justify-content:center;
+    	align-items: center; */
+		}
+	.imge3
+		{
+		display:flex;
+		justify-content:right;
+    	align-items: right;
+		position:relative;
+		top:-490px;
 		}
 </style>
+
 ***
 #### link of github repo [gxxpython](https://github.com/gxxpython/cub)
