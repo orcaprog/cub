@@ -6,7 +6,7 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 10:29:23 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/06/13 11:25:07 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/06/13 13:07:29 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,36 +56,26 @@ int	a_event(int key, t_info *cub)
 
 void	draw_simple_map(t_info *cub)
 {
-	int a = 0;
-	int b = 0;
+	int x = 0;
+	int y = 0;
 
 	cub->corner = 90;
 	cub->mlx->ptr = mlx_init();
 	cub->mlx->win = mlx_new_window(cub->mlx->ptr,1000,700,"CUB");
-	cub->mlx->img_b = mlx_xpm_file_to_image(cub->mlx->ptr,cub->no,&a,&b);
+	cub->mlx->img_b = mlx_xpm_file_to_image(cub->mlx->ptr,cub->no,&x,&y);
 	if (!cub->mlx->img_b)
 		ft_error();
-	b = 0;
-	while (b < 700)
+	y = 0;
+	while (cub->map[y])
 	{
-		a = 0;
-		while (a < 1000){
-			if (b  == 0)
-				mlx_put_image_to_window(cub->mlx->ptr,cub->mlx->win,cub->mlx->img_b,a,b);
-			else if (b == 300){
-				if (a != 400 && a != 500)
-					mlx_put_image_to_window(cub->mlx->ptr,cub->mlx->win,cub->mlx->img_b,a,b);
-			}
-			else if (b == 600)
-				mlx_put_image_to_window(cub->mlx->ptr,cub->mlx->win,cub->mlx->img_b,a,b);
-			else{
-				mlx_put_image_to_window(cub->mlx->ptr,cub->mlx->win,cub->mlx->img_b,0,b);
-				mlx_put_image_to_window(cub->mlx->ptr,cub->mlx->win,cub->mlx->img_b,900,b);
-				break;
-			}
-			a += 100;
+		printf("map = %s\n", cub->map[y]);
+		x = 0;
+		while (cub->map[y][x]){
+			if (cub->map[y][x] == '1')
+				mlx_put_image_to_window(cub->mlx->ptr,cub->mlx->win,cub->mlx->img_b,x*100,y*100);
+			x++;
 		}
-		b += 100;
+		y++;
 	}
 	draw_ray(cub,0, 16777215);
 }
