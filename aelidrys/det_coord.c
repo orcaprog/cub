@@ -6,7 +6,7 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 08:58:20 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/06/13 16:25:54 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/06/13 18:21:15 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,7 @@ void	det_direction(t_info *cub)
 		cub->y_d = 1;
 }
 
-
+// int		*det_coord_y(t_info *cub)
+// {
+// 	;
+// }
