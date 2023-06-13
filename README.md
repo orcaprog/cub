@@ -12,8 +12,8 @@
 	- [x] make player move
 	- [x] put one ray
 	- [x] make ray rotate
+	- [x] determine the direction `<` `^` `>` and `v`
 	***
-	- [ ] determine the direction `<` `^` `>` and `v`
 	- [ ] determine the coordinates `there is thre steps`
 		- [ ] `1` det coordinates that is represent a wall at the intersictions with __x__
 		- [ ] `2` det coordinates that is represent a wall at the intersictions with __y__
@@ -21,7 +21,7 @@
 				and other one that check if you can  move to this coordinates
 		- [ ] `3` choos the coordinates that have a ray __R__ less than other
 	- [ ] make the ray stop if there are a wall in the next position
-	***
+***
 <div class="imge1">
 	<img src="image1.png" width="200" height="250">
 </div>
@@ -33,7 +33,7 @@
 | **abouassi** |  det coord that is represent a wall at the intersictions with y  |
 <!-- <img src="w3schools.jpg" width="300" height="400"> -->
 ***
-#### imge explen how to det coord that is represent a wall at the intersictions with x
+#### imge explen how to det coord that is represent a wall at the intersictions with y
 
 <div class="imge2">
 	<img src="image2.png" width="400" height="500">
