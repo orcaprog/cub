@@ -6,7 +6,7 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 10:26:03 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/06/11 15:44:17 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/06/12 06:59:31 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ int main(int ac, char **av)
 	cub->mlx = malloc(sizeof(t_mlx));
 	cub->no = "box.xpm";
 	cub->map = get_map(av[1]);
-	check_first_element(cub->map);
-	check_cmp(cub->map + 6);
+	// check_first_element(cub->map);
+	check_cmp(cub->map);
 	cub->x = 450;
 	cub->y = 250;
 	draw_simple_map(cub);
