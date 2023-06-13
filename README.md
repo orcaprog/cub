@@ -37,8 +37,8 @@
 ***
 |Name|Task|
 |:-|:-|
-| **aelidrys** |     |
-| **abouassi**   |    |
+| **aelidrys** |  det coord that is represent a wall at the intersictions with x  |
+| **abouassi** |  det coord that is represent a wall at the intersictions with y  |
 <!-- <img src="w3schools.jpg" width="300" height="400"> -->
 
 
