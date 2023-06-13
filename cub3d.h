@@ -6,7 +6,7 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 10:27:45 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/11 16:12:42 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/06/13 16:12:58 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,16 +35,19 @@ typedef struct s_mlx
 
 typedef struct s_info
 {
+
+	int		f;
+	int		c;
+	int		x;
+	int		y;
+	int		x_d;
+	int		y_d;
+	int		p_v;
 	char	*no;
 	char	*so;
 	char	*we;
 	char	*ea;
-	int		f;
-	int		c;
-	int		p_v;
 	char	**map;
-	int		x;
-	int		y;
 	double	corner;
 	t_mlx	*mlx;
 }	t_info;
