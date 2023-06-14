@@ -6,7 +6,7 @@
 /*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 14:42:41 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/11 14:50:15 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/06/14 12:34:27 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,10 @@ void    move_right(t_info *data)
 {
     int check;
     check = 1;
-     printf("<<x = %d y = %d>>\n",data->x + 5,data->y);
-    if ((data->x  + 5) % 100 == 0)
+     printf("<<x = %f y = %f>>\n",data->x + 5,data->y);
+    if (((int)data->x  + 5) % 100 == 0)
     {
-        if (data->y % 100 == 0)
+        if ((int)data->y % 100 == 0)
         {
             if (prm_moves(data->map,((data->x + 5) / 100),((data->y )/ 100)) || prm_moves(data->map,((data->x + 5) / 100),((data->y )/ 100) - 1))
                 check = 0;
@@ -84,11 +84,11 @@ void    move_left(t_info *data)
 {
     int check;
     check = 1;
-     printf("<<x = %d y = %d>>\n",data->x - 5,data->y);
+     printf("<<x = %f y = %f>>\n",data->x - 5,data->y);
 
-    if ((data->x - 5) % 100 == 0)
+    if (((int)data->x - 5) % 100 == 0)
     {
-        if (data->y % 100 == 0){
+        if ((int)data->y % 100 == 0){
             if (prm_moves(data->map,((data->x  - 5 - 1)  / 100),((data->y)/ 100))
                     || prm_moves(data->map,((data->x  - 5 - 1)  / 100),((data->y)/ 100) - 1))
                 check = 0;
@@ -108,10 +108,10 @@ void    move_down(t_info *data)
 {
     int check;
     check = 1;
-     printf("<<x = %d y = %d>>\n",data->x ,data->y + 5);
-    if ((data->y  + 5) % 100 == 0)
+     printf("<<x = %f y = %f>>\n",data->x ,data->y + 5);
+    if (((int)data->y  + 5) % 100 == 0)
     {
-        if (data->x % 100 == 0)
+        if ((int)data->x % 100 == 0)
         {
             if (prm_moves(data->map,((data->x ) / 100),((data->y  + 5)/ 100)) || prm_moves(data->map,((data->x ) / 100) - 1,((data->y  + 5)/ 100)))
                 check = 0;
@@ -134,11 +134,11 @@ void    move_up(t_info *data)
 {
     int check;
     check = 1;
-     printf("<<x = %d y = %d>>\n",data->x ,data->y  - 5);
+     printf("<<x = %f y = %f>>\n",data->x ,data->y  - 5);
 
-    if ((data->y  - 5) % 100 == 0)
+    if (((int)data->y  - 5) % 100 == 0)
     {
-        if (data->x % 100 == 0)
+        if ((int)data->x % 100 == 0)
         {
             if (prm_moves(data->map,((data->x ) / 100),((data->y  - 5 - 1)/ 100)) || prm_moves(data->map,((data->x ) / 100) - 1,((data->y  - 5 - 1)/ 100)))
                 check = 0;

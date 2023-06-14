@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 10:27:45 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/13 19:40:32 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/06/14 12:21:50 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,12 @@ typedef struct s_mlx
 	void	*img_w;
 	void	*img_e;
 }	t_mlx;
-
-
+typedef struct s_point
+{
+	double x;
+	double y;
+	double r;
+} t_point;
 typedef struct s_info
 {
 
@@ -41,8 +45,10 @@ typedef struct s_info
 	int		x_d;
 	int		y_d;
 	int		p_v;
-	int		x;
-	int		y;
+	double		x;
+	double		y;
+	double	p_x;
+	double	p_y;
 	char	*no;
 	char	*so;
 	char	*we;
@@ -68,6 +74,7 @@ void	move_left(t_info *data);
 void	move_up(t_info *data);
 void	move_down(t_info *data);
 int		input_key(int key, t_info *data);
+int		prm_moves(char **map,int x ,int y);
 
 // aelidrys
 void	ft_error(void);
