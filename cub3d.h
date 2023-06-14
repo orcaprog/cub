@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 10:27:45 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/14 12:21:50 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/06/14 16:52:13 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,5 +87,6 @@ int		a_event(int key, t_info *cub);
 int		check_first_element(char **arry);
 void	draw_ray(t_info *cub, int o, int color);
 void	det_direction(t_info *cub, double cor_rd);
+int		is_coord_in_map_range(t_info *cub, double x, double y);
 
 #endif
