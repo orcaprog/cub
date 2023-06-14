@@ -6,7 +6,7 @@
 /*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 14:45:40 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/14 16:43:41 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/06/14 17:01:35 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,9 @@ t_point point_x_y(t_info *data)
 	cor_rad = (3.14159265359 * data->corner)/180.0000;
 
 	printf("x_d %d\n",data->x_d);
-	while(!prm_moves(data->map,(old_x / 100),(old_y / 100)))
+	while(is_coord_in_map_range(data,old_x / 100,old_y / 100) && !prm_moves(data->map,(old_x / 100),(old_y / 100)))
 	{
+		printf("%d------>\n",is_coord_in_map_range(data,old_x / 100,old_y / 100));
 		printf("Px    ->   [%f]\nPy    ->   [%f]\ncorner    ->   [%f]\n",old_x,old_y,data->corner);
 		if (data->x_d == 1)
 		{
@@ -54,12 +55,11 @@ void	find_cord_x(t_info *data)
 {
 	//printf("Px    ->   [%f]\nPy    ->   [%f]\ncorner    ->   [%f]\n",data->x,data->y,data->corner);
 	t_point point;
-	if (data->corner < 60)
-	{
+
 		printf("=============================================\n");
 		point = point_x_y(data);
 		printf("=============================================\n");
-	}
+
 	
 	// printf("-------  tan(cor_rad)[%f]\n",tan(cor_rad));
 	printf("-------  p_x(%f)\n",point.x);
