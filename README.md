@@ -41,11 +41,13 @@
 	```
 
 <div class="imge2">
-	<img src="image2.png" width="400" height="500">
+	<h5 style="text-align: center;">det coord with y</h5>
+	<img src="image2.png" width="300" height="400">
 </div>
 
 <div class="imge3">
-	<img src="image3.png" width="400" height="500">
+	<h5 style="text-align: center;">det coord with x</h5>
+	<img src="image3.png" width="300" height="400">
 </div>
 
 
@@ -62,7 +64,7 @@
 		justify-content:right;
     	align-items: right;
 		position:relative;
-		top:-490px;
+		top:-400px;
 		}
 </style>
 

@@ -6,7 +6,7 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 10:29:23 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/06/13 19:38:54 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/06/14 12:33:12 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	draw_ray(t_info *cub, int o, int color)
 		printf("tan(%lf) = %lf\n",cub->corner,tan(cor_rd));
 		printf("cos(%lf) = %lf\n", cub->corner,cos(cor_rd));
 		printf("sin(%lf) = %lf\n----------\n", cub->corner,sin(cor_rd));
+		det_direction(cub, cor_rd);
 	}
 	x = cub->x + 5 * cos(cor_rd);
 	y = cub->y - 5 * sin(cor_rd);
@@ -32,7 +33,6 @@ void	draw_ray(t_info *cub, int o, int color)
 		x += cos(cor_rd);
 		y -= sin(cor_rd);
 	}
-	det_direction(cub, cor_rd);
 }
 
 int	a_event(int key, t_info *cub)
@@ -60,7 +60,7 @@ void	draw_simple_map(t_info *cub)
 	int x = 0;
 	int y = 0;
 
-	cub->corner = 90;
+	cub->corner = -90;
 	cub->mlx->ptr = mlx_init();
 	cub->mlx->win = mlx_new_window(cub->mlx->ptr, 1000, 700, "CUB");
 	cub->mlx->img_b = mlx_xpm_file_to_image(cub->mlx->ptr, cub->no, &x, &y);
