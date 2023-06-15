@@ -6,13 +6,69 @@
 /*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 14:45:40 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/15 15:53:05 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/06/15 17:22:38 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
+// void	draw_ray2(t_info *cub, int o, int color)
+// {
+// 	double	x;
+// 	double	y;
+// 	int	rf;
+// 	int	ri = 0;
+// 	double	cor_rd;
+// 	t_point	p;
 
+// 	(void)o;
+// 	cor_rd = (3.14159265359 * cub->corner)/180.0000;
+// 	if (color){
+// 		printf("tan(%lf) = %lf\n",cub->corner,tan(cor_rd));
+// 		printf("cos(%lf) = %lf\n", cub->corner,cos(cor_rd));
+// 		printf("sin(%lf) = %lf\n----------\n", cub->corner,sin(cor_rd));
 
+// 	}
+// 	det_direction(cub, cor_rd);
+// 	p = find_cord_x(cub);
+// 	if (p.x < 100)
+// 		p.x = 100;
+// 	//rf = sqrt(pow(floor(cub->x - p.x),2) + pow(floor(cub->y - p.y),2));
+// 	rf = p.r;
+// 	printf("++++++++++++++\n---- [%lf,%lf] ----\n++++++++++++++\n",p.x,p.y);
+// 	if (rf < 0)
+// 		rf *= -1;
+// 	x = cub->x + 5 * cos(cor_rd);
+// 	y = cub->y - 5 * sin(cor_rd);
+// 	printf("$$$$RI = %lf && RF = %d$$$$\n",sqrt(pow(floor(cub->x - x),2) + pow(floor(cub->y - y),2)),rf);
+// 	while (ri < rf){
+// 		mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, x, y, color);
+// 		x += cos(cor_rd);
+// 		y -= sin(cor_rd);
+// 		ri = sqrt(pow(floor(cub->x - x),2) + pow(floor(cub->y - y),2));
+// 		if (ri < 0)
+// 			ri *=-1;
+// 	}
+// }
+
+// int	a_event1(int key, t_info *cub)
+// {
+// 	draw_ray2(cub, 0, 0);
+// 	input_key(key, cub);
+// 	draw_ray2(cub, 0, 16777215);
+// 	if (key == 124)
+// 	{
+// 		draw_ray2(cub, 0, 0);
+// 		cub->corner--;
+// 		draw_ray2(cub, 0, 16777215);
+// 	}
+// 	if (key == 123)
+// 	{
+// 		draw_ray2(cub, 0, 0);
+// 		cub->corner++;
+// 		draw_ray2(cub, 1, 16777215);
+// 	}
+// 	return (0);
+// }
 
 t_point point_x_y(t_info *data)
 {
@@ -28,7 +84,7 @@ t_point point_x_y(t_info *data)
 
 	//printf("x_d %d\n",data->x_d);
 	point_x = (floor(old_x / 100) + 1) * 100;
-	while(is_coord_in_map_range(data,old_x / 100,old_y / 100) && !prm_moves(data->map,floor(old_x / 100.0) - kx,floor(old_y / 100.0) - ky))
+	while(is_coord_in_map_range(data,old_x ,old_y) && !prm_moves(data->map,floor(old_x / 100.0) - kx,floor(old_y / 100.0) - ky))
 	{
 		kx = 0;
 		ky = 0;
@@ -53,7 +109,7 @@ t_point point_x_y(t_info *data)
 		}
 		old_x = point_x;
 		old_y = point_y;
-		 //printf("Px    ->   [%lf]-%d\nPy    ->   [%lf]-%d\ncorner    ->   [%f]\n",old_x,kx,old_y,ky,data->corner);
+		 printf("Px    ->   [%lf]-%d\nPy    ->   [%lf]-%d\ncorner    ->   [%f]\n",old_x,kx,old_y,ky,data->corner);
 		// printf("Px    ->   [%d]-%d\nPy    ->   [%d]-%d\ncorner    ->   [%f]\n",(int)old_x,kx,(int)old_y,ky,data->corner);
 
 	}
@@ -67,12 +123,12 @@ t_point	find_cord_x(t_info *data)
 	//printf("Px    ->   [%f]\nPy    ->   [%f]\ncorner    ->   [%f]\n",data->x,data->y,data->corner);
 	t_point point;
 
-		//printf("=============================================\n");
+		printf("=============================================\n");
 		point = point_x_y(data);
 		
 
-		point.r = sqrt(pow(data->x - point.x,2) + pow(data->y  - point.y,2));
-		//printf("=============================================\n");
+		point.r = sqrt(pow(floor(data->x - point.x),2) + pow(floor(data->y  - point.y),2));
+		printf("=============================================\n");
 
 	
 	// printf("-------  tan(cor_rad)[%f]\n",tan(cor_rad));
@@ -87,7 +143,6 @@ t_point	find_cord_x(t_info *data)
 int	input_key(int key, t_info *data)
 {
 	//find_cord_x(data);
-		
 	if (key == 2)
 	{
 		move_right(data);
