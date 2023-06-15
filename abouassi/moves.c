@@ -6,7 +6,7 @@
 /*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 14:42:41 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/14 18:38:51 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/06/15 18:09:41 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int prm_moves(char **map,int x ,int y)
     return (0);
     
 }
+
 void    put_pix(t_info *cub, int color)
 {
     mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, cub->x  , cub->y, color);

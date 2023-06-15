@@ -6,7 +6,7 @@
 /*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 14:45:40 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/15 17:22:38 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/06/15 18:09:26 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@
 // 	return (0);
 // }
 
-t_point point_x_y(t_info *data)
+t_point	point_x_y(t_info *data)
 {
 	t_point point;
 	double point_x = 0;
@@ -84,7 +84,7 @@ t_point point_x_y(t_info *data)
 
 	//printf("x_d %d\n",data->x_d);
 	point_x = (floor(old_x / 100) + 1) * 100;
-	while(is_coord_in_map_range(data,old_x ,old_y) && !prm_moves(data->map,floor(old_x / 100.0) - kx,floor(old_y / 100.0) - ky))
+	while(is_coord_in_map_range(data,old_x ,old_y) && !prm_moves(data->map,floor(old_x / 100.0) - kx,floor(old_y / 100.0)))
 	{
 		kx = 0;
 		ky = 0;

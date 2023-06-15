@@ -6,14 +6,14 @@
 /*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 11:26:06 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/12 18:12:45 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/06/15 18:09:45 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "../cub3d.h"
 
-
+  
 // typedef struct {
 //     int x;
 //     int y;

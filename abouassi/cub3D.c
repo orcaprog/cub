@@ -6,7 +6,7 @@
 /*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 10:27:29 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/11 14:49:57 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/06/15 18:09:15 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	cheak_map(char **map)
 	}
 }
 
-char **get_map(char *file)
+char	**get_map(char *file)
 {
 	int		fd;
 	char	**map;
