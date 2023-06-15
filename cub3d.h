@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 10:27:45 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/15 16:00:41 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/06/15 16:34:08 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct s_mlx
 }	t_mlx;
 typedef struct s_point
 {
+	int		check;
 	double x;
 	double y;
 	double r;
