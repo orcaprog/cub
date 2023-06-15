@@ -6,17 +6,27 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 10:29:23 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/06/14 12:33:12 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/06/15 15:56:24 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
+// int	calcule_ray(t_info *cub, double cor_rd)
+// {
+// 	int	r;
+
+// 	r = p.x * cos(cor_rd);
+// }
+
 void	draw_ray(t_info *cub, int o, int color)
 {
 	double	x;
 	double	y;
+	int	rf;
+	int	ri = 0;
 	double	cor_rd;
+	t_point	p;
 
 	(void)o;
 	cor_rd = (3.14159265359 * cub->corner)/180.0000;
@@ -24,14 +34,25 @@ void	draw_ray(t_info *cub, int o, int color)
 		printf("tan(%lf) = %lf\n",cub->corner,tan(cor_rd));
 		printf("cos(%lf) = %lf\n", cub->corner,cos(cor_rd));
 		printf("sin(%lf) = %lf\n----------\n", cub->corner,sin(cor_rd));
-		det_direction(cub, cor_rd);
+
 	}
+	det_direction(cub, cor_rd);
+	p = det_coord_y(cub, cor_rd);
+	p = det_coord_x(cub, cor_rd);
+	// rf = sqrt(pow(floor(cub->x - p.x),2) + pow(floor(cub->y - p.y),2));
+	printf("++++++++++++++\n---- [%lf,%lf] ----\n++++++++++++++\n",p.x,p.y);
+	if (rf < 0)
+		rf *= -1;
 	x = cub->x + 5 * cos(cor_rd);
 	y = cub->y - 5 * sin(cor_rd);
-	for (int i = 0; i < 50; i++){
+	printf("$$$$RI = %lf && RF = %d$$$$\n",sqrt(pow(floor(cub->x - x),2) + pow(floor(cub->y - y),2)),rf);
+	while (ri < rf){
 		mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, x, y, color);
 		x += cos(cor_rd);
 		y -= sin(cor_rd);
+		ri = sqrt(pow(floor(cub->x - x),2) + pow(floor(cub->y - y),2));
+		if (ri < 0)
+			ri *=-1;
 	}
 }
 

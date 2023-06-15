@@ -6,7 +6,7 @@
 /*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 14:45:40 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/15 10:03:09 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/06/15 15:53:05 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ t_point point_x_y(t_info *data)
 		}
 		old_x = point_x;
 		old_y = point_y;
-		// printf("Px    ->   [%lf]-%d\nPy    ->   [%lf]-%d\ncorner    ->   [%f]\n",old_x,kx,old_y,ky,data->corner);
+		 //printf("Px    ->   [%lf]-%d\nPy    ->   [%lf]-%d\ncorner    ->   [%f]\n",old_x,kx,old_y,ky,data->corner);
 		// printf("Px    ->   [%d]-%d\nPy    ->   [%d]-%d\ncorner    ->   [%f]\n",(int)old_x,kx,(int)old_y,ky,data->corner);
 
 	}
@@ -62,27 +62,31 @@ t_point point_x_y(t_info *data)
 	return (point);
 	//point_x_y(data,point_x ,point_y);
 }
-void	find_cord_x(t_info *data)
+t_point	find_cord_x(t_info *data)
 {
 	//printf("Px    ->   [%f]\nPy    ->   [%f]\ncorner    ->   [%f]\n",data->x,data->y,data->corner);
 	t_point point;
 
 		//printf("=============================================\n");
 		point = point_x_y(data);
+		
+
+		point.r = sqrt(pow(data->x - point.x,2) + pow(data->y  - point.y,2));
 		//printf("=============================================\n");
 
 	
 	// printf("-------  tan(cor_rad)[%f]\n",tan(cor_rad));
-	// printf("-------  p_x(%f)\n",point.x);
-	// printf("-------  p_y(%f)\n",point.y);
+	printf("-------  point x(%f)\n",point.x);
+	printf("-------  point y(%f)\n",point.y);
+	printf("-------  r           (%f)\n",point.r);
 	// printf("-------  xi(%d)\n",xi);
 	// printf("-------  p_y(%d)\n",point_y);
-	
+	return(point);
 }
 
 int	input_key(int key, t_info *data)
 {
-	find_cord_x(data);
+	//find_cord_x(data);
 		
 	if (key == 2)
 	{
