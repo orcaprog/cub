@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 10:27:45 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/14 16:52:13 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/06/15 10:05:23 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ void	move_up(t_info *data);
 void	move_down(t_info *data);
 int		input_key(int key, t_info *data);
 int		prm_moves(char **map,int x ,int y);
+void	find_cord_x(t_info *data);
 
 // aelidrys
 void	ft_error(void);
