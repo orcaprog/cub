@@ -6,7 +6,7 @@
 /*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 14:45:40 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/14 17:01:35 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/06/15 10:03:09 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,27 +23,38 @@ t_point point_x_y(t_info *data)
 	double old_y = data->y;
 	int xi = 0;
 	double	cor_rad;
+	int kx=0,ky = 0;
 	cor_rad = (3.14159265359 * data->corner)/180.0000;
 
-	printf("x_d %d\n",data->x_d);
-	while(is_coord_in_map_range(data,old_x / 100,old_y / 100) && !prm_moves(data->map,(old_x / 100),(old_y / 100)))
+	//printf("x_d %d\n",data->x_d);
+	point_x = (floor(old_x / 100) + 1) * 100;
+	while(is_coord_in_map_range(data,old_x / 100,old_y / 100) && !prm_moves(data->map,floor(old_x / 100.0) - kx,floor(old_y / 100.0) - ky))
 	{
-		printf("%d------>\n",is_coord_in_map_range(data,old_x / 100,old_y / 100));
-		printf("Px    ->   [%f]\nPy    ->   [%f]\ncorner    ->   [%f]\n",old_x,old_y,data->corner);
+		kx = 0;
+		ky = 0;
+		if (data->y_d == -1)
+			ky = 1;
+		if (data->x_d == -1)
+			kx = 1;
+		//printf("%d------>\n",is_coord_in_map_range(data,old_x / 100,old_y / 100));
 		if (data->x_d == 1)
 		{
+			//printf("---------(1)---------\n");
 			point_x = (floor(old_x / 100) + 1) * 100;
 			xi = point_x - old_x;
-			point_y = old_y - (xi * tan(cor_rad));
+			point_y = old_y - floor(xi * tan(cor_rad)) + 1;
 		}
 		if (data->x_d == -1)
 		{
-			point_x = (floor(old_x / 100)) * 100;
-			xi = point_x - old_x;
-			point_y = old_y + (xi * tan(cor_rad));
+			//printf("--------(-1)-----------\n");
+			point_x -=  100;
+			xi = old_x - point_x;
+			point_y = old_y + floor(xi * tan(cor_rad)) + 1;
 		}
 		old_x = point_x;
 		old_y = point_y;
+		// printf("Px    ->   [%lf]-%d\nPy    ->   [%lf]-%d\ncorner    ->   [%f]\n",old_x,kx,old_y,ky,data->corner);
+		// printf("Px    ->   [%d]-%d\nPy    ->   [%d]-%d\ncorner    ->   [%f]\n",(int)old_x,kx,(int)old_y,ky,data->corner);
 
 	}
 	point.x = point_x;
@@ -56,14 +67,14 @@ void	find_cord_x(t_info *data)
 	//printf("Px    ->   [%f]\nPy    ->   [%f]\ncorner    ->   [%f]\n",data->x,data->y,data->corner);
 	t_point point;
 
-		printf("=============================================\n");
+		//printf("=============================================\n");
 		point = point_x_y(data);
-		printf("=============================================\n");
+		//printf("=============================================\n");
 
 	
 	// printf("-------  tan(cor_rad)[%f]\n",tan(cor_rad));
-	printf("-------  p_x(%f)\n",point.x);
-	printf("-------  p_y(%f)\n",point.y);
+	// printf("-------  p_x(%f)\n",point.x);
+	// printf("-------  p_y(%f)\n",point.y);
 	// printf("-------  xi(%d)\n",xi);
 	// printf("-------  p_y(%d)\n",point_y);
 	
