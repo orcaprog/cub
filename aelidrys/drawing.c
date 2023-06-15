@@ -6,7 +6,7 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 10:29:23 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/06/15 15:56:24 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/06/15 16:23:02 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,9 @@ void	draw_ray(t_info *cub, int o, int color)
 	}
 	det_direction(cub, cor_rd);
 	p = det_coord_y(cub, cor_rd);
-	p = det_coord_x(cub, cor_rd);
-	// rf = sqrt(pow(floor(cub->x - p.x),2) + pow(floor(cub->y - p.y),2));
+	if (p.y < 100)
+		p.y = 100;
+	rf = sqrt(pow(floor(cub->x - p.x),2) + pow(floor(cub->y - p.y),2));
 	printf("++++++++++++++\n---- [%lf,%lf] ----\n++++++++++++++\n",p.x,p.y);
 	if (rf < 0)
 		rf *= -1;
@@ -58,9 +59,9 @@ void	draw_ray(t_info *cub, int o, int color)
 
 int	a_event(int key, t_info *cub)
 {
-	draw_ray(cub, 0, 0);
+	// draw_ray(cub, 0, 0);
 	input_key(key, cub);
-	draw_ray(cub, 0, 16777215);
+	// draw_ray(cub, 0, 16777215);
 	if (key == 124)
 	{
 		draw_ray(cub, 0, 0);

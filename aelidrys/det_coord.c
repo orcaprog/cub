@@ -6,7 +6,7 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 08:58:20 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/06/15 15:57:28 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/06/15 16:16:46 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,12 @@ t_point		det_coord_y(t_info *cub, double cor_rd)
 	t_point	p;
 	double	dx;
 	double	dy;
-	int kx=0,ky=0;
+	int ky = 0;
 	p.y = cub->y;
 	if (cub->y_d == -1)
 		p.y = (floor(cub->y / 100) * 100) + 100;
 	while (1){
-		kx=0;ky=0;
+		ky=0;
 		if (cub->y_d == 1)
 		{
 			p.y = (floor(p.y / 100) * 100) + 100;
@@ -57,9 +57,11 @@ t_point		det_coord_y(t_info *cub, double cor_rd)
 		printf("p_x = %lf\n", p.x);
 		printf("p_y = %lf\n", p.y);
 		printf("is_in_map_range = %d\n\n", is_coord_in_map_range(cub, p.x, p.y));
-		if (!is_coord_in_map_range(cub, p.x, p.y) || prm_moves(cub->map,(p.x / 100) - kx,(p.y / 100) - ky))
+		if (!is_coord_in_map_range(cub, p.x, p.y) || prm_moves(cub->map,(p.x / 100),(p.y / 100) - ky))
 			break;
 	}
+	if (p.y < 100)
+		p.y = 100;
 	p.r = sqrt(pow(floor(cub->x - p.x),2) + pow(floor(cub->y - p.y),2));
 	return (p);
 }
