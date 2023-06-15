@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   functions_mlx.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 14:45:40 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/15 15:53:05 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/06/15 16:24:26 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,12 +69,12 @@ t_point	find_cord_x(t_info *data)
 
 		//printf("=============================================\n");
 		point = point_x_y(data);
-		
+
 
 		point.r = sqrt(pow(data->x - point.x,2) + pow(data->y  - point.y,2));
 		//printf("=============================================\n");
 
-	
+
 	// printf("-------  tan(cor_rad)[%f]\n",tan(cor_rad));
 	printf("-------  point x(%f)\n",point.x);
 	printf("-------  point y(%f)\n",point.y);
@@ -104,7 +104,7 @@ int	input_key(int key, t_info *data)
 	{
 		move_up(data);
 	}
-	
+
 	if (key == 53)
 	{
 		exit(0);
