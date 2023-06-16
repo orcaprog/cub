@@ -6,7 +6,7 @@
 /*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 14:45:40 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/15 18:09:26 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/06/16 08:24:01 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,12 +84,10 @@ t_point	point_x_y(t_info *data)
 
 	//printf("x_d %d\n",data->x_d);
 	point_x = (floor(old_x / 100) + 1) * 100;
-	while(is_coord_in_map_range(data,old_x ,old_y) && !prm_moves(data->map,floor(old_x / 100.0) - kx,floor(old_y / 100.0)))
+	while(is_coord_in_map_range(data,old_x ,old_y) && !prm_moves(data->map,floor(old_x / 100.0) - kx,floor(old_y / 100.0) - ky))
 	{
 		kx = 0;
 		ky = 0;
-		if (data->y_d == -1)
-			ky = 1;
 		if (data->x_d == -1)
 			kx = 1;
 		//printf("%d------>\n",is_coord_in_map_range(data,old_x / 100,old_y / 100));
@@ -109,7 +107,11 @@ t_point	point_x_y(t_info *data)
 		}
 		old_x = point_x;
 		old_y = point_y;
-		 printf("Px    ->   [%lf]-%d\nPy    ->   [%lf]-%d\ncorner    ->   [%f]\n",old_x,kx,old_y,ky,data->corner);
+		if ((int)(old_x) % 100 == 0 && (int)(old_y) % 100 == 0)
+		{
+		 	ky = 1;
+		}
+		printf("Px    ->   [%lf]-%d\nPy    ->   [%lf]-%d\ncorner    ->   [%f]\n",old_x,kx,old_y,ky,data->corner);
 		// printf("Px    ->   [%d]-%d\nPy    ->   [%d]-%d\ncorner    ->   [%f]\n",(int)old_x,kx,(int)old_y,ky,data->corner);
 
 	}
