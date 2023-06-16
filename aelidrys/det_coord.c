@@ -6,7 +6,7 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 08:58:20 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/06/16 08:33:03 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/06/16 08:45:22 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	is_coord_in_map_range(t_info *cub, double x, double y)
 
 	x1 = floor(x / 100);
 	y1 = floor(y / 100);
-	if (y1 < 0 || x1 < 1)
+	if (y1 < 1 || x1 < 1)
 		return (0);
 	if (y1 >= size_of_arry(cub->map) - 1 || x1 >= ft_strlen(cub->map[(int)y1]) - 1)
 		return (0);
