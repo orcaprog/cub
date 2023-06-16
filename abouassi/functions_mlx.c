@@ -6,7 +6,7 @@
 /*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 14:45:40 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/16 08:29:37 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/06/16 12:02:19 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,8 @@ t_point	point_x_y(t_info *data)
 	cor_rad = (3.14159265359 * data->corner)/180.0000;
 
 	//printf("x_d %d\n",data->x_d);
-	point_x = (floor(old_x / 100) + 1) * 100;
+	if (data->x_d == -1)
+		point_x = (floor(old_x / 100) + 1) * 100;
 	while(is_coord_in_map_range(data,old_x ,old_y) && !prm_moves(data->map,floor(old_x / 100.0) - kx,floor(old_y / 100.0) - ky))
 	{
 		kx = 0;
@@ -96,21 +97,19 @@ t_point	point_x_y(t_info *data)
 			//printf("---------(1)---------\n");
 			point_x = (floor(old_x / 100) + 1) * 100;
 			xi = point_x - old_x;
-			point_y = old_y - floor(xi * tan(cor_rad)) + 1;
+			point_y = old_y - (xi * tan(cor_rad));
 		}
 		if (data->x_d == -1)
 		{
 			//printf("--------(-1)-----------\n");
 			point_x -=  100;
 			xi = old_x - point_x;
-			point_y = old_y + floor(xi * tan(cor_rad)) + 1;
+			point_y = old_y + (xi * tan(cor_rad))  ;
 		}
 		old_x = point_x;
 		old_y = point_y;
 		if ((int)(old_x) % 100 == 0 && (int)(old_y) % 100 == 0)
-		{
 		 	ky = 1;
-		}
 		//printf("Px    ->   [%lf]-%d\nPy    ->   [%lf]-%d\ncorner    ->   [%f]\n",old_x,kx,old_y,ky,data->corner);
 		// printf("Px    ->   [%d]-%d\nPy    ->   [%d]-%d\ncorner    ->   [%f]\n",(int)old_x,kx,(int)old_y,ky,data->corner);
 
@@ -134,9 +133,9 @@ t_point	find_cord_x(t_info *data)
 
 	
 	// printf("-------  tan(cor_rad)[%f]\n",tan(cor_rad));
-	//printf("-------  point x(%f)\n",point.x);
-	//printf("-------  point y(%f)\n",point.y);
-	//printf("-------  r           (%f)\n",point.r);
+	// printf("-------  point x(%f)\n",point.x);
+	// printf("-------  point y(%f)\n",point.y);
+	// printf("-------  r           (%f)\n",point.r);
 	// printf("-------  xi(%d)\n",xi);
 	// printf("-------  p_y(%d)\n",point_y);
 	return(point);
@@ -145,6 +144,7 @@ t_point	find_cord_x(t_info *data)
 int	input_key(int key, t_info *data)
 {
 	//find_cord_x(data);
+	//printf("")
 	if (key == 2)
 	{
 		move_right(data);
