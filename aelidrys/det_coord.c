@@ -6,7 +6,7 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 08:58:20 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/06/16 08:17:45 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/06/16 08:33:03 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ t_point		det_coord_y(t_info *cub, double cor_rd)
 		p.r *= -1;
 	if (p.r == -2147483648)
 		p.r = p.r + 1 * -1;
-	printf("{p1.r = %lf}\n",p.r);
+	// printf("{p1.r = %lf}\n",p.r);
 	return (p);
 }
 
