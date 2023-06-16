@@ -6,7 +6,7 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 08:58:20 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/06/15 18:49:15 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/06/16 08:17:45 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,13 +52,13 @@ t_point		det_coord_y(t_info *cub, double cor_rd)
 			dy = (cub->y - p.y);
 			dx = (dy / tan(cor_rd));
 			p.x = cub->x + dx;
-			printf("y_d = -1 => dy = %lf & dx = %lf\n", dy, dx);
+			// printf("y_d = -1 => dy = %lf & dx = %lf\n", dy, dx);
 		}
-		printf("p_x = %lf\n", p.x);
-		printf("p_y = %lf\n", p.y);
+		// printf("p_x = %lf\n", p.x);
+		// printf("p_y = %lf\n", p.y);
 		if ((int)(p.x) % 100 == 0 && (int)(p.y) % 100 == 0)
 			kx = 1;
-		printf("is_in_map_range = %d\n\n", is_coord_in_map_range(cub, p.x, p.y));
+		// printf("is_in_map_range = %d\n\n", is_coord_in_map_range(cub, p.x, p.y));
 		if (!is_coord_in_map_range(cub, p.x, p.y) || prm_moves(cub->map,(p.x / 100) - kx,(p.y / 100) - ky))
 			break;
 	}

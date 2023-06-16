@@ -6,18 +6,24 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 10:29:23 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/06/15 18:58:59 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/06/16 08:30:22 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
-// int	calcule_ray(t_info *cub, double cor_rd)
-// {
-// 	int	r;
-
-// 	r = p.x * cos(cor_rd);
-// }
+int	draw_rays(t_info *cub, double cor_rd, int color)
+{
+	cor_rd = cub->corner + 30;
+	cub->corner -= 30;
+	while (cor_rd != cub->corner + 30)
+	{
+		// draw_ray(cub,0,0);
+		draw_ray(cub,0,color);
+		cub->corner += 0.25;
+	}
+	return (0);
+}
 
 void	draw_ray(t_info *cub, int ri, int color)
 {
@@ -30,11 +36,11 @@ void	draw_ray(t_info *cub, int ri, int color)
 
 	ri = 0;
 	cor_rd = (3.14159265359 * cub->corner)/180.0000;
-	if (color){
+	// if (color){
 		// printf("tan(%lf) = %lf\n",cub->corner,tan(cor_rd));
 		// printf("cos(%lf) = %lf\n", cub->corner,cos(cor_rd));
 		// printf("sin(%lf) = %lf\n----------\n", cub->corner,sin(cor_rd));
-	}
+	// }
 	det_direction(cub, cor_rd);
 	p1 = det_coord_y(cub, cor_rd);
 	p2 = find_cord_x(cub);
@@ -43,8 +49,8 @@ void	draw_ray(t_info *cub, int ri, int color)
 	rf = p1.r;
 	x = cub->x + 5 * cos(cor_rd);
 	y = cub->y - 5 * sin(cor_rd);
-	printf("++++++++++++++\n---- [%lf,%lf] ----\n++++++++++++++\n",p1.x,p1.y);
-	printf("$$$$p.r = %lf && RF = %d$$$$\n",p1.r,rf);
+	// printf("++++++++++++++\n---- [%lf,%lf] ----\n++++++++++++++\n",p1.x,p1.y);
+	// printf("$$$$p.r = %lf && RF = %d$$$$\n",p1.r,rf);
 	while (ri < rf){
 		mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, x, y, color);
 		x += cos(cor_rd);
@@ -57,20 +63,20 @@ void	draw_ray(t_info *cub, int ri, int color)
 
 int	a_event(int key, t_info *cub)
 {
-	draw_ray(cub, 0, 0);
+	draw_rays(cub, 0, 0);
 	input_key(key, cub);
-	draw_ray(cub, 0, 16777215);
+	draw_rays(cub, 0, 16777215);
 	if (key == 124)
 	{
-		draw_ray(cub, 0, 0);
-		cub->corner--;
-		draw_ray(cub, 0, 16777215);
+		draw_rays(cub, 0, 0);
+		cub->corner-=5;
+		draw_rays(cub, 0, 16777215);
 	}
 	if (key == 123)
 	{
-		draw_ray(cub, 0, 0);
-		cub->corner++;
-		draw_ray(cub, 1, 16777215);
+		draw_rays(cub, 0, 0);
+		cub->corner+=5;
+		draw_rays(cub, 1, 16777215);
 	}
 	return (0);
 }
