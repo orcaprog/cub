@@ -6,69 +6,69 @@
 /*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 14:45:40 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/16 12:02:19 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/06/17 22:30:11 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
-// void	draw_ray2(t_info *cub, int o, int color)
-// {
-// 	double	x;
-// 	double	y;
-// 	int	rf;
-// 	int	ri = 0;
-// 	double	cor_rd;
-// 	t_point	p;
+void	draw_ray2(t_info *cub, int o, int color)
+{
+	double	x;
+	double	y;
+	int	rf;
+	int	ri = 0;
+	double	cor_rd;
+	t_point	p;
 
-// 	(void)o;
-// 	cor_rd = (3.14159265359 * cub->corner)/180.0000;
-// 	if (color){
-// 		printf("tan(%lf) = %lf\n",cub->corner,tan(cor_rd));
-// 		printf("cos(%lf) = %lf\n", cub->corner,cos(cor_rd));
-// 		printf("sin(%lf) = %lf\n----------\n", cub->corner,sin(cor_rd));
+	(void)o;
+	cor_rd = (3.14159265359 * cub->corner)/180.0000;
+	if (color){
+		printf("tan(%lf) = %lf\n",cub->corner,tan(cor_rd));
+		printf("cos(%lf) = %lf\n", cub->corner,cos(cor_rd));
+		printf("sin(%lf) = %lf\n----------\n", cub->corner,sin(cor_rd));
 
-// 	}
-// 	det_direction(cub, cor_rd);
-// 	p = find_cord_x(cub);
-// 	if (p.x < 100)
-// 		p.x = 100;
-// 	//rf = sqrt(pow(floor(cub->x - p.x),2) + pow(floor(cub->y - p.y),2));
-// 	rf = p.r;
-// 	printf("++++++++++++++\n---- [%lf,%lf] ----\n++++++++++++++\n",p.x,p.y);
-// 	if (rf < 0)
-// 		rf *= -1;
-// 	x = cub->x + 5 * cos(cor_rd);
-// 	y = cub->y - 5 * sin(cor_rd);
-// 	printf("$$$$RI = %lf && RF = %d$$$$\n",sqrt(pow(floor(cub->x - x),2) + pow(floor(cub->y - y),2)),rf);
-// 	while (ri < rf){
-// 		mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, x, y, color);
-// 		x += cos(cor_rd);
-// 		y -= sin(cor_rd);
-// 		ri = sqrt(pow(floor(cub->x - x),2) + pow(floor(cub->y - y),2));
-// 		if (ri < 0)
-// 			ri *=-1;
-// 	}
-// }
+	}
+	det_direction(cub, cor_rd);
+	p = find_cord_x(cub );
+	if (p.x < 100)
+		p.x = 100;
+	//rf = sqrt(pow(floor(cub->x - p.x),2) + pow(floor(cub->y - p.y),2));
+	rf = p.r;
+	//printf("++++++++++++++\n---- [%lf,%lf] ----\n++++++++++++++\n",p.x,p.y);
+	if (rf < 0)
+		rf *= -1;
+	x = cub->x + 5 * cos(cor_rd);
+	y = cub->y - 5 * sin(cor_rd);
+	//printf("$$$$RI = %lf && RF = %d$$$$\n",sqrt(pow(floor(cub->x - x),2) + pow(floor(cub->y - y),2)),rf);
+	while (ri < rf){
+		mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, x, y, color);
+		x += cos(cor_rd);
+		y -= sin(cor_rd);
+		ri = sqrt(pow(floor(cub->x - x),2) + pow(floor(cub->y - y),2));
+		if (ri < 0)
+			ri *=-1;
+	}
+}
 
-// int	a_event1(int key, t_info *cub)
-// {
-// 	draw_ray2(cub, 0, 0);
-// 	input_key(key, cub);
-// 	draw_ray2(cub, 0, 16777215);
-// 	if (key == 124)
-// 	{
-// 		draw_ray2(cub, 0, 0);
-// 		cub->corner--;
-// 		draw_ray2(cub, 0, 16777215);
-// 	}
-// 	if (key == 123)
-// 	{
-// 		draw_ray2(cub, 0, 0);
-// 		cub->corner++;
-// 		draw_ray2(cub, 1, 16777215);
-// 	}
-// 	return (0);
-// }
+int	a_event1(int key, t_info *cub)
+{
+	draw_ray2(cub, 0, 0);
+	input_key(key, cub);
+	 draw_ray2(cub, 0, 16777215);
+	if (key == 124)
+	{
+		draw_ray2(cub, 0, 0);
+		cub->corner--;
+		draw_ray2(cub, 0, 16777215);
+	}
+	if (key == 123)
+	{
+		 draw_ray2(cub, 0, 0);
+		cub->corner++;
+		 draw_ray2(cub, 1, 16777215);
+	}
+	return (0);
+}
 
 t_point	point_x_y(t_info *data)
 {
@@ -97,14 +97,14 @@ t_point	point_x_y(t_info *data)
 			//printf("---------(1)---------\n");
 			point_x = (floor(old_x / 100) + 1) * 100;
 			xi = point_x - old_x;
-			point_y = old_y - (xi * tan(cor_rad));
+			point_y = old_y - (xi * tan(cor_rad)) ;
 		}
 		if (data->x_d == -1)
 		{
 			//printf("--------(-1)-----------\n");
 			point_x -=  100;
 			xi = old_x - point_x;
-			point_y = old_y + (xi * tan(cor_rad))  ;
+			point_y = old_y + (xi * tan(cor_rad)) + 0.60;
 		}
 		old_x = point_x;
 		old_y = point_y;
@@ -145,6 +145,7 @@ int	input_key(int key, t_info *data)
 {
 	//find_cord_x(data);
 	//printf("")
+	
 	if (key == 2)
 	{
 		move_right(data);
