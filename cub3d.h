@@ -6,7 +6,7 @@
 /*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 10:27:45 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/15 16:34:08 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/06/17 13:26:54 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ void	move_down(t_info *data);
 int		input_key(int key, t_info *data);
 int		prm_moves(char **map,int x ,int y);
 t_point	find_cord_x(t_info *data);
+int		a_event1(int key, t_info *cub);
 
 // aelidrys
 void	ft_error(void);
