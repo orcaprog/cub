@@ -6,7 +6,7 @@
 /*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 11:54:43 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/17 22:30:27 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/06/18 09:49:58 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int main(int ac , char **av)
 	point_of_view(cub);
 	draw_simple_map(cub);
 	put_pix(cub,14753280);
-	mlx_hook(cub->mlx->win, 2, 0,a_event1, cub);
+	mlx_hook(cub->mlx->win, 2, 0,a_event, cub);
 	
 	mlx_loop(cub->mlx->ptr);
 }

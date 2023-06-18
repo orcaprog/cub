@@ -6,7 +6,7 @@
 /*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 14:42:41 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/17 22:47:04 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/06/18 10:26:47 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int prm_moves(char **map,int x ,int y)
 {
-     printf("|x = %d y = %d |\n",x ,y);
+    // printf("|x = %d y = %d |\n",x ,y);
     
     if (map[y][x] == '1')
     {
@@ -72,10 +72,14 @@ void    move_right(t_info *data)
     //         if (prm_moves(data->map,((data->x + 5) / 100),((data->y )/ 100)) || prm_moves(data->map,((data->x + 5) / 100),((data->y )/ 100) - 1))
     //             check = 0;
     //     }
-      if (prm_moves(data->map,((data->x + cos(cor_rd) * 4) / 100),((data->y - sin(cor_rd) * 4)/ 100)))
-        {
-            check = 0;        
-        }
+    if (prm_moves(data->map,((data->x ) / 100),((data->y - sin(cor_rd) * 4)/ 100)))
+    {
+        check = 0;        
+    }
+    if (prm_moves(data->map,((data->x + cos(cor_rd) * 4) / 100),((data->y )/ 100)))
+    {
+        check = 0;        
+    }
     // }
     if (check)
     {
@@ -100,7 +104,9 @@ void    move_left(t_info *data)
     //                 || prm_moves(data->map,((data->x  - 5 - 1)  / 100),((data->y)/ 100) - 1))
     //             check = 0;
     //     }
-    if (prm_moves(data->map,((data->x + cos(cor_rd) * 4)  / 100),((data->y - sin(cor_rd) * 4)/ 100)))
+    if (prm_moves(data->map,((data->x)  / 100),((data->y - sin(cor_rd) * 4)/ 100)))
+        check = 0;    
+    if (prm_moves(data->map,((data->x + cos(cor_rd) * 4)  / 100),((data->y )/ 100)))
         check = 0;        
     // }
     if (check)
@@ -126,11 +132,14 @@ void    move_down(t_info *data)
     //         if (prm_moves(data->map,((data->x ) / 100),((data->y  + 5)/ 100)) || prm_moves(data->map,((data->x ) / 100) - 1,((data->y  + 5)/ 100)))
     //             check = 0;
     //     }
-        if (prm_moves(data->map,((data->x - cos(cor_rd) * 4) / 100),((data->y + sin(cor_rd) * 4)/ 100)))
+        if (prm_moves(data->map,((data->x ) / 100),((data->y + sin(cor_rd) * 4)/ 100)))
         {
             check = 0;        
         }
-  // }
+        if (prm_moves(data->map,((data->x - cos(cor_rd) * 4) / 100),((data->y )/ 100)))
+        {
+            check = 0;        
+        }
     if (check)
     {
         put_pix(data,0);
@@ -157,7 +166,11 @@ void    move_up(t_info *data)
         //     if (prm_moves(data->map,((data->x ) / 100),((data->y - sin(cor_rd) * 4 -1)/ 100) ) || prm_moves(data->map,((data->x ) / 100) - 1,((data->y  - 5 - 1)/ 100)))
         //         check = 0;
         // }
-       if (prm_moves(data->map,((data->x + cos(cor_rd) * 4) / 100),((data->y - sin(cor_rd) * 4)/ 100)))
+        if (prm_moves(data->map,((data->x) / 100),((data->y - sin(cor_rd) * 4)/ 100)))
+        {
+            check = 0;        
+        }
+       if (prm_moves(data->map,((data->x + cos(cor_rd) * 4) / 100),((data->y )/ 100)))
         {
             check = 0;        
         }
