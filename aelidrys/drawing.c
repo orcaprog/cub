@@ -6,7 +6,7 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 10:29:23 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/06/17 13:53:46 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/06/18 11:05:48 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,37 +17,30 @@ int	draw_rays(t_info *cub, double cor_rd, int color)
 	(void)color;
 	cor_rd = cub->corner + 30;
 	cub->corner -= 30;
-	printf("first = %lf last = %lf\n",cub->corner,cor_rd);
-	// for (int i = 0; i<100;i++)
+	// printf("first = %lf last = %lf\n",cub->corner,cor_rd);
 	while (cor_rd >= cub->corner)
 	{
-		draw_ray(cub,0,color);
-		cub->corner += 0.15;
+		draw_ray(cub, 0, 0, color);
+		cub->corner += 0.2;
 	}
-	printf("first = %lf\n",cub->corner);
+	// printf("first = %lf\n",cub->corner);
 	cub->corner = cor_rd - 30;
 	return (0);
 }
 
-void	draw_ray(t_info *cub, int ri, int color)
+void	draw_ray(t_info *cub, int ri, int rf, int color)
 {
 	double	x;
 	double	y;
-	int	rf;
 	double	cor_rd;
 	t_point	p1;
 	t_point	p2;
 
 	ri = 0;
 	cor_rd = (M_PI * cub->corner)/180.0000;
-	// if (color){
-		// printf("tan(%lf) = %lf\n",cub->corner,tan(cor_rd));
-		// printf("cos(%lf) = %lf\n", cub->corner,cos(cor_rd));
-		// printf("sin(%lf) = %lf\n----------\n", cub->corner,sin(cor_rd));
-	// }
 	det_direction(cub, cor_rd);
-	p1 = det_coord_y(cub, cor_rd);
-	p2 = det_coord_x(cub, cor_rd);
+	p1 = det_coord_y(cub, cor_rd,0,0);
+	p2 = det_coord_x(cub, cor_rd,0,0);
 	if (p1.r > p2.r)
 		p1.r = p2.r;
 	rf = p1.r;
@@ -56,7 +49,8 @@ void	draw_ray(t_info *cub, int ri, int color)
 	// printf("----p1(%lf,%lf]) ----\n",p1.x,p1.y);
 	// printf("\n----p2(%lf,%lf]) ----\n",p2.x,p2.y);
 	// printf("$$$$p.r = %lf && RF = %d$$$$\n++++++++++++++\n",p1.r,rf);
-	while (ri < rf){
+	while (ri < rf)
+	{
 		mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, x, y, color);
 		x += cos(cor_rd);
 		y -= sin(cor_rd);
