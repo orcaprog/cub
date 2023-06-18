@@ -6,7 +6,7 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 10:29:23 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/06/18 11:05:48 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/06/18 14:19:45 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,13 @@ void	draw_ray(t_info *cub, int ri, int rf, int color)
 	double	cor_rd;
 	t_point	p1;
 	t_point	p2;
+	int k[2];
 
 	ri = 0;
 	cor_rd = (M_PI * cub->corner)/180.0000;
 	det_direction(cub, cor_rd);
-	p1 = det_coord_y(cub, cor_rd,0,0);
-	p2 = det_coord_x(cub, cor_rd,0,0);
+	p1 = det_coord_y(cub, cor_rd,k);
+	p2 = det_coord_x(cub, cor_rd,k);
 	if (p1.r > p2.r)
 		p1.r = p2.r;
 	rf = p1.r;
@@ -55,8 +56,6 @@ void	draw_ray(t_info *cub, int ri, int rf, int color)
 		x += cos(cor_rd);
 		y -= sin(cor_rd);
 		ri = sqrt(pow(floor(cub->x - x),2) + pow(floor(cub->y - y),2));
-		if (ri < 0)
-			ri *=-1;
 	}
 }
 
@@ -75,7 +74,7 @@ int	a_event(int key, t_info *cub)
 	{
 		draw_rays(cub, 0, 0);
 		cub->corner+=4;
-		draw_rays(cub, 1, 16777215);
+		draw_rays(cub, 0, 16777215);
 	}
 	return (0);
 }

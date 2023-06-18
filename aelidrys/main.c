@@ -6,7 +6,7 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 10:26:03 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/06/12 06:59:31 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/06/18 13:29:22 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ int main(int ac, char **av)
 	cub->map = get_map(av[1]);
 	// check_first_element(cub->map);
 	check_cmp(cub->map);
-	cub->x = 450;
-	cub->y = 250;
+	cub->x = 550;
+	cub->y = 350;
 	draw_simple_map(cub);
 	mlx_hook(cub->mlx->win, 17, 0, ft_exit, NULL);
 	mlx_hook(cub->mlx->win,2,0,a_event,cub);

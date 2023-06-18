@@ -6,7 +6,7 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 10:27:45 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/18 09:29:09 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/06/18 13:52:07 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,8 +90,8 @@ int		a_event(int key, t_info *cub);
 int		check_first_element(char **arry);
 void	draw_ray(t_info *cub, int ri, int rf, int color);
 void	det_direction(t_info *cub, double cor_rd);
-t_point	det_coord_y(t_info *cub, double cor_rad, int kx, int ky);
-t_point	det_coord_x(t_info *cub, double cor_rad, int kx, int ky);
+t_point	det_coord_y(t_info *cub, double cor_rd, int k[2]);
+t_point	det_coord_x(t_info *cub, double cor_rad, int k[2]);
 int		is_coord_in_map_range(t_info *cub, double x, double y);
 
 #endif
