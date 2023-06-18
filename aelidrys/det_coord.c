@@ -6,7 +6,7 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 08:58:20 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/06/18 14:19:10 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/06/18 14:31:58 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,8 @@ int	is_in_wall(t_info *cub, t_point p, int *k, int d1)
 				|| prm_moves(cub->map,(p.x / 100), (p.y / 100))))
 			return (0);
 	}
+	// if (cub->y_d == -1)
+	// 	k[1] = 1;
 	return (1);
 }
 
@@ -92,8 +94,8 @@ t_point	det_coord_x(t_info *cub, double cor_rad, int k[2])
 			p.x -=  100;
 			p.y = cub->y + ((cub->x - p.x) * tan(cor_rad));
 		}
-		if ((int)(p.x) % 100 == 0 && (int)(p.y) % 100 == 0 && cub->y_d == -1)
-		 	k[1] = 1;
+		// if ((int)(p.x) % 100 == 0 && (int)(p.y) % 100 == 0 && cub->y_d == -1)
+		//  	k[1] = 1;
 		// printf("\nxxx(%lf,%lf)\n",p.x,p.y);
 		if (!is_in_wall(cub, p, k, cub->x_d) || !is_coord_in_map_range(cub,p.x ,p.y)
 				|| prm_moves(cub->map,floor(p.x / 100.0) - k[0],floor(p.y / 100.0) - k[1]))
@@ -117,7 +119,7 @@ t_point		det_coord_y(t_info *cub, double cor_rd, int k[2])
 		{
 			p.y = (floor(p.y / 100) * 100) + 100;
 			p.x = cub->x - ((p.y - cub->y) / tan(cor_rd));
-			if ((int)p.x % 100 >= 97)
+			if ((int)p.x % 100 >= 98)
 				p.x = (floor(p.x / 100) + 1) * 100;
 		}
 		if (cub->y_d == -1)

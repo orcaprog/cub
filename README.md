@@ -14,13 +14,13 @@
 	- [x] make ray rotate
 	- [x] determine the direction `<` `^` `>` and `v`
 	***
-	- [ ] determine the coordinates `there is thre steps`
-		- [ ] `1` det coordinates that is represent a wall at the intersictions with __x__
-		- [ ] `2` det coordinates that is represent a wall at the intersictions with __y__
+	- [x] determine the coordinates `there is thre steps`
+		- [x] `1` det coordinates that is represent a wall at the intersictions with __x__
+		- [x] `2` det coordinates that is represent a wall at the intersictions with __y__
 			- in the two steps above we should write a function that that calculate the coord `(x,y)`
 				and other one that check if you can  move to this coordinates
-		- [ ] `3` choos the coordinates that have a ray __R__ less than other
-	- [ ] make the ray stop if there are a wall in the next position
+		- [x] `3` choos the coordinates that have a ray __R__ less than other
+	- [x] make the ray stop if there are a wall in the next position
 ***
 
 |Name|Task|
