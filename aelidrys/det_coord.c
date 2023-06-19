@@ -6,7 +6,7 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 08:58:20 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/06/18 14:31:58 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/06/19 13:44:50 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	is_coord_in_map_range(t_info *cub, double x, double y)
 	y1 = floor(y / 100);
 	if (y1 < 1 || x1 < 1)
 		return (0);
+	// printf("y1 = %lf\n", y1);
 	if (y1 >= size_of_arry(cub->map) - 1 || x1 >= ft_strlen(cub->map[(int)y1]) - 1)
 		return (0);
 	return (1);
@@ -56,19 +57,17 @@ int	is_in_wall(t_info *cub, t_point p, int *k, int d1)
 	{
 		// printf("bneing => (%lf,%lf)\n",(p.x / 100) - 1,(p.y / 100) - 1);
 		// printf("or\nbneing => (%lf,%lf)\n",(p.x / 100) - 1,(p.y / 100));
-		if (is_coord_in_map_range(cub, p.x, p.y) && (prm_moves(cub->map,(p.x / 100) - 1,(p.y / 100) - 1)
+		if (is_coord_in_map_range(cub, p.x, p.y) && (prm_moves(cub->map,(p.x / 100) - 1,(p.y / 100))
 				|| prm_moves(cub->map,(p.x / 100) - 1,(p.y / 100))))
 			return (0);
 		k[0] = 1;
 	}
 	if ((int)(p.x) % 100 == 0 && (int)(p.y) % 100 == 0 && d1 == 1)
 	{
-		if (is_coord_in_map_range(cub, p.x, p.y) && (prm_moves(cub->map,(p.x / 100),(p.y / 100) - 1)
-				|| prm_moves(cub->map,(p.x / 100), (p.y / 100))))
+		if ((is_coord_in_map_range(cub, p.x, p.y-100) && prm_moves(cub->map,p.x / 100,(p.y / 100) - 1))
+				|| (is_coord_in_map_range(cub, p.x, p.y) && prm_moves(cub->map,p.x / 100, p.y / 100)))
 			return (0);
 	}
-	// if (cub->y_d == -1)
-	// 	k[1] = 1;
 	return (1);
 }
 
@@ -85,8 +84,8 @@ t_point	det_coord_x(t_info *cub, double cor_rad, int k[2])
 		{
 			p.x = (floor(p.x / 100) * 100) + 100;
 			p.y = cub->y - ((p.x - cub->x) * tan(cor_rad));
-			if ((int)p.y % 100 >= 98)
-				p.y = (floor(p.y / 100) + 1) * 100;
+			// if ((int)p.y % 100 >= 98)
+			// 	p.y = (floor(p.y / 100) + 1) * 100;
 		}
 		if (cub->x_d == -1)
 		{
@@ -97,7 +96,7 @@ t_point	det_coord_x(t_info *cub, double cor_rad, int k[2])
 		// if ((int)(p.x) % 100 == 0 && (int)(p.y) % 100 == 0 && cub->y_d == -1)
 		//  	k[1] = 1;
 		// printf("\nxxx(%lf,%lf)\n",p.x,p.y);
-		if (!is_in_wall(cub, p, k, cub->x_d) || !is_coord_in_map_range(cub,p.x ,p.y)
+		if (!is_coord_in_map_range(cub,p.x ,p.y)
 				|| prm_moves(cub->map,floor(p.x / 100.0) - k[0],floor(p.y / 100.0) - k[1]))
 			break;
 	}
@@ -119,8 +118,8 @@ t_point		det_coord_y(t_info *cub, double cor_rd, int k[2])
 		{
 			p.y = (floor(p.y / 100) * 100) + 100;
 			p.x = cub->x - ((p.y - cub->y) / tan(cor_rd));
-			if ((int)p.x % 100 >= 98)
-				p.x = (floor(p.x / 100) + 1) * 100;
+			// if ((int)p.x % 100 >= 98)
+			// 	p.x = (floor(p.x / 100) + 1) * 100;
 		}
 		if (cub->y_d == -1)
 		{
