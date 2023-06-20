@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 10:27:45 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/19 14:02:35 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/06/20 18:42:18 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,8 @@ typedef struct s_info
 	char	**map;
 	char	**map0;
 	double	corner;
+	double	r_corner;
+	double	last_r;
 	t_data	*img;
 	t_mlx	*mlx;
 }	t_info;
@@ -80,7 +82,7 @@ void	store_info(char **map, t_info *cub);
 int		my_color(char *color);
 void	point_of_view(t_info *data);
 void	cheak_map(char **map);
-void    put_pix(t_info *cub, int color);
+void	put_pix(t_info *cub,t_data *img, int color);
 void	move_right(t_info *data);
 void	move_left(t_info *data);
 void	move_up(t_info *data);
@@ -103,8 +105,8 @@ int		a_event(int key, t_info *cub);
 int		check_first_element(char **arry);
 void	draw_ray(t_info *cub, int ri, int rf, int color);
 void	det_direction(t_info *cub, double cor_rd);
-t_point	det_coord_y(t_info *cub, double cor_rd, int k[2]);
-t_point	det_coord_x(t_info *cub, double cor_rad, int k[2]);
+t_point	det_coord_x(t_info *cub, double cor_rd, int k[2]);
+t_point	det_coord_y(t_info *cub, double cor_rad, int k[2]);
 int		is_coord_in_map_range(t_info *cub, double x, double y);
 int		draw_rays(t_info *cub, double cor_rd, int color);
 
