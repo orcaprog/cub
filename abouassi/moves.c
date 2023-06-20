@@ -6,7 +6,7 @@
 /*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 14:42:41 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/19 14:58:54 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/06/20 15:50:11 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,36 +26,36 @@ int prm_moves(char **map,int x ,int y)
 
 void    put_pix(t_info *cub, int color)
 {
-    mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, cub->x  , cub->y, color);
-	mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, cub->x  - 1, cub->y, color);
-	mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, cub->x  + 1, cub->y, color);
-	mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, cub->x , cub->y - 1, color);
-	mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, cub->x , cub->y + 1, color);
+      my_mlx_pixel_put(&cub->img[1], cub->x  , cub->y, color);
+	my_mlx_pixel_put(&cub->img[1], cub->x  - 1, cub->y, color);
+	my_mlx_pixel_put(&cub->img[1], cub->x  + 1, cub->y, color);
+	my_mlx_pixel_put(&cub->img[1], cub->x , cub->y - 1, color);
+	my_mlx_pixel_put(&cub->img[1], cub->x , cub->y + 1, color);
 	
-	mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, cub->x  - 1, cub->y - 1, color);
-	mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, cub->x  - 1, cub->y + 1, color);
-	mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, cub->x  + 1, cub->y - 1, color);
-	mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, cub->x  + 1, cub->y + 1, color);
+	my_mlx_pixel_put(&cub->img[1], cub->x  - 1, cub->y - 1, color);
+	my_mlx_pixel_put(&cub->img[1], cub->x  - 1, cub->y + 1, color);
+	my_mlx_pixel_put(&cub->img[1], cub->x  + 1, cub->y - 1, color);
+	my_mlx_pixel_put(&cub->img[1], cub->x  + 1, cub->y + 1, color);
  
-	mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, cub->x  - 2, cub->y, color);
-	mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, cub->x  + 2, cub->y, color);
-	mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, cub->x , cub->y - 2, color);
-	mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, cub->x , cub->y + 2, color);
+	my_mlx_pixel_put(&cub->img[1], cub->x  - 2, cub->y, color);
+	my_mlx_pixel_put(&cub->img[1], cub->x  + 2, cub->y, color);
+	my_mlx_pixel_put(&cub->img[1], cub->x , cub->y - 2, color);
+	my_mlx_pixel_put(&cub->img[1], cub->x , cub->y + 2, color);
 
-	mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, cub->x  - 2, cub->y - 1, color);
-	mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, cub->x  - 2, cub->y + 1, color);
-	mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, cub->x  + 2, cub->y - 1, color);
-	mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, cub->x  + 2, cub->y + 1, color);
+	my_mlx_pixel_put(&cub->img[1], cub->x  - 2, cub->y - 1, color);
+	my_mlx_pixel_put(&cub->img[1], cub->x  - 2, cub->y + 1, color);
+	my_mlx_pixel_put(&cub->img[1], cub->x  + 2, cub->y - 1, color);
+	my_mlx_pixel_put(&cub->img[1], cub->x  + 2, cub->y + 1, color);
 
-	mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, cub->x  - 1, cub->y - 2, color);
-	mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, cub->x  + 1, cub->y - 2, color);
-	mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, cub->x  - 1, cub->y + 2, color);
-	mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, cub->x  + 1, cub->y + 2, color);
+	my_mlx_pixel_put(&cub->img[1], cub->x  - 1, cub->y - 2, color);
+	my_mlx_pixel_put(&cub->img[1], cub->x  + 1, cub->y - 2, color);
+	my_mlx_pixel_put(&cub->img[1], cub->x  - 1, cub->y + 2, color);
+	my_mlx_pixel_put(&cub->img[1], cub->x  + 1, cub->y + 2, color);
 
-	mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, cub->x  - 2, cub->y - 2, color);
-	mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, cub->x  + 2, cub->y - 2, color);
-	mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, cub->x  - 2, cub->y + 2, color);
-	mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, cub->x  + 2, cub->y + 2, color);
+	my_mlx_pixel_put(&cub->img[1], cub->x  - 2, cub->y - 2, color);
+	my_mlx_pixel_put(&cub->img[1], cub->x  + 2, cub->y - 2, color);
+	my_mlx_pixel_put(&cub->img[1], cub->x  - 2, cub->y + 2, color);
+	my_mlx_pixel_put(&cub->img[1], cub->x  + 2, cub->y + 2, color);
 }
 void    move_right(t_info *data)
 {
