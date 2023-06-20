@@ -6,7 +6,7 @@
 /*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 11:26:06 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/20 13:09:11 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/06/20 16:17:47 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 {
 	char	*dst;
-	if (x == 1000 || y == 500)
+	if (x >= 1000 || y >= 500)
 		return ;
 	//printf("(%d,%d)\n",x,y);
 	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
