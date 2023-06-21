@@ -6,7 +6,7 @@
 /*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 14:42:41 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/20 16:16:08 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/06/21 15:13:42 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void    move_right(t_info *data)
     check = 1;
     double	cor_rd;
    // cor_rd = (3.14159265359 * 90)/180.0000;
-    cor_rd = ((3.14159265359 * (data->corner - 90))/180.0000);
+    cor_rd = ((3.14159265359 * (data->corner + 90))/180.0000);
      printf(" move right<<x = %f y = %f>>\n",data->x + cos(cor_rd) * 8,data->y - sin(cor_rd) * 8);
     // if ((int)(data->x + cos(cor_rd) * 8) % 100 == 0 || (int)(data->y - sin(cor_rd) * 8) % 100 == 0)
     // {
@@ -95,7 +95,7 @@ void    move_left(t_info *data)
     int check;
     check = 1;
     double cor_rd;
-    cor_rd = ((3.14159265359 * (data->corner + 90))/180.0000) ;
+    cor_rd = ((3.14159265359 * (data->corner - 90))/180.0000) ;
      printf(" move left <<x = %f y = %f>>\n",data->x + cos(cor_rd) * 8,data->y - sin(cor_rd) * 8);
 
     // if ((int)(data->x + cos(cor_rd) * 8) % 100 == 0 || (int)(data->y - sin(cor_rd) * 8) % 100 == 0)

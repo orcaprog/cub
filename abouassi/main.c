@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 11:54:43 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/20 16:24:19 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/06/21 15:08:04 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 
 
-int mapdraw(t_info *cub)
-{
-
-	draw_simple_map1(cub);
-	put_pix(cub,14753280);
-	mlx_put_image_to_window(cub->mlx->ptr, cub->mlx->win, cub->img->img, 0,0);
-	return 0;
-}
+// int mapdraw(t_info *cub)
+// {
+	
+// 	draw_simple_map1(cub);
+// 	put_pix(cub,14753280);
+// 	mlx_put_image_to_window(cub->mlx->ptr, cub->mlx->win, cub->img->img, 0,0);
+// 	return 0;
+// }
 int main(int ac , char **av)
 {
 	(void)ac;
@@ -31,9 +31,6 @@ int main(int ac , char **av)
 	cub->mlx = malloc(sizeof(t_mlx));
 	cub->img = malloc(sizeof(t_data) * 2);
 	int i;
-
-	cub->x = 450;
-	cub->y = 250;
 	i = 0;
 	map = get_map(av[1]);
 	check_first_element(map);
@@ -44,23 +41,22 @@ int main(int ac , char **av)
 	store_info(map, cub);
 	point_of_view(cub);
 	cub->corner = 180;
+	cub->x = 750;
+	cub->y = 250;
+	cub->corner = 180;
 	cub->mlx->ptr = mlx_init();
 	cub->mlx->win = mlx_new_window(cub->mlx->ptr, 1000, 1000, "CUB");
 	cub->mlx->img_b = mlx_xpm_file_to_image(cub->mlx->ptr, cub->no, &ac, &ac);
 	cub->mlx->img_n = mlx_xpm_file_to_image(cub->mlx->ptr, cub->so, &ac, &ac);
-
-	// cub->img[0].img = mlx_new_image(cub->mlx->ptr, 1000,500);
-	// cub->img[1].img = mlx_new_image(cub->mlx->ptr, 1000,500);
-	// cub->img[0].addr = mlx_get_data_addr(cub->img[0].img, &cub->img[0].bits_per_pixel,&cub->img[0].line_length, &cub->img[0].endian);
-	// cub->img[1].addr = mlx_get_data_addr(cub->img[1].img, &cub->img[1].bits_per_pixel,&cub->img[1].line_length, &cub->img[1].endian);
-
-	if (!cub->mlx->img_b || !cub->mlx->img_n){
+	if (!cub->mlx->img_b || !cub->mlx->img_n)
 		ft_error();
-	}
+	cub->img[0].img = mlx_new_image(cub->mlx->ptr, 1000,500);
+	cub->img[1].img = mlx_new_image(cub->mlx->ptr, 1000,500);
+	cub->img[0].addr = mlx_get_data_addr(cub->img[0].img, &cub->img[0].bits_per_pixel,&cub->img[0].line_length, &cub->img[0].endian);
+	cub->img[1].addr = mlx_get_data_addr(cub->img[1].img, &cub->img[1].bits_per_pixel,&cub->img[1].line_length, &cub->img[1].endian);
 	draw_simple_map(cub);
-	put_pix(cub,14753280);
-	mlx_hook(cub->mlx->win, 2, 0,a_event, cub);
-	//mlx_put_image_to_window(cub->mlx->ptr, cub->mlx->win, cub->img->img, 0,0);
-
+	//lx_hook(cub->mlx->win, 17, 0, ft_exit, NULL);
+	mlx_hook(cub->mlx->win,2,0,a_event,cub);
+	
 	mlx_loop(cub->mlx->ptr);
 }
