@@ -6,7 +6,7 @@
 /*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 14:56:05 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/06/21 15:09:11 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/06/21 18:32:52 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include <math.h>
 # include "libft/libft.h"
 
+# define MOVE_SPEED 16
 typedef struct s_mlx
 {
 	void	*ptr;

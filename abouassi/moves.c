@@ -6,7 +6,7 @@
 /*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 14:42:41 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/21 15:13:42 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/06/21 18:32:30 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,19 +65,19 @@ void    move_right(t_info *data)
     double	cor_rd;
    // cor_rd = (3.14159265359 * 90)/180.0000;
     cor_rd = ((3.14159265359 * (data->corner + 90))/180.0000);
-     printf(" move right<<x = %f y = %f>>\n",data->x + cos(cor_rd) * 8,data->y - sin(cor_rd) * 8);
-    // if ((int)(data->x + cos(cor_rd) * 8) % 100 == 0 || (int)(data->y - sin(cor_rd) * 8) % 100 == 0)
+     printf(" move right<<x = %f y = %f>>\n",data->x + cos(cor_rd) * MOVE_SPEED,data->y - sin(cor_rd) * MOVE_SPEED);
+    // if ((int)(data->x + cos(cor_rd) * MOVE_SPEED) % 100 == 0 || (int)(data->y - sin(cor_rd) * MOVE_SPEED) % 100 == 0)
     // {
     //     if ((int)data->y % 100 == 0)
     //     {
     //         if (prm_moves(data->map,((data->x + 5) / 100),((data->y )/ 100)) || prm_moves(data->map,((data->x + 5) / 100),((data->y )/ 100) - 1))
     //             check = 0;
     //     }
-    if (prm_moves(data->map,((data->x ) / 100),((data->y - sin(cor_rd) * 8)/ 100)))
+    if (prm_moves(data->map,((data->x ) / 100),((data->y - sin(cor_rd) * MOVE_SPEED)/ 100)))
     {
         check = 0;        
     }
-    if (prm_moves(data->map,((data->x + cos(cor_rd) * 8) / 100),((data->y )/ 100)))
+    if (prm_moves(data->map,((data->x + cos(cor_rd) * MOVE_SPEED) / 100),((data->y )/ 100)))
     {
         check = 0;        
     }
@@ -85,8 +85,8 @@ void    move_right(t_info *data)
     if (check)
     {
         put_pix(data,&data->img[1],0x001637FF);
-        data->x = data->x + cos(cor_rd) * 8;
-       data->y = data->y - sin(cor_rd) * 8;
+        data->x = data->x + cos(cor_rd) * MOVE_SPEED;
+       data->y = data->y - sin(cor_rd) * MOVE_SPEED;
         put_pix(data,&data->img[1],14753280);
     }   
 }
@@ -96,25 +96,25 @@ void    move_left(t_info *data)
     check = 1;
     double cor_rd;
     cor_rd = ((3.14159265359 * (data->corner - 90))/180.0000) ;
-     printf(" move left <<x = %f y = %f>>\n",data->x + cos(cor_rd) * 8,data->y - sin(cor_rd) * 8);
+     printf(" move left <<x = %f y = %f>>\n",data->x + cos(cor_rd) * MOVE_SPEED,data->y - sin(cor_rd) * MOVE_SPEED);
 
-    // if ((int)(data->x + cos(cor_rd) * 8) % 100 == 0 || (int)(data->y - sin(cor_rd) * 8) % 100 == 0)
+    // if ((int)(data->x + cos(cor_rd) * MOVE_SPEED) % 100 == 0 || (int)(data->y - sin(cor_rd) * MOVE_SPEED) % 100 == 0)
     // {
     //     if ((int)data->y % 100 == 0){
     //         if (prm_moves(data->map,((data->x  - 5 - 1)  / 100),((data->y)/ 100))
     //                 || prm_moves(data->map,((data->x  - 5 - 1)  / 100),((data->y)/ 100) - 1))
     //             check = 0;
     //     }
-    if (prm_moves(data->map,((data->x)  / 100),((data->y - sin(cor_rd) * 8)/ 100)))
+    if (prm_moves(data->map,((data->x)  / 100),((data->y - sin(cor_rd) * MOVE_SPEED)/ 100)))
         check = 0;    
-    if (prm_moves(data->map,((data->x + cos(cor_rd) * 8)  / 100),((data->y )/ 100)))
+    if (prm_moves(data->map,((data->x + cos(cor_rd) * MOVE_SPEED)  / 100),((data->y )/ 100)))
         check = 0;        
     // }
     if (check)
     {
         put_pix(data,&data->img[1],0x001637FF);
-        data->x = data->x + cos(cor_rd) * 8;
-        data->y = data->y - sin(cor_rd) * 8;
+        data->x = data->x + cos(cor_rd) * MOVE_SPEED;
+        data->y = data->y - sin(cor_rd) * MOVE_SPEED;
         put_pix(data,&data->img[1],14753280);
     }
     
@@ -125,27 +125,27 @@ void    move_down(t_info *data)
     check = 1;
     double cor_rd;
     cor_rd = ((M_PI * data->corner)/180.0000);
-     printf(" move down <<x = %f y = %f>>\n",data->x - cos(cor_rd) * 8 ,(data->y + sin(cor_rd) * 8));
-    // if ((int)(data->y + sin(cor_rd) * 8) % 100 == 0 || (int)(data->x - cos(cor_rd) * 8) % 100 == 0)
+     printf(" move down <<x = %f y = %f>>\n",data->x - cos(cor_rd) * MOVE_SPEED ,(data->y + sin(cor_rd) * MOVE_SPEED));
+    // if ((int)(data->y + sin(cor_rd) * MOVE_SPEED) % 100 == 0 || (int)(data->x - cos(cor_rd) * MOVE_SPEED) % 100 == 0)
     // {
     //     if ((int)data->x % 100 == 0)
     //     {
     //         if (prm_moves(data->map,((data->x ) / 100),((data->y  + 5)/ 100)) || prm_moves(data->map,((data->x ) / 100) - 1,((data->y  + 5)/ 100)))
     //             check = 0;
     //     }
-        if (prm_moves(data->map,((data->x ) / 100),((data->y + sin(cor_rd) * 8)/ 100)))
+        if (prm_moves(data->map,((data->x ) / 100),((data->y + sin(cor_rd) * MOVE_SPEED)/ 100)))
         {
             check = 0;        
         }
-        if (prm_moves(data->map,((data->x - cos(cor_rd) * 8) / 100),((data->y )/ 100)))
+        if (prm_moves(data->map,((data->x - cos(cor_rd) * MOVE_SPEED) / 100),((data->y )/ 100)))
         {
             check = 0;        
         }
     if (check)
     {
         put_pix(data,&data->img[1],0x001637FF);
-        data->y = data->y + sin(cor_rd) * 8;
-        data->x = data->x - cos(cor_rd) * 8;
+        data->y = data->y + sin(cor_rd) * MOVE_SPEED;
+        data->x = data->x - cos(cor_rd) * MOVE_SPEED;
         put_pix(data,&data->img[1],14753280);
     }	
  
@@ -157,21 +157,21 @@ void    move_up(t_info *data)
     check = 1;
     double	cor_rd;
     cor_rd = (3.14159265359 * data->corner)/180.0000;
-     printf("move up <<x = %f y = %f>>\n",data->x + cos(cor_rd) * 8 ,data->y - sin(cor_rd) * 8  );
-     printf("mod  %d\n",(int)(data->y - sin(cor_rd) * 8) % 100);
-    // if ((int)(data->y - sin(cor_rd) * 8) % 100 == 0  || (int)(data->x + cos(cor_rd) * 8) % 100 == 0)
+     printf("move up <<x = %f y = %f>>\n",data->x + cos(cor_rd) * MOVE_SPEED ,data->y - sin(cor_rd) * MOVE_SPEED  );
+     printf("mod  %d\n",(int)(data->y - sin(cor_rd) * MOVE_SPEED) % 100);
+    // if ((int)(data->y - sin(cor_rd) * MOVE_SPEED) % 100 == 0  || (int)(data->x + cos(cor_rd) * MOVE_SPEED) % 100 == 0)
     // {
     //     printf("enter here \n");
         // if ((int)data->x % 100 == 0)
         // {
-        //     if (prm_moves(data->map,((data->x ) / 100),((data->y - sin(cor_rd) * 8 -1)/ 100) ) || prm_moves(data->map,((data->x ) / 100) - 1,((data->y  - 5 - 1)/ 100)))
+        //     if (prm_moves(data->map,((data->x ) / 100),((data->y - sin(cor_rd) * MOVE_SPEED -1)/ 100) ) || prm_moves(data->map,((data->x ) / 100) - 1,((data->y  - 5 - 1)/ 100)))
         //         check = 0;
         // }
-        if (prm_moves(data->map,((data->x) / 100),((data->y - sin(cor_rd) * 8)/ 100)))
+        if (prm_moves(data->map,((data->x) / 100),((data->y - sin(cor_rd) * MOVE_SPEED)/ 100)))
         {
             check = 0;        
         }
-       if (prm_moves(data->map,((data->x + cos(cor_rd) * 8) / 100),((data->y )/ 100)))
+       if (prm_moves(data->map,((data->x + cos(cor_rd) * MOVE_SPEED) / 100),((data->y )/ 100)))
         {
             check = 0;        
         }
@@ -179,8 +179,8 @@ void    move_up(t_info *data)
     if (check)
     {
         put_pix(data,&data->img[1],0x001637FF);
-        data->y = data->y - sin(cor_rd) * 8;
-        data->x = data->x + cos(cor_rd) * 8;
+        data->y = data->y - sin(cor_rd) * MOVE_SPEED;
+        data->x = data->x + cos(cor_rd) * MOVE_SPEED;
         put_pix(data,&data->img[1],14753280);
     }   
 }
