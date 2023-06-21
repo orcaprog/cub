@@ -6,7 +6,7 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 10:27:45 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/20 18:42:18 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/06/21 06:25:19 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ typedef struct s_point
 typedef struct s_info
 {
 	int		width;
+	int		d;
 	int		f;
 	int		c;
 	int		x_d;

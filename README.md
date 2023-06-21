@@ -25,8 +25,8 @@
 
 |Name|Task|
 |:-|:-|
-| **aelidrys** |  det coord that is represent a wall at the intersictions with x  |
-| **abouassi** |  det coord that is represent a wall at the intersictions with y  |
+| **aelidrys** |    |
+| **abouassi** |    |
 <!-- <img src="w3schools.jpg" width="300" height="400"> -->
 ***
 
@@ -67,6 +67,11 @@
 		top:-400px;
 		}
 </style>
+
+***
+- ## Draw Walls
+	- [ ] darwing walls
+	- [ ] draw walls with texturs
 
 ***
 #### link of github repo [gxxpython](https://github.com/gxxpython/cub)
