@@ -6,7 +6,7 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 10:29:23 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/06/21 13:26:29 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/06/21 18:20:53 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,57 +14,34 @@
 
 void	draw_walls(t_info *cub, double cor_rad, double r)
 {
-	double	a;
-	int		y;
-	int		i;
+	int	a;
+	int	y;
+	int	i;
 	int start;
-	// int end;
 
 	i = 0;
 	y = 500;
-	a = (100/(r * fabs(cos(((cub->r_corner-cub->corner) * M_PI) / 180)))) * 500;
+	a = (100/(r * fabs(cos(((cub->r_corner-cub->corner) * M_PI) / 180)))) * 400;
+	if (a >= 500)
+		a = 499;
 	start = (1000 - a * 2)/2;
-	if (a > 500)
-		a = 500;
-	while (i < start)
+	while (i <= start)
 	{
-		my_mlx_pixel_put(&cub->img[0], cub->width, y - a - i, 2463422);
+		my_mlx_pixel_put(&cub->img[0], cub->width, i, 2463422);
 		my_mlx_pixel_put(&cub->img[0], cub->width, y + a + i++, 8011295);
 	}
-	i = 0;
-	if (sin(cor_rad)>0 && cub->d == 0)
-	{
-		while (i < a)
-		{
-			my_mlx_pixel_put(&cub->img[0], cub->width, y + i, 14605267);
-			my_mlx_pixel_put(&cub->img[0], cub->width, y - i++, 14605267);
-		}
-	}
+	if (sin(cor_rad) > 0 && cub->d == 0)
+		while (start < y + a)
+			my_mlx_pixel_put(&cub->img[0], cub->width, start++, 14605267);
 	else if (sin(cor_rad)<0 && cub->d == 0)
-	{
-		while (i < a)
-		{
-			my_mlx_pixel_put(&cub->img[0], cub->width, y + i, 14605267);
-			my_mlx_pixel_put(&cub->img[0], cub->width, y - i++, 14605267);
-		}
-	}
+		while (start < y + a)
+			my_mlx_pixel_put(&cub->img[0], cub->width, start++, 0x00edd6c0);
 	else if (cos(cor_rad)>0 && cub->d == 1)
-	{
-		while (i < a)
-		{
-			my_mlx_pixel_put(&cub->img[0], cub->width, y + i, 10723998);
-			my_mlx_pixel_put(&cub->img[0], cub->width, y - i++, 10723998);
-		}
-	}
+		while (start < y + a)
+			my_mlx_pixel_put(&cub->img[0], cub->width, start++, 10723998);
 	else
-	{
-		while (i < a)
-		{
-			my_mlx_pixel_put(&cub->img[0], cub->width, y + i, 10723998);
-			my_mlx_pixel_put(&cub->img[0], cub->width, y - i++, 10723998);
-		}
-	}
-
+		while (start < y + a)
+			my_mlx_pixel_put(&cub->img[0], cub->width, start++, 0x00083a4d);
 }
 
 int	draw_rays(t_info *cub, double cor_rd, int color)
@@ -97,19 +74,12 @@ void	draw_ray(t_info *cub, int ri, int rf, int color)
 	det_direction(cub, cor_rd);
 	p1 = det_coord_x(cub, cor_rd,k);
 	p2 = det_coord_y(cub, cor_rd,k);
-	// printf("r1 = %lf  r2 = %lf\n",p1.r,p2.r);
-	// double R = p1.r;
 	if ((p2.r) > (p1.r))
 		cub->d = 0;
 	if ((p1.r) > (p2.r)){
 		cub->d = 1;
 		p1.r = p2.r;
 	}
-	// else if ((int)p1.r == (int)p2.r){
-		// p1.r = cub->last_r;
-	// }
-	// printf("d = %d [rx = %lf--- ry = %lf] --->> (%lf,%lf)  <->  (%lf,%lf)\n", cub->d, R,p2.r,p1.x,p1.y,p2.x,p2.y);
-	// cub->last_r = p1.r;
 	rf = p1.r;
 	x = cub->x + 5 * cos(cor_rd);
 	y = cub->y - 5 * sin(cor_rd);

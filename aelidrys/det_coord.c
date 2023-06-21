@@ -6,7 +6,7 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 08:58:20 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/06/21 10:00:50 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/06/21 16:35:25 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,8 +90,8 @@ t_point	det_coord_y(t_info *cub, double cor_rad, int k[2])
 		}
 		// if ((long)p.y % 100 >= 98)
 		// 	p.y = (floor(p.y / 100) * 100) + 100;
-		if (/*!is_in_wall(cub, p, k, cub->x_d) ||*/ !is_coord_in_map_range(cub,p.x - (100 * k[0]) ,p.y - (100 * k[1]))
-				|| prm_moves(cub->map,floor(p.x / 100) - k[0],floor(p.y / 100) - k[1]))
+		if (!is_coord_in_map_range(cub,p.x - (100 * k[0]) ,p.y)
+				|| prm_moves(cub->map,floor(p.x / 100) - k[0],floor(p.y / 100)))
 			break;
 	}
 	det_distance_r(&p,cub);
@@ -121,8 +121,8 @@ t_point		det_coord_x(t_info *cub, double cor_rd, int k[2])
 			p.y -= 100;
 			p.x = cub->x + ((cub->y - p.y) / tan(cor_rd));
 		}
-		if (/*!is_in_wall(cub, p, k, cub->x_d) ||*/ !is_coord_in_map_range(cub,p.x - (100 * k[0]) ,
-			p.y - (100 * k[1])) || prm_moves(cub->map,(p.x / 100) - k[0],(p.y / 100) - k[1]))
+		if (!is_coord_in_map_range(cub,p.x - (100 * k[0]) , p.y - (100 * k[1]))
+				|| prm_moves(cub->map,(p.x / 100) - k[0],(p.y / 100) - k[1]))
 			break;
 	}
 	det_distance_r(&p,cub);
