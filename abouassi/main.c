@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 11:54:43 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/20 13:16:08 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/06/20 16:24:19 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 int mapdraw(t_info *cub)
 {
-	
+
 	draw_simple_map1(cub);
 	put_pix(cub,14753280);
 	mlx_put_image_to_window(cub->mlx->ptr, cub->mlx->win, cub->img->img, 0,0);
@@ -31,7 +31,7 @@ int main(int ac , char **av)
 	cub->mlx = malloc(sizeof(t_mlx));
 	cub->img = malloc(sizeof(t_data) * 2);
 	int i;
-	
+
 	cub->x = 450;
 	cub->y = 250;
 	i = 0;
@@ -54,13 +54,13 @@ int main(int ac , char **av)
 	// cub->img[0].addr = mlx_get_data_addr(cub->img[0].img, &cub->img[0].bits_per_pixel,&cub->img[0].line_length, &cub->img[0].endian);
 	// cub->img[1].addr = mlx_get_data_addr(cub->img[1].img, &cub->img[1].bits_per_pixel,&cub->img[1].line_length, &cub->img[1].endian);
 
-	if (!cub->mlx->img_b || !cub->mlx->img_n){	
+	if (!cub->mlx->img_b || !cub->mlx->img_n){
 		ft_error();
 	}
 	draw_simple_map(cub);
 	put_pix(cub,14753280);
 	mlx_hook(cub->mlx->win, 2, 0,a_event, cub);
 	//mlx_put_image_to_window(cub->mlx->ptr, cub->mlx->win, cub->img->img, 0,0);
-	
+
 	mlx_loop(cub->mlx->ptr);
 }
