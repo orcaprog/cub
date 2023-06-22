@@ -6,7 +6,7 @@
 /*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 10:27:39 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/15 18:09:11 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/06/22 17:14:28 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,19 +116,23 @@ void store_info(char **map, t_info *cub)
 		line = get_element(map[i]);
 		if (!ft_strncmp(line[0],"NO",2))
 		{
-			cub->no = ft_strdup(line[1]);
+		
+			cub->no->img_xpm =  mlx_xpm_file_to_image(cub->mlx->ptr,line[1],&cub->no->x,&cub->no->y);
 		}
 		if (!ft_strncmp(line[0],"SO",2))
 		{
-			cub->so = ft_strdup(line[1]);
+		
+			cub->so->img_xpm =  mlx_xpm_file_to_image(cub->mlx->ptr,line[1],&cub->so->x,&cub->so->y);
 		}
 		if (!ft_strncmp(line[0],"WE",2))
 		{
-			cub->we = ft_strdup(line[1]);
+	
+			//cub->we->img_xpm =  mlx_xpm_file_to_image(cub->mlx->ptr,line[1],&cub->we->x,&cub->we->y);
 		}
 		if (!ft_strncmp(line[0],"EA",2))
 		{
-			cub->ea = ft_strdup(line[1]);
+
+			//cub->ea->img_xpm =  mlx_xpm_file_to_image(cub->mlx->ptr,line[1],&cub->ea->x,&cub->ea->y);
 		}
 		if (!ft_strncmp(line[0],"F",1))
 		{

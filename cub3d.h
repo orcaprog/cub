@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 14:56:05 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/06/22 12:20:33 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/06/22 16:57:09 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,15 @@ typedef struct s_point
 	double y;
 	double r;
 } t_point;
+
+typedef struct s_pos
+{
+	void *img_xpm;
+	int x;
+	int y;
+} t_pos;
+
+
 typedef struct s_info
 {
 	int		width;
@@ -62,10 +71,10 @@ typedef struct s_info
 	double	y;
 	double	p_x;
 	double	p_y;
-	char	*no;
-	char	*so;
-	char	*we;
-	char	*ea;
+	t_pos	*no;
+	t_pos	*so;
+	t_pos	*we;
+	t_pos	*ea;
 	char	**map;
 	char	**map0;
 	double	corner;
