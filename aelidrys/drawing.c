@@ -6,37 +6,60 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 10:29:23 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/06/21 18:20:53 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/06/22 16:42:29 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
-void	draw_walls(t_info *cub, double cor_rad, double r)
+int	get_color(t_data *data, int x, int y)
+{
+	char	*dst;
+	int color = 0;
+
+	if (x < 0 || x >= 100 || y < 0 || y >= 100)
+		return 0;
+	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
+	color = *(int*)dst;
+	return (color);
+}
+
+void	draw_walls(t_info *cub, double cor_rad, t_point p)
 {
 	int	a;
 	int	y;
 	int	i;
 	int start;
+	float grid_y;
 
 	i = 0;
 	y = 500;
-	a = (100/(r * fabs(cos(((cub->r_corner-cub->corner) * M_PI) / 180)))) * 400;
+	a = (100/(p.r * fabs(cos(((cub->r_corner-cub->corner) * M_PI) / 180)))) * 400;
+	double ing = 0;
+	grid_y = 50.0/a;
+	if (a > 500)
+		ing = (a - 500) * grid_y;
 	if (a >= 500)
 		a = 499;
 	start = (1000 - a * 2)/2;
+	cub->width1 = ((int)p.y % 100);
+	printf("width = %lf\n", p.y);
 	while (i <= start)
 	{
 		my_mlx_pixel_put(&cub->img[0], cub->width, i, 2463422);
 		my_mlx_pixel_put(&cub->img[0], cub->width, y + a + i++, 8011295);
 	}
-	if (sin(cor_rad) > 0 && cub->d == 0)
-		while (start < y + a)
-			my_mlx_pixel_put(&cub->img[0], cub->width, start++, 14605267);
+	if (cos(cor_rad)>0 && cub->d == 1){
+
+		while (start < y + a){
+			my_mlx_pixel_put(&cub->img[0], cub->width, start++, get_color(&cub->img[2],cub->width1,ing));
+			ing += grid_y;
+		}
+	}
 	else if (sin(cor_rad)<0 && cub->d == 0)
 		while (start < y + a)
 			my_mlx_pixel_put(&cub->img[0], cub->width, start++, 0x00edd6c0);
-	else if (cos(cor_rad)>0 && cub->d == 1)
+	else if (sin(cor_rad) > 0 && cub->d == 0)
 		while (start < y + a)
 			my_mlx_pixel_put(&cub->img[0], cub->width, start++, 10723998);
 	else
@@ -50,11 +73,15 @@ int	draw_rays(t_info *cub, double cor_rd, int color)
 	cor_rd = cub->corner + 30;
 	cub->r_corner = cub->corner - 30;
 	cub->width = 0;
+	cub->width1 = 0;
 	while (cor_rd >= cub->r_corner)
 	{
 		draw_ray(cub, 0, 0, color);
 		cub->r_corner += 0.05;
-		cub->width++ ;
+		cub->width++;
+		cub->width1++;
+		if (cub->width1 == 100)
+			cub->width1 = 0;
 	}
 	return (0);
 }
@@ -78,7 +105,7 @@ void	draw_ray(t_info *cub, int ri, int rf, int color)
 		cub->d = 0;
 	if ((p1.r) > (p2.r)){
 		cub->d = 1;
-		p1.r = p2.r;
+		p1 = p2;
 	}
 	rf = p1.r;
 	x = cub->x + 5 * cos(cor_rd);
@@ -96,7 +123,7 @@ void	draw_ray(t_info *cub, int ri, int rf, int color)
 	//2463422 blue
 	//8403230 maron
 	//14605267 gree
-	draw_walls(cub,cor_rd,p1.r);
+	draw_walls(cub,cor_rd,p1);
 }
 
 int	a_event(int key, t_info *cub)
@@ -121,16 +148,19 @@ int	a_event(int key, t_info *cub)
 	return (0);
 }
 
+
 void	draw_simple_map(t_info *cub)
 {
 	int x = 0;
 	int y = 0;
+	// t_data	img1;
 
 	y = 0;
 	while (cub->map[y] && y < 6)
 	{
 		x = 0;
-		while (cub->map[y][x]){
+		while (cub->map[y][x])
+		{
 			if (cub->map[y][x] == '1')
 				mlx_put_image_to_window(cub->mlx->ptr, cub->mlx->win,
 					cub->mlx->img_b, x * 100, y * 100);

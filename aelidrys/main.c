@@ -6,7 +6,7 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 10:26:03 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/06/21 18:01:34 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/06/22 15:45:29 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int main(int ac, char **av)
 	(void)av;
 	t_info	*cub = malloc(sizeof(t_info));
 	cub->mlx = malloc(sizeof(t_mlx));
-	cub->img = malloc(sizeof(t_data) * 2);
+	cub->img = malloc(sizeof(t_data) * 3);
 	cub->no = "box.xpm";
 	cub->so = "bkgrnd.xpm";
 	cub->map0 = get_map(av[1]);
@@ -48,10 +48,13 @@ int main(int ac, char **av)
 	cub->mlx->win = mlx_new_window(cub->mlx->ptr, 1200, 1000, "CUB");
 	cub->mlx->img_b = mlx_xpm_file_to_image(cub->mlx->ptr, cub->no, &ac, &ac);
 	cub->mlx->img_n = mlx_xpm_file_to_image(cub->mlx->ptr, cub->so, &ac, &ac);
+	cub->img[2].img = mlx_xpm_file_to_image(cub->mlx->ptr, "W1.xpm", &ac, &ac);
 	if (!cub->mlx->img_b || !cub->mlx->img_n)
 		ft_error();
 	cub->img[0].img = mlx_new_image(cub->mlx->ptr, 1200,1000);
 	cub->img[1].img = mlx_new_image(cub->mlx->ptr, 1200,1000);
+	cub->img[2].addr =  mlx_get_data_addr(cub->img[2].img, &cub->img[2].bits_per_pixel,
+		&cub->img[2].line_length, &cub->img[2].endian);
 	cub->img[0].addr = mlx_get_data_addr(cub->img[0].img, &cub->img[0].bits_per_pixel,&cub->img[0].line_length, &cub->img[0].endian);
 	cub->img[1].addr = mlx_get_data_addr(cub->img[1].img, &cub->img[1].bits_per_pixel,&cub->img[1].line_length, &cub->img[1].endian);
 	draw_simple_map(cub);
