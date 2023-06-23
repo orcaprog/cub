@@ -6,7 +6,7 @@
 /*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 14:42:41 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/21 18:32:30 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/06/23 11:21:40 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,11 +73,11 @@ void    move_right(t_info *data)
     //         if (prm_moves(data->map,((data->x + 5) / 100),((data->y )/ 100)) || prm_moves(data->map,((data->x + 5) / 100),((data->y )/ 100) - 1))
     //             check = 0;
     //     }
-    if (prm_moves(data->map,((data->x ) / 100),((data->y - sin(cor_rd) * MOVE_SPEED)/ 100)))
+    if (prm_moves(data->map,((data->x ) / 100),((data->y -  MOVE_SPEED)/ 100)))
     {
         check = 0;        
     }
-    if (prm_moves(data->map,((data->x + cos(cor_rd) * MOVE_SPEED) / 100),((data->y )/ 100)))
+    if (prm_moves(data->map,((data->x +  MOVE_SPEED) / 100),((data->y )/ 100)))
     {
         check = 0;        
     }
@@ -105,9 +105,9 @@ void    move_left(t_info *data)
     //                 || prm_moves(data->map,((data->x  - 5 - 1)  / 100),((data->y)/ 100) - 1))
     //             check = 0;
     //     }
-    if (prm_moves(data->map,((data->x)  / 100),((data->y - sin(cor_rd) * MOVE_SPEED)/ 100)))
+    if (prm_moves(data->map,((data->x)  / 100),((data->y - MOVE_SPEED)/ 100)))
         check = 0;    
-    if (prm_moves(data->map,((data->x + cos(cor_rd) * MOVE_SPEED)  / 100),((data->y )/ 100)))
+    if (prm_moves(data->map,((data->x +  MOVE_SPEED)  / 100),((data->y )/ 100)))
         check = 0;        
     // }
     if (check)
@@ -133,11 +133,11 @@ void    move_down(t_info *data)
     //         if (prm_moves(data->map,((data->x ) / 100),((data->y  + 5)/ 100)) || prm_moves(data->map,((data->x ) / 100) - 1,((data->y  + 5)/ 100)))
     //             check = 0;
     //     }
-        if (prm_moves(data->map,((data->x ) / 100),((data->y + sin(cor_rd) * MOVE_SPEED)/ 100)))
+        if (prm_moves(data->map,((data->x ) / 100),((data->y + MOVE_SPEED)/ 100)))
         {
             check = 0;        
         }
-        if (prm_moves(data->map,((data->x - cos(cor_rd) * MOVE_SPEED) / 100),((data->y )/ 100)))
+        if (prm_moves(data->map,((data->x -  MOVE_SPEED) / 100),((data->y )/ 100)))
         {
             check = 0;        
         }
@@ -167,11 +167,11 @@ void    move_up(t_info *data)
         //     if (prm_moves(data->map,((data->x ) / 100),((data->y - sin(cor_rd) * MOVE_SPEED -1)/ 100) ) || prm_moves(data->map,((data->x ) / 100) - 1,((data->y  - 5 - 1)/ 100)))
         //         check = 0;
         // }
-        if (prm_moves(data->map,((data->x) / 100),((data->y - sin(cor_rd) * MOVE_SPEED)/ 100)))
+        if (prm_moves(data->map,((data->x) / 100),((data->y - MOVE_SPEED)/ 100)))
         {
             check = 0;        
         }
-       if (prm_moves(data->map,((data->x + cos(cor_rd) * MOVE_SPEED) / 100),((data->y )/ 100)))
+       if (prm_moves(data->map,((data->x + MOVE_SPEED) / 100),((data->y )/ 100)))
         {
             check = 0;        
         }
