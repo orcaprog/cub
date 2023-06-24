@@ -6,7 +6,7 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 08:58:20 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/06/24 13:04:05 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/06/24 17:28:24 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,8 +111,6 @@ t_point		det_coord_x(t_info *cub, double cor_rd, int k[2])
 		{
 			p.y = (floor(p.y / 100) * 100) + 100;
 			p.x = cub->x - ((p.y - cub->y) / tan(cor_rd));
-			// if ((int)p.x % 100 >= 98)
-			// 	p.x = (floor(p.x / 100) * 100) + 100;
 		}
 		if (cub->y_d == -1)
 		{
@@ -120,8 +118,6 @@ t_point		det_coord_x(t_info *cub, double cor_rd, int k[2])
 			p.y -= 100;
 			p.x = cub->x + ((cub->y - p.y) / tan(cor_rd));
 		}
-		// if (cub->x_d == -1)
-		// 	k[0] = 1;
 		if (/*!is_in_wall(cub, p, k, cub->y_d) ||*/ !is_coord_in_map_range(cub,p.x - (100 * k[0]) , p.y - (100 * k[1]))
 				|| prm_moves(cub->map,(p.x / 100) - k[0],(p.y / 100) - k[1]))
 			break;

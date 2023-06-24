@@ -6,21 +6,21 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 10:29:23 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/06/24 13:15:29 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/06/24 17:38:24 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
 
-int	get_color(t_img *data, int x, int y)
+int	get_color(t_img *img, int x, int y)
 {
 	char	*dst;
 	int color = 0;
 
-	if (x < 0 || x >= 100 || y < 0 || y >= 100)
+	if (x < 0 || x >= img->width || y < 0 || y >= img->heigth)
 		return 0;
-	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
+	dst = img->addr + (y * img->line_length + x * (img->bits_per_pixel / 8));
 	color = *(int*)dst;
 	return (color);
 }
@@ -32,19 +32,22 @@ void	draw_walls(t_info *cub, double cor_rad, t_point p)
 	int start;
 
 	i = 0;
-	// heigth_of_win/2 = 500
 	a = (100/(p.r * fabs(cos(((cub->r_corner-cub->corner) * M_PI) / 180)))) * 400;
-	if (cub->d == 1)
-		draw_vertical_walls(cub, p, cor_rad, a);
-	if (cub->d == 0)
-		draw_horizontal_walls(cub, p, cor_rad, a);
+	if (sin(cor_rad) > 0 && cub->d == 0)
+		draw_north_walls(cub, p, a);
+	if (sin(cor_rad) < 0 && cub->d == 0)
+		draw_south_walls(cub, p, a);
+	if (cos(cor_rad) < 0 && cub->d == 1)
+		draw_east_walls(cub, p, a);
+	if (cos(cor_rad) > 0 && cub->d == 1)
+		draw_west_walls(cub, p, a);
 	if (a >= 500)
-		a = 499;
-	start = (1000 - a * 2)/2;
+		a = 500;
+	start = (1000 - a * 2) / 2;
 	while (i <= start)
 	{
-		my_mlx_pixel_put(&cub->img[0], cub->width, i, 2463422);
-		my_mlx_pixel_put(&cub->img[0], cub->width, 500 + a + i++, 8011295);
+		my_mlx_pixel_put(cub->big_img, cub->width, i, 2463422);
+		my_mlx_pixel_put(cub->big_img, cub->width, 500 + a + i++, 8011295);
 	}
 }
 
@@ -69,21 +72,21 @@ int	draw_rays(t_info *cub, double corner)
 
 t_point	draw_ray(t_info *cub, double cor_rad)
 {
-	t_point	p1;
-	t_point	p2;
+	t_point	px;
+	t_point	py;
 	int k[2];
 
 	det_direction(cub, cor_rad);
-	p1 = det_coord_x(cub, cor_rad,k);
-	p2 = det_coord_y(cub, cor_rad,k);
-	if (p2.r > p1.r)
+	px = det_coord_x(cub, cor_rad,k);
+	py = det_coord_y(cub, cor_rad,k);
+	if (py.r > px.r)
 		cub->d = 0;
-	if (p1.r > p2.r)
+	if (px.r > py.r)
 	{
 		cub->d = 1;
-		p1 = p2;
+		px = py;
 	}
-	return (p1);
+	return (px);
 	// rf = p1.r;
 	// x = cub->x + 5 * cos(cor_rd);
 	// y = cub->y - 5 * sin(cor_rd);
@@ -123,26 +126,26 @@ void	draw_simple_map(t_info *cub)
 {
 	int x = 0;
 	int y = 0;
-	// t_img	img1;
 
 	y = 0;
-	while (cub->map[y] && y < 6)
-	{
-		x = 0;
-		while (cub->map[y][x])
-		{
-			if (cub->map[y][x] == '1')
-				mlx_put_image_to_window(cub->mlx->ptr, cub->mlx->win,
-					cub->mlx->img_b, x * 100, y * 100);
-			if (cub->map[y][x] != '1')
-				mlx_put_image_to_window(cub->mlx->ptr, cub->mlx->win,
-					cub->mlx->img_n, x * 100, y * 100);
-			x++;
-		}
-		y++;
-	}
+	x = 0;
+	// while (cub->map[y] && y < 6)
+	// {
+	// 	x = 0;
+	// 	while (cub->map[y][x])
+	// 	{
+	// 		if (cub->map[y][x] == '1')
+	// 			mlx_put_image_to_window(cub->mlx->ptr, cub->mlx->win,
+	// 				cub->mlx->img_b, x * 100, y * 100);
+	// 		if (cub->map[y][x] != '1')
+	// 			mlx_put_image_to_window(cub->mlx->ptr, cub->mlx->win,
+	// 				cub->mlx->img_n, x * 100, y * 100);
+	// 		x++;
+	// 	}
+	// 	y++;
+	// }
 	draw_rays(cub, 0);
 	// put_pix(cub,&cub->img[1],14753280);
-	mlx_put_image_to_window(cub->mlx->ptr, cub->mlx->win, cub->img[0].ptr, 0, 0);
+	mlx_put_image_to_window(cub->mlx->ptr, cub->mlx->win, cub->big_img->ptr, 0, 0);
 	// mlx_put_image_to_window(cub->mlx->ptr, cub->mlx->win, cub->img[1].ptr, 0, 0);
 }

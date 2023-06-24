@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 14:56:05 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/06/24 13:46:16 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/06/24 17:37:53 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,13 +113,15 @@ void	draw_simple_map(t_info *cub);
 int		a_event(int key, t_info *cub);
 int		check_first_element(char **arry);
 t_point	draw_ray(t_info *cub, double cor_rd);
+int		get_color(t_img *data, int x, int y);
 int		draw_rays(t_info *cub, double cor_rd);
 void	det_direction(t_info *cub, double cor_rd);
+void	draw_east_walls(t_info *cub, t_point p, int a);
+void	draw_west_walls(t_info *cub, t_point p, int a);
+void	draw_south_walls(t_info *cub, t_point p, int a);
+void	draw_north_walls(t_info *cub, t_point p, int a);
 t_point	det_coord_x(t_info *cub, double cor_rd, int k[2]);
 t_point	det_coord_y(t_info *cub, double cor_rad, int k[2]);
 int		is_coord_in_map_range(t_info *cub, double x, double y);
-int		get_color(t_img *data, int x, int y);
-void	draw_vertical_walls(t_info *cub, t_point p, double cor_rad, int a);
-void	draw_horizontal_walls(t_info *cub, t_point p, double cor_rad, int a);
 
 #endif

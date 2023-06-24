@@ -3,7 +3,7 @@ NAME = cub3d
 SRC = ../abouassi/cub3D.c ../abouassi/moves.c ../abouassi/functions_mlx.c\
 ../abouassi/cub3D_parce.c ../abouassi/free_err.c ../abouassi/cub_tool1.c\
 string_action.c parce_first_element.c main.c drawing_walls.c\
-drawing.c det_coord.c\
+drawing.c det_coord.c ../abouassi/linked.c\
 
 
 OBJ = ${SRC:.c=.o}
