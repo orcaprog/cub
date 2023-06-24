@@ -6,7 +6,7 @@
 /*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 10:27:39 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/22 17:14:28 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/06/23 11:14:22 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,12 +117,12 @@ void store_info(char **map, t_info *cub)
 		if (!ft_strncmp(line[0],"NO",2))
 		{
 		
-			cub->no->img_xpm =  mlx_xpm_file_to_image(cub->mlx->ptr,line[1],&cub->no->x,&cub->no->y);
+			//cub->no->img_xpm =  mlx_xpm_file_to_image(cub->mlx->ptr,line[1],&cub->no->x,&cub->no->y);
 		}
 		if (!ft_strncmp(line[0],"SO",2))
 		{
 		
-			cub->so->img_xpm =  mlx_xpm_file_to_image(cub->mlx->ptr,line[1],&cub->so->x,&cub->so->y);
+			//cub->so->img_xpm =  mlx_xpm_file_to_image(cub->mlx->ptr,line[1],&cub->so->x,&cub->so->y);
 		}
 		if (!ft_strncmp(line[0],"WE",2))
 		{
