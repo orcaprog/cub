@@ -6,11 +6,12 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 10:29:23 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/06/24 11:07:06 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/06/24 13:04:01 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
+
 
 int	get_color(t_img *data, int x, int y)
 {

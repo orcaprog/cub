@@ -6,7 +6,7 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 08:58:20 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/06/24 06:27:50 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/06/24 13:04:05 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,6 @@ t_point	det_coord_y(t_info *cub, double cor_rad, int k[2])
 	det_distance_r(&p,cub);
 	return (p);
 }
-
 
 t_point		det_coord_x(t_info *cub, double cor_rd, int k[2])
 {
