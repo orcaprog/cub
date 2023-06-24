@@ -6,7 +6,7 @@
 /*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 14:42:41 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/23 18:20:29 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/06/24 11:27:55 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int prm_moves(char **map,int x ,int y)
     
 }
 
-void    put_pix(t_info *cub,t_data *img, int color)
+void    put_pix(t_info *cub,t_img*img, int color)
 {
     my_mlx_pixel_put(img, cub->x  , cub->y, color);
 	my_mlx_pixel_put(img, cub->x  - 1, cub->y, color);

@@ -6,7 +6,7 @@
 /*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 14:45:40 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/17 22:30:11 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/06/23 11:25:01 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,25 +50,25 @@ void	draw_ray2(t_info *cub, int o, int color)
 	}
 }
 
-int	a_event1(int key, t_info *cub)
-{
-	draw_ray2(cub, 0, 0);
-	input_key(key, cub);
-	 draw_ray2(cub, 0, 16777215);
-	if (key == 124)
-	{
-		draw_ray2(cub, 0, 0);
-		cub->corner--;
-		draw_ray2(cub, 0, 16777215);
-	}
-	if (key == 123)
-	{
-		 draw_ray2(cub, 0, 0);
-		cub->corner++;
-		 draw_ray2(cub, 1, 16777215);
-	}
-	return (0);
-}
+// int	a_event1(int key, t_info *cub)
+// {
+// 	draw_ray2(cub, 0, 0);
+// 	input_key(key, cub);
+// 	 draw_ray2(cub, 0, 16777215);
+// 	if (key == 124)
+// 	{
+// 		draw_ray2(cub, 0, 0);
+// 		cub->corner--;
+// 		draw_ray2(cub, 0, 16777215);
+// 	}
+// 	if (key == 123)
+// 	{
+// 		 draw_ray2(cub, 0, 0);
+// 		cub->corner++;
+// 		 draw_ray2(cub, 1, 16777215);
+// 	}
+// 	return (0);
+// }
 
 t_point	point_x_y(t_info *data)
 {
