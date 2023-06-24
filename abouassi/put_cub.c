@@ -6,7 +6,7 @@
 /*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 11:26:06 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/24 13:13:28 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/06/24 14:50:34 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,14 +47,14 @@ void draw_mini_ray(t_info  *cub)
 	r = 0;
 	while (cor_l <= cor_r)
 	{
-		while (r <= 10)
+		while (r <= 40)
 		{
+			my_mlx_pixel_put(cub->big_img,  x, y, 0x00FF96FF);
 			x = x + cos(cor_l) * 5;
 			y = y  - sin(cor_l) * 5;
-			my_mlx_pixel_put(&cub->img[1],  x, y, 0x00FF96FF);
 			r = sqrt(pow(floor(cub->x - x),2) + pow(floor(cub->y - y),2));
 		}
-		cor_l += 0.10;
+		cor_l += 0.50;
 	}
 	
 	
@@ -79,7 +79,7 @@ void print_image_square( t_info *data,int x, int y)
 		j = x;
 		while(j < x +100)
 		{
-			my_mlx_pixel_put(&data->img[1],j,i ,0x00FF96FF);
+			my_mlx_pixel_put(data->big_img,j,i ,0x00FF96FF);
 			j++;
 		}
 		i++;
@@ -100,7 +100,7 @@ void	draw_simple_map1(t_info *cub)
 		x = 0;
 		while (x < 1000)
 		{
-			my_mlx_pixel_put(&cub->img[1],x ,y ,0x001637FF);
+			my_mlx_pixel_put(cub->big_img,x ,y ,0x001637FF);
 			x++;
 		}
 		y++;
@@ -121,10 +121,10 @@ void	draw_simple_map1(t_info *cub)
 		}
 		y++;
 	}
-	//draw_mini_ray(cub, 0, 16777215);
-	put_pix(cub,&cub->img[1],14753280);
+	draw_mini_ray(cub);
+	put_pix(cub,cub->big_img,14753280);
 	//mlx_put_image_to_window(cub->mlx->ptr, cub->mlx->win, cub->img[0].img, 0,500);
-	mlx_put_image_to_window(cub->mlx->ptr, cub->mlx->win, cub->img[1].ptr, 0,0);
+	mlx_put_image_to_window(cub->mlx->ptr, cub->mlx->win, cub->big_img->ptr, 0,0);
 	//raw_rays(cub, 0, 16777215);
 	
 }

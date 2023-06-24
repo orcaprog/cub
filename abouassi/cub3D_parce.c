@@ -6,7 +6,7 @@
 /*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 10:27:39 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/23 11:14:22 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/06/24 13:56:50 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,38 +110,23 @@ void store_info(char **map, t_info *cub)
 {
 	int i;
 	char **line;
+	cub->img = NULL;
 	i = 0;
 	while (i < 6)
 	{
 		line = get_element(map[i]);
 		if (!ft_strncmp(line[0],"NO",2))
-		{
-		
-			//cub->no->img_xpm =  mlx_xpm_file_to_image(cub->mlx->ptr,line[1],&cub->no->x,&cub->no->y);
-		}
+			add_img(&cub->img,new_img(cub,line[1],'N'));
 		if (!ft_strncmp(line[0],"SO",2))
-		{
-		
-			//cub->so->img_xpm =  mlx_xpm_file_to_image(cub->mlx->ptr,line[1],&cub->so->x,&cub->so->y);
-		}
+			add_img(&cub->img,new_img(cub,line[1],'S'));
 		if (!ft_strncmp(line[0],"WE",2))
-		{
-	
-			//cub->we->img_xpm =  mlx_xpm_file_to_image(cub->mlx->ptr,line[1],&cub->we->x,&cub->we->y);
-		}
+			add_img(&cub->img,new_img(cub,line[1],'W'));
 		if (!ft_strncmp(line[0],"EA",2))
-		{
-
-			//cub->ea->img_xpm =  mlx_xpm_file_to_image(cub->mlx->ptr,line[1],&cub->ea->x,&cub->ea->y);
-		}
+			add_img(&cub->img,new_img(cub,line[1],'E'));
 		if (!ft_strncmp(line[0],"F",1))
-		{
 			cub->f = my_color(line[1]);
-		}
 		if (!ft_strncmp(line[0],"C",1))
-		{
 			cub->c = my_color(line[1]);
-		}
 		ft_free(line);
 		i++;
 	}

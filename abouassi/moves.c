@@ -6,7 +6,7 @@
 /*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 14:42:41 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/24 11:27:55 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/06/24 14:45:31 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,10 +131,10 @@ void    move_right(t_info *data)
     // }
     if (check)
     {
-        put_pix(data,&data->img[1],0x001637FF);
+    
         data->x = data->x + cos(cor_rd) * grid;
        data->y = data->y - sin(cor_rd) * grid;
-        put_pix(data,&data->img[1],14753280);
+        put_pix(data,data->big_img,14753280);
     }   
 }
 void    move_left(t_info *data)
@@ -179,10 +179,10 @@ void    move_left(t_info *data)
     // }
     if (check)
     {
-        put_pix(data,&data->img[1],0x001637FF);
+
         data->x = data->x + cos(cor_rd) * grid;
         data->y = data->y - sin(cor_rd) * grid;
-        put_pix(data,&data->img[1],14753280);
+        put_pix(data,data->big_img,14753280);
     }
     
 }
@@ -228,10 +228,10 @@ void    move_down(t_info *data)
         // }
     if (check)
     {
-        put_pix(data,&data->img[1],0x001637FF);
+  
         data->y = data->y - sin(cor_rd) * grid;
         data->x = data->x + cos(cor_rd) * grid;
-        put_pix(data,&data->img[1],14753280);
+        put_pix(data,data->big_img,14753280);
     }	
  
     
@@ -282,9 +282,9 @@ void    move_up(t_info *data)
    // }
     if (check)
     {
-        put_pix(data,&data->img[1],0x001637FF);
+      
         data->y = data->y - sin(cor_rd) * grid;
         data->x = data->x + cos(cor_rd) * grid;
-        put_pix(data,&data->img[1],14753280);
+        put_pix(data,data->big_img,14753280);
     }   
 }
