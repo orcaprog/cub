@@ -6,13 +6,13 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 10:29:23 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/06/22 16:42:29 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/06/24 11:07:06 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
-int	get_color(t_data *data, int x, int y)
+int	get_color(t_img *data, int x, int y)
 {
 	char	*dst;
 	int color = 0;
@@ -27,92 +27,65 @@ int	get_color(t_data *data, int x, int y)
 void	draw_walls(t_info *cub, double cor_rad, t_point p)
 {
 	int	a;
-	int	y;
 	int	i;
 	int start;
-	float grid_y;
 
 	i = 0;
-	y = 500;
+	// heigth_of_win/2 = 500
 	a = (100/(p.r * fabs(cos(((cub->r_corner-cub->corner) * M_PI) / 180)))) * 400;
-	double ing = 0;
-	grid_y = 50.0/a;
-	if (a > 500)
-		ing = (a - 500) * grid_y;
+	if (cub->d == 1)
+		draw_vertical_walls(cub, p, cor_rad, a);
+	if (cub->d == 0)
+		draw_horizontal_walls(cub, p, cor_rad, a);
 	if (a >= 500)
 		a = 499;
 	start = (1000 - a * 2)/2;
-	cub->width1 = ((int)p.y % 100);
-	printf("width = %lf\n", p.y);
 	while (i <= start)
 	{
 		my_mlx_pixel_put(&cub->img[0], cub->width, i, 2463422);
-		my_mlx_pixel_put(&cub->img[0], cub->width, y + a + i++, 8011295);
+		my_mlx_pixel_put(&cub->img[0], cub->width, 500 + a + i++, 8011295);
 	}
-	if (cos(cor_rad)>0 && cub->d == 1){
-
-		while (start < y + a){
-			my_mlx_pixel_put(&cub->img[0], cub->width, start++, get_color(&cub->img[2],cub->width1,ing));
-			ing += grid_y;
-		}
-	}
-	else if (sin(cor_rad)<0 && cub->d == 0)
-		while (start < y + a)
-			my_mlx_pixel_put(&cub->img[0], cub->width, start++, 0x00edd6c0);
-	else if (sin(cor_rad) > 0 && cub->d == 0)
-		while (start < y + a)
-			my_mlx_pixel_put(&cub->img[0], cub->width, start++, 10723998);
-	else
-		while (start < y + a)
-			my_mlx_pixel_put(&cub->img[0], cub->width, start++, 0x00083a4d);
 }
 
-int	draw_rays(t_info *cub, double cor_rd, int color)
+int	draw_rays(t_info *cub, double corner)
 {
-	(void)color;
-	cor_rd = cub->corner + 30;
+	t_point	p;
+	double	cor_rad;
+
+	corner = cub->corner + 30;
 	cub->r_corner = cub->corner - 30;
 	cub->width = 0;
-	cub->width1 = 0;
-	while (cor_rd >= cub->r_corner)
+	while (corner >= cub->r_corner)
 	{
-		draw_ray(cub, 0, 0, color);
+		cor_rad = (M_PI * cub->r_corner) / 180.0000;
+		p = draw_ray(cub, cor_rad);
+		draw_walls(cub,cor_rad, p);
 		cub->r_corner += 0.05;
 		cub->width++;
-		cub->width1++;
-		if (cub->width1 == 100)
-			cub->width1 = 0;
 	}
 	return (0);
 }
 
-void	draw_ray(t_info *cub, int ri, int rf, int color)
+t_point	draw_ray(t_info *cub, double cor_rad)
 {
-	double	x;
-	double	y;
-	double	cor_rd;
 	t_point	p1;
 	t_point	p2;
 	int k[2];
 
-	ri = 0;
-	(void)color;
-	cor_rd = (M_PI * cub->r_corner)/180.0000;
-	det_direction(cub, cor_rd);
-	p1 = det_coord_x(cub, cor_rd,k);
-	p2 = det_coord_y(cub, cor_rd,k);
-	if ((p2.r) > (p1.r))
+	det_direction(cub, cor_rad);
+	p1 = det_coord_x(cub, cor_rad,k);
+	p2 = det_coord_y(cub, cor_rad,k);
+	if (p2.r > p1.r)
 		cub->d = 0;
-	if ((p1.r) > (p2.r)){
+	if (p1.r > p2.r)
+	{
 		cub->d = 1;
 		p1 = p2;
 	}
-	rf = p1.r;
-	x = cub->x + 5 * cos(cor_rd);
-	y = cub->y - 5 * sin(cor_rd);
-	// printf("----p1(%lf,%lf]) ----\n",p1.x,p1.y);
-	// printf("\n----p2(%lf,%lf]) ----\n",p2.x,p2.y);
-	// printf("$$$$p.r = %lf && RF = %d$$$$\n++++++++++++++\n",p1.r,rf);
+	return (p1);
+	// rf = p1.r;
+	// x = cub->x + 5 * cos(cor_rd);
+	// y = cub->y - 5 * sin(cor_rd);
 	// while (ri < rf)
 	// {
 	// 	mlx_pixel_put(cub->mlx->ptr, cub->mlx->win, x, y, color);
@@ -123,26 +96,22 @@ void	draw_ray(t_info *cub, int ri, int rf, int color)
 	//2463422 blue
 	//8403230 maron
 	//14605267 gree
-	draw_walls(cub,cor_rd,p1);
 }
 
 int	a_event(int key, t_info *cub)
 {
 	input_key(key, cub);
-	// mlx_clear_window(cub->mlx->ptr, cub->mlx->win);
 	draw_simple_map(cub);
 	if ((int)cub->corner == 360)
 		cub->corner = 0;
 	if (key == 124)
 	{
 		cub->corner+=10;
-		// mlx_clear_window(cub->mlx->ptr, cub->mlx->win);
 		draw_simple_map(cub);
 	}
 	if (key == 123)
 	{
 		cub->corner-=10;
-		// mlx_clear_window(cub->mlx->ptr, cub->mlx->win);
 		draw_simple_map(cub);
 	}
 	return (0);
@@ -153,7 +122,7 @@ void	draw_simple_map(t_info *cub)
 {
 	int x = 0;
 	int y = 0;
-	// t_data	img1;
+	// t_img	img1;
 
 	y = 0;
 	while (cub->map[y] && y < 6)
@@ -171,7 +140,7 @@ void	draw_simple_map(t_info *cub)
 		}
 		y++;
 	}
-	draw_rays(cub, 0, 16777215);
+	draw_rays(cub, 0);
 	// put_pix(cub,&cub->img[1],14753280);
 	mlx_put_image_to_window(cub->mlx->ptr, cub->mlx->win, cub->img[0].img, 0, 0);
 	// mlx_put_image_to_window(cub->mlx->ptr, cub->mlx->win, cub->img[1].img, 0, 0);

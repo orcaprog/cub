@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 14:56:05 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/06/22 16:57:09 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/06/24 11:09:35 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <math.h>
 # include "libft/libft.h"
 
-# define MOVE_SPEED 16
+# define MOVE_SPEED 20
 typedef struct s_mlx
 {
 	void	*ptr;
@@ -33,14 +33,6 @@ typedef struct s_mlx
 	void	*img_e;
 }	t_mlx;
 
-typedef struct	s_data {
-	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-}				t_data;
-
 typedef struct s_point
 {
 	int		check;
@@ -49,12 +41,17 @@ typedef struct s_point
 	double r;
 } t_point;
 
-typedef struct s_pos
+typedef struct s_img
 {
-	void *img_xpm;
-	int x;
-	int y;
-} t_pos;
+	char	dir;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+	int		width;
+	int		heigth;
+	char	*addr;
+	void	*ptr;
+} t_img;
 
 
 typedef struct s_info
@@ -71,16 +68,12 @@ typedef struct s_info
 	double	y;
 	double	p_x;
 	double	p_y;
-	t_pos	*no;
-	t_pos	*so;
-	t_pos	*we;
-	t_pos	*ea;
+	t_img	*img;
 	char	**map;
 	char	**map0;
 	double	corner;
 	double	r_corner;
 	double	last_r;
-	t_data	*img;
 	t_mlx	*mlx;
 }	t_info;
 
@@ -94,7 +87,7 @@ void	store_info(char **map, t_info *cub);
 int		my_color(char *color);
 void	point_of_view(t_info *data);
 void	cheak_map(char **map);
-void	put_pix(t_info *cub,t_data *img, int color);
+void	put_pix(t_info *cub,t_img *img, int color);
 void	move_right(t_info *data);
 void	move_left(t_info *data);
 void	move_up(t_info *data);
@@ -103,7 +96,7 @@ int		input_key(int key, t_info *data);
 int		prm_moves(char **map,int x ,int y);
 t_point	find_cord_x(t_info *data);
 int		a_event1(int key, t_info *cub);
-void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
+void	my_mlx_pixel_put(t_img *data, int x, int y, int color);
 void	draw_simple_map1(t_info *cub);
 
 // aelidrys
@@ -115,11 +108,14 @@ int		str_comp(char *s1, char *s2);
 void	draw_simple_map(t_info *cub);
 int		a_event(int key, t_info *cub);
 int		check_first_element(char **arry);
-void	draw_ray(t_info *cub, int ri, int rf, int color);
+t_point	draw_ray(t_info *cub, double cor_rd);
+int		draw_rays(t_info *cub, double cor_rd);
 void	det_direction(t_info *cub, double cor_rd);
 t_point	det_coord_x(t_info *cub, double cor_rd, int k[2]);
 t_point	det_coord_y(t_info *cub, double cor_rad, int k[2]);
 int		is_coord_in_map_range(t_info *cub, double x, double y);
-int		draw_rays(t_info *cub, double cor_rd, int color);
+int		get_color(t_img *data, int x, int y);
+void	draw_vertical_walls(t_info *cub, t_point p, double cor_rad, int a);
+void	draw_horizontal_walls(t_info *cub, t_point p, double cor_rad, int a);
 
 #endif
