@@ -6,7 +6,7 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 10:26:03 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/06/24 13:03:57 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/06/24 13:13:27 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,6 @@ int main(int ac, char **av)
 	t_info	*cub = malloc(sizeof(t_info));
 	cub->mlx = malloc(sizeof(t_mlx));
 	cub->img = malloc(sizeof(t_img) * 5);
-	// cub->no = malloc(sizeof(t_pos));
-	// cub->so = malloc(sizeof(t_pos));
-	// cub->ea = malloc(sizeof(t_pos));
-	// cub->we = malloc(sizeof(t_pos));
 	cub->map0 = get_map(av[1]);
 	check_first_element(cub->map0);
 	cub->map = cub->map0+6;
@@ -51,13 +47,13 @@ int main(int ac, char **av)
 	cub->mlx->win = mlx_new_window(cub->mlx->ptr, 1200, 1000, "CUB");
 	cub->mlx->img_b = mlx_xpm_file_to_image(cub->mlx->ptr, "box.xpm", &ac, &ac);
 	cub->mlx->img_n = mlx_xpm_file_to_image(cub->mlx->ptr, "bkgrnd.xpm", &ac, &ac);
-	cub->img[2].img = mlx_xpm_file_to_image(cub->mlx->ptr, "W1.xpm", &ac, &ac);
-	cub->img[3].img = mlx_xpm_file_to_image(cub->mlx->ptr, "W5.xpm", &ac, &ac);
-	cub->img[4].img = mlx_xpm_file_to_image(cub->mlx->ptr, "W3.xpm", &ac, &ac);
+	cub->img[2].ptr = mlx_xpm_file_to_image(cub->mlx->ptr, "W1.xpm", &ac, &ac);
+	cub->img[3].ptr = mlx_xpm_file_to_image(cub->mlx->ptr, "W5.xpm", &ac, &ac);
+	cub->img[4].ptr = mlx_xpm_file_to_image(cub->mlx->ptr, "W3.xpm", &ac, &ac);
 	if (!cub->mlx->img_b || !cub->mlx->img_n)
 		ft_error();
-	cub->img[0].img = mlx_new_image(cub->mlx->ptr, 1200,1000);
-	cub->img[1].img = mlx_new_image(cub->mlx->ptr, 1200,1000);
+	cub->img[0].ptr = mlx_new_image(cub->mlx->ptr, 1200,1000);
+	cub->img[1].ptr = mlx_new_image(cub->mlx->ptr, 1200,1000);
 	cub->img[2].addr =  mlx_get_img_addr(cub->img[2].img, &cub->img[2].bits_per_pixel,
 		&cub->img[2].line_length, &cub->img[2].endian);
 	cub->img[3].addr =  mlx_get_img_addr(cub->img[3].img, &cub->img[3].bits_per_pixel,

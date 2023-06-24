@@ -6,7 +6,7 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 10:29:23 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/06/24 13:04:01 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/06/24 13:15:29 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,6 +143,6 @@ void	draw_simple_map(t_info *cub)
 	}
 	draw_rays(cub, 0);
 	// put_pix(cub,&cub->img[1],14753280);
-	mlx_put_image_to_window(cub->mlx->ptr, cub->mlx->win, cub->img[0].img, 0, 0);
-	// mlx_put_image_to_window(cub->mlx->ptr, cub->mlx->win, cub->img[1].img, 0, 0);
+	mlx_put_image_to_window(cub->mlx->ptr, cub->mlx->win, cub->img[0].ptr, 0, 0);
+	// mlx_put_image_to_window(cub->mlx->ptr, cub->mlx->win, cub->img[1].ptr, 0, 0);
 }
