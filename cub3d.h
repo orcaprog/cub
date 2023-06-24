@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 14:56:05 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/06/24 11:09:35 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/06/24 13:46:16 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ typedef struct s_img
 	int		heigth;
 	char	*addr;
 	void	*ptr;
+	struct s_img *next;
 } t_img;
 
 
@@ -69,6 +70,7 @@ typedef struct s_info
 	double	p_x;
 	double	p_y;
 	t_img	*img;
+	t_img	*big_img;
 	char	**map;
 	char	**map0;
 	double	corner;
@@ -98,6 +100,8 @@ t_point	find_cord_x(t_info *data);
 int		a_event1(int key, t_info *cub);
 void	my_mlx_pixel_put(t_img *data, int x, int y, int color);
 void	draw_simple_map1(t_info *cub);
+t_img	*new_img(t_info *cub,char *str, char c);
+void	add_img(t_img **lst, t_img *new);
 
 // aelidrys
 void	ft_error(void);
