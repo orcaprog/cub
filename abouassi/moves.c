@@ -6,7 +6,7 @@
 /*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 14:42:41 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/24 14:45:31 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/06/25 11:58:06 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void    put_pix(t_info *cub,t_img*img, int color)
 	my_mlx_pixel_put(img, cub->x  + 2, cub->y + 2, color);
    //mlx_put_image_to_window(cub->mlx->ptr, cub->mlx->win, cub->img->img, 0,0);
 }
-void    move_right(t_info *data)
+void    move_right(t_info *data,int size)
 {
     int check;
     check = 1;
@@ -98,8 +98,8 @@ void    move_right(t_info *data)
     double r;
     int grid = MOVE_SPEED;
     det_direction(data, cor_rd);
-	p1 = det_coord_x(data, cor_rd,k);
-	p2 = det_coord_y(data, cor_rd,k);
+	p1 = det_coord_x(data, cor_rd,k,size);
+	p2 = det_coord_y(data, cor_rd,k,size);
     r = p1.r;
 	if ((p2.r) < (p1.r))
     {
@@ -134,10 +134,10 @@ void    move_right(t_info *data)
     
         data->x = data->x + cos(cor_rd) * grid;
        data->y = data->y - sin(cor_rd) * grid;
-        put_pix(data,data->big_img,14753280);
+       // put_pix(data,data->big_img,14753280);
     }   
 }
-void    move_left(t_info *data)
+void    move_left(t_info *data,int size)
 {
     int check;
     check = 1;
@@ -149,8 +149,8 @@ void    move_left(t_info *data)
     double r;
     int grid = MOVE_SPEED;
     det_direction(data, cor_rd);
-	p1 = det_coord_x(data, cor_rd,k);
-	p2 = det_coord_y(data, cor_rd,k);
+	p1 = det_coord_x(data, cor_rd,k,size);
+	p2 = det_coord_y(data, cor_rd,k,size);
     r = p1.r;
 	if ((p2.r) < (p1.r))
     {
@@ -182,11 +182,11 @@ void    move_left(t_info *data)
 
         data->x = data->x + cos(cor_rd) * grid;
         data->y = data->y - sin(cor_rd) * grid;
-        put_pix(data,data->big_img,14753280);
+       // put_pix(data,data->big_img,14753280);
     }
     
 }
-void    move_down(t_info *data)
+void    move_down(t_info *data,int size)
 {
     int check;
     check = 1;
@@ -198,19 +198,19 @@ void    move_down(t_info *data)
     double r;
     int grid = MOVE_SPEED;
     det_direction(data, cor_rd);
-	p1 = det_coord_x(data, cor_rd,k);
-	p2 = det_coord_y(data, cor_rd,k);
+	p1 = det_coord_x(data, cor_rd,k,size);
+	p2 = det_coord_y(data, cor_rd,k,size);
     r = p1.r;
 	if ((p2.r) < (p1.r))
     {
         r = p2.r;
     }
-    printf("r -------> %f\n",r);
+   // printf("r -------> %f\n",r);
     if (r <= 20)
         check = 0; 
     else if (20 > r - MOVE_SPEED)
         grid = r - 20;
-    printf(" move down <<x = %f y = %f>>\n",data->x + cos(cor_rd) * grid ,(data->y - sin(cor_rd) * grid));
+    //printf(" move down <<x = %f y = %f>>\n",data->x + cos(cor_rd) * grid ,(data->y - sin(cor_rd) * grid));
     // if ((int)(data->y + sin(cor_rd) * MOVE_SPEED) % 100 == 0 || (int)(data->x - cos(cor_rd) * MOVE_SPEED) % 100 == 0)
     // {
     //     if ((int)data->x % 100 == 0)
@@ -231,32 +231,32 @@ void    move_down(t_info *data)
   
         data->y = data->y - sin(cor_rd) * grid;
         data->x = data->x + cos(cor_rd) * grid;
-        put_pix(data,data->big_img,14753280);
+       // put_pix(data,data->big_img,14753280);
     }	
  
     
 }
-void    move_up(t_info *data)
+void    move_up(t_info *data,int size)
 {
     int check;
     check = 1;
     double	cor_rd;
     cor_rd = (3.14159265359 * data->corner)/180.0000;
-     printf("move up <<x = %f y = %f>>\n",data->x + cos(cor_rd) * MOVE_SPEED ,data->y - sin(cor_rd) * MOVE_SPEED  );
+    // printf("move up <<x = %f y = %f>>\n",data->x + cos(cor_rd) * MOVE_SPEED ,data->y - sin(cor_rd) * MOVE_SPEED  );
     t_point	p1;
 	t_point	p2;
 	int k[2];
     double r;
     int grid = MOVE_SPEED;
     det_direction(data, cor_rd);
-	p1 = det_coord_x(data, cor_rd,k);
-	p2 = det_coord_y(data, cor_rd,k);
+	p1 = det_coord_x(data, cor_rd,k,size);
+	p2 = det_coord_y(data, cor_rd,k,size);
     r = p1.r;
 	if ((p2.r) < (p1.r))
     {
         r = p2.r;
     }
-    printf("r -------> %f\n",r);
+   // printf("r -------> %f\n",r);
     if (r <= 20)
     {
         check = 0;        
@@ -285,6 +285,6 @@ void    move_up(t_info *data)
       
         data->y = data->y - sin(cor_rd) * grid;
         data->x = data->x + cos(cor_rd) * grid;
-        put_pix(data,data->big_img,14753280);
+       // put_pix(data,data->big_img,14753280);
     }   
 }

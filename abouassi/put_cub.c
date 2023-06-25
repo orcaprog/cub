@@ -6,7 +6,7 @@
 /*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 11:26:06 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/24 14:50:34 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/06/24 16:56:01 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,27 +34,37 @@ int	a_event1(int key, t_info *cub)
 	}
 	return (0);
 }
+void draw_myray(t_info *cub,double corner)
+{
+	int r;
+	double cor_rd;
+	double x;
+	double y;
+	cor_rd = ((M_PI * corner)/180.0000);
+	x = cub->x ;
+	y = cub->y ;
+	r = 0;
+	while (r <= 20 && !prm_moves(cub->map,(int)(x /100),(int)( y/100)))
+	{
+		my_mlx_pixel_put(cub->big_img,  x, y, 16777015);
+		x = x + cos(cor_rd) ;
+		y = y  - sin(cor_rd) ;
+		r++;
+	}
+	
+}
 void draw_mini_ray(t_info  *cub)
 {
 	double cor_l;
 	double cor_r;
 
-	cor_l = ((M_PI * cub->corner - 30)/180.0000);
-	cor_r = ((M_PI * cub->corner + 30)/180.0000);
-	int x =cub->x + cos(cor_l) * 5; ;
-	int y= cub->y - sin(cor_l) * 5;
-	int r;
-	r = 0;
+	cor_l = cub->corner - 30;
+	cor_r = cub->corner + 30;
 	while (cor_l <= cor_r)
 	{
-		while (r <= 40)
-		{
-			my_mlx_pixel_put(cub->big_img,  x, y, 0x00FF96FF);
-			x = x + cos(cor_l) * 5;
-			y = y  - sin(cor_l) * 5;
-			r = sqrt(pow(floor(cub->x - x),2) + pow(floor(cub->y - y),2));
-		}
-		cor_l += 0.50;
+
+		draw_myray(cub,cor_l);
+		cor_l++;
 	}
 	
 	
