@@ -6,7 +6,7 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 14:56:05 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/06/24 17:37:53 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/06/25 11:20:07 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ typedef struct s_img
 
 typedef struct s_info
 {
+	int		size;
 	int		width;
 	double	width1;
 	int		d;
@@ -120,8 +121,8 @@ void	draw_east_walls(t_info *cub, t_point p, int a);
 void	draw_west_walls(t_info *cub, t_point p, int a);
 void	draw_south_walls(t_info *cub, t_point p, int a);
 void	draw_north_walls(t_info *cub, t_point p, int a);
-t_point	det_coord_x(t_info *cub, double cor_rd, int k[2]);
-t_point	det_coord_y(t_info *cub, double cor_rad, int k[2]);
-int		is_coord_in_map_range(t_info *cub, double x, double y);
+t_point	det_coord_x(t_info *cub, double cor_rd, int k[2], int size);
+t_point	det_coord_y(t_info *cub, double cor_rd, int k[2], int size);
+int		is_coord_in_map_range(t_info *cub, double x, double y, int size);
 
 #endif

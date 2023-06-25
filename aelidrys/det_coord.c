@@ -6,22 +6,21 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 08:58:20 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/06/24 17:28:24 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/06/25 11:18:51 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
-int	is_coord_in_map_range(t_info *cub, double x, double y)
+int	is_coord_in_map_range(t_info *cub, double x, double y, int size)
 {
 	double	x1;
 	double	y1;
 
-	x1 = floor(x / 100);
-	y1 = floor(y / 100);
+	x1 = floor(x / size);
+	y1 = floor(y / size);
 	if (y1 <= 0 || x1 <= 0)
 		return (0);
-	// printf("y1 = %lf\n", y1);
 	if (y1 >= size_of_arry(cub->map) - 1 || x1 >= ft_strlen(cub->map[(int)y1]) - 1)
 		return (0);
 	return (1);
@@ -34,92 +33,92 @@ void	det_distance_r(t_point *p, t_info *cub)
 		p->r = p->r + 1 * -1;
 }
 
-void	init_x_y(t_info *cub, t_point *p, int s)
+void	init_x_y(t_info *cub, t_point *p, int s, int size)
 {
 	if (s == 0)
 	{
 		p->x = cub->x;
 		if (cub->x_d == -1)
-			p->x = (floor(cub->x / 100) * 100) + 100;
+			p->x = (floor(cub->x / size) * size) + size;
 	}
 	if (s == 1)
 	{
 		p->y = cub->y;
 		if (cub->y_d == -1)
-			p->y = (floor(cub->y / 100) * 100) + 100;
+			p->y = (floor(cub->y / size) * size) + size;
 	}
 }
 
-int	is_in_wall(t_info *cub, t_point p, int *k, int d1)
-{
-	if ((int)(p.x) % 100 == 0 && (int)(p.y) % 100 == 0 && d1 == -1)
-	{
-		if ((is_coord_in_map_range(cub, p.x - 100, p.y - 100) && prm_moves(cub->map, p.x / 100 - 1, p.y / 100 - 1))
-			|| (is_coord_in_map_range(cub, p.x - 100, p.y) && prm_moves(cub->map, p.x / 100 - 1, p.y / 100)))
-			return (0);
-		k[0] = 0;
-	}
-	if ((int)(p.x) % 100 == 0 && (int)(p.y) % 100 == 0 && d1 == 1)
-	{
-		if ((is_coord_in_map_range(cub, p.x, p.y-100) && prm_moves(cub->map,p.x / 100,(p.y / 100) - 1))
-				|| (is_coord_in_map_range(cub, p.x, p.y) && prm_moves(cub->map,p.x / 100, p.y / 100)))
-			return (0);
-	}
-	return (1);
-}
+// int	is_in_wall(t_info *cub, t_point p, int *k, int d1)
+// {
+// 	if ((int)(p.x) % 100 == 0 && (int)(p.y) % 100 == 0 && d1 == -1)
+// 	{
+// 		if ((is_coord_in_map_range(cub, p.x - 100, p.y - 100, size) && prm_moves(cub->map, p.x / 100 - 1, p.y / 100 - 1))
+// 			|| (is_coord_in_map_range(cub, p.x - 100, p.y, size) && prm_moves(cub->map, p.x / 100 - 1, p.y / 100)))
+// 			return (0);
+// 		k[0] = 0;
+// 	}
+// 	if ((int)(p.x) % 100 == 0 && (int)(p.y) % 100 == 0 && d1 == 1)
+// 	{
+// 		if ((is_coord_in_map_range(cub, p.x, p.y - 100, size) && prm_moves(cub->map,p.x / 100,(p.y / 100) - 1))
+// 				|| (is_coord_in_map_range(cub, p.x, p.y, size) && prm_moves(cub->map,p.x / 100, p.y / 100)))
+// 			return (0);
+// 	}
+// 	return (1);
+// }
 
-t_point	det_coord_y(t_info *cub, double cor_rad, int k[2])
+t_point	det_coord_y(t_info *cub, double cor_rad, int k[2], int size)
 {
 	t_point	p;
 
-	init_x_y(cub,&p,0);
+	init_x_y(cub, &p, 0, size);
 	while (1)
 	{
 		k[0] = 0;
 		k[1] = 0;
 		if (cub->x_d == 1)
 		{
-			p.x = (floor(p.x / 100) * 100) + 100;
+			p.x = (floor(p.x / size) * size) + size;
 			p.y = cub->y - ((p.x - cub->x) * tan(cor_rad));
 		}
 		if (cub->x_d == -1)
 		{
 			k[0] = 1;
-			p.x -=  100;
+			p.x -=  size;
 			p.y = cub->y + ((cub->x - p.x) * tan(cor_rad));
 		}
-		// if ((long)p.y % 100 >= 98)
-		// 	p.y = (floor(p.y / 100) * 100) + 100;
-		if (!is_coord_in_map_range(cub,p.x - (100 * k[0]) ,p.y - (100 * k[1]))
-				|| prm_moves(cub->map,floor(p.x / 100) - k[0],floor(p.y / 100) - k[1]))
+		// if ((long)p.y % size >= 98)
+		// 	p.y = (floor(p.y / size) * size) + size;
+		if (!is_coord_in_map_range(cub,p.x - (size * k[0]) ,p.y - (size * k[1]), size)
+				|| prm_moves(cub->map,floor(p.x / size) - k[0],floor(p.y / size) - k[1]))
 			break;
 	}
 	det_distance_r(&p,cub);
 	return (p);
 }
 
-t_point		det_coord_x(t_info *cub, double cor_rd, int k[2])
+t_point		det_coord_x(t_info *cub, double cor_rd, int k[2], int size)
 {
 	t_point	p;
 
-	init_x_y(cub,&p,1);
+	init_x_y(cub, &p, 1, size);
 	while (1)
 	{
 		k[0] = 0;
 		k[1] = 0;
 		if (cub->y_d == 1)
 		{
-			p.y = (floor(p.y / 100) * 100) + 100;
+			p.y = (floor(p.y / size) * size) + size;
 			p.x = cub->x - ((p.y - cub->y) / tan(cor_rd));
 		}
 		if (cub->y_d == -1)
 		{
 			k[1] = 1;
-			p.y -= 100;
+			p.y -= size;
 			p.x = cub->x + ((cub->y - p.y) / tan(cor_rd));
 		}
-		if (/*!is_in_wall(cub, p, k, cub->y_d) ||*/ !is_coord_in_map_range(cub,p.x - (100 * k[0]) , p.y - (100 * k[1]))
-				|| prm_moves(cub->map,(p.x / 100) - k[0],(p.y / 100) - k[1]))
+		if (!is_coord_in_map_range(cub,p.x - (size * k[0]) , p.y - (size * k[1]), size)
+				|| prm_moves(cub->map,(p.x / size) - k[0],(p.y / size) - k[1]))
 			break;
 	}
 	det_distance_r(&p,cub);

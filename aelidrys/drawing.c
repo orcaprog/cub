@@ -6,7 +6,7 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 10:29:23 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/06/24 17:38:24 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/06/25 11:12:07 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	draw_walls(t_info *cub, double cor_rad, t_point p)
 	int start;
 
 	i = 0;
-	a = (100/(p.r * fabs(cos(((cub->r_corner-cub->corner) * M_PI) / 180)))) * 400;
+	a = (cub->size / (p.r * fabs(cos(((cub->r_corner - cub->corner) * M_PI) / 180)))) * 400;
 	if (sin(cor_rad) > 0 && cub->d == 0)
 		draw_north_walls(cub, p, a);
 	if (sin(cor_rad) < 0 && cub->d == 0)
@@ -61,7 +61,7 @@ int	draw_rays(t_info *cub, double corner)
 	cub->width = 0;
 	while (corner >= cub->r_corner)
 	{
-		cor_rad = (M_PI * cub->r_corner) / 180.0000;
+		cor_rad = (M_PI * cub->r_corner) / 180.0;
 		p = draw_ray(cub, cor_rad);
 		draw_walls(cub,cor_rad, p);
 		cub->r_corner += 0.05;
@@ -147,5 +147,6 @@ void	draw_simple_map(t_info *cub)
 	draw_rays(cub, 0);
 	// put_pix(cub,&cub->img[1],14753280);
 	mlx_put_image_to_window(cub->mlx->ptr, cub->mlx->win, cub->big_img->ptr, 0, 0);
-	// mlx_put_image_to_window(cub->mlx->ptr, cub->mlx->win, cub->img[1].ptr, 0, 0);
+	// void *img = mlx_new_image(cub->mlx->ptr, 300, 210);
+	// mlx_put_image_to_window(cub->mlx->ptr, cub->mlx->win, img, 0, 0);
 }
