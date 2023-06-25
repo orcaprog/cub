@@ -6,7 +6,7 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 10:26:03 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/06/25 13:45:05 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/06/25 18:20:11 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	start_cub(t_info *cub, char **av)
 	cub->mlx->ptr = mlx_init();
 	cub->mlx->win = mlx_new_window(cub->mlx->ptr, 1200, 1000, "CUB");
 	store_info(cub->map0, cub);
-	cub->x = 750;
+	cub->x = 150;
 	cub->y = 150;
 	cub->size = 100;
 	cub->corner = 0;
