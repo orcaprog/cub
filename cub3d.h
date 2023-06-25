@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 14:56:05 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/06/25 11:20:07 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/06/25 11:27:27 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,10 +91,10 @@ int		my_color(char *color);
 void	point_of_view(t_info *data);
 void	cheak_map(char **map);
 void	put_pix(t_info *cub,t_img *img, int color);
-void	move_right(t_info *data);
-void	move_left(t_info *data);
-void	move_up(t_info *data);
-void	move_down(t_info *data);
+void	move_right(t_info *data,int size);
+void	move_left(t_info *data,int size);
+void	move_up(t_info *data,int size);
+void	move_down(t_info *data,int size);
 int		input_key(int key, t_info *data);
 int		prm_moves(char **map,int x ,int y);
 t_point	find_cord_x(t_info *data);
