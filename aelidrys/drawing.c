@@ -6,7 +6,7 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 10:29:23 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/06/25 11:12:07 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/06/25 15:46:21 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	draw_walls(t_info *cub, double cor_rad, t_point p)
 	int start;
 
 	i = 0;
-	a = (cub->size / (p.r * fabs(cos(((cub->r_corner - cub->corner) * M_PI) / 180)))) * 400;
+	a = (cub->size / (p.r * fabs(cos(((cub->r_corner - cub->corner) * M_PI) / 180)))) * 500;
 	if (sin(cor_rad) > 0 && cub->d == 0)
 		draw_north_walls(cub, p, a);
 	if (sin(cor_rad) < 0 && cub->d == 0)
@@ -74,11 +74,11 @@ t_point	draw_ray(t_info *cub, double cor_rad)
 {
 	t_point	px;
 	t_point	py;
-	int k[2];
+	int k = 0;
 
 	det_direction(cub, cor_rad);
-	px = det_coord_x(cub, cor_rad,k);
-	py = det_coord_y(cub, cor_rad,k);
+	px = det_coord_x(cub, cor_rad,k,cub->size);
+	py = det_coord_y(cub, cor_rad,k,cub->size);
 	if (py.r > px.r)
 		cub->d = 0;
 	if (px.r > py.r)

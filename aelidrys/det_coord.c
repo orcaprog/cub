@@ -6,7 +6,7 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 08:58:20 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/06/25 11:18:51 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/06/25 15:46:54 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,15 +67,14 @@ void	init_x_y(t_info *cub, t_point *p, int s, int size)
 // 	return (1);
 // }
 
-t_point	det_coord_y(t_info *cub, double cor_rad, int k[2], int size)
+t_point	det_coord_y(t_info *cub, double cor_rad, int k, int size)
 {
 	t_point	p;
 
 	init_x_y(cub, &p, 0, size);
 	while (1)
 	{
-		k[0] = 0;
-		k[1] = 0;
+		k = 0;
 		if (cub->x_d == 1)
 		{
 			p.x = (floor(p.x / size) * size) + size;
@@ -83,29 +82,26 @@ t_point	det_coord_y(t_info *cub, double cor_rad, int k[2], int size)
 		}
 		if (cub->x_d == -1)
 		{
-			k[0] = 1;
+			k = 1;
 			p.x -=  size;
 			p.y = cub->y + ((cub->x - p.x) * tan(cor_rad));
 		}
-		// if ((long)p.y % size >= 98)
-		// 	p.y = (floor(p.y / size) * size) + size;
-		if (!is_coord_in_map_range(cub,p.x - (size * k[0]) ,p.y - (size * k[1]), size)
-				|| prm_moves(cub->map,floor(p.x / size) - k[0],floor(p.y / size) - k[1]))
+		if (!is_coord_in_map_range(cub,p.x - (size * k) ,p.y, size)
+				|| prm_moves(cub->map,floor(p.x / size) - k,floor(p.y / size)))
 			break;
 	}
 	det_distance_r(&p,cub);
 	return (p);
 }
 
-t_point		det_coord_x(t_info *cub, double cor_rd, int k[2], int size)
+t_point		det_coord_x(t_info *cub, double cor_rd, int k, int size)
 {
 	t_point	p;
 
 	init_x_y(cub, &p, 1, size);
 	while (1)
 	{
-		k[0] = 0;
-		k[1] = 0;
+		k = 0;
 		if (cub->y_d == 1)
 		{
 			p.y = (floor(p.y / size) * size) + size;
@@ -113,12 +109,12 @@ t_point		det_coord_x(t_info *cub, double cor_rd, int k[2], int size)
 		}
 		if (cub->y_d == -1)
 		{
-			k[1] = 1;
+			k = 1;
 			p.y -= size;
 			p.x = cub->x + ((cub->y - p.y) / tan(cor_rd));
 		}
-		if (!is_coord_in_map_range(cub,p.x - (size * k[0]) , p.y - (size * k[1]), size)
-				|| prm_moves(cub->map,(p.x / size) - k[0],(p.y / size) - k[1]))
+		if (!is_coord_in_map_range(cub,p.x , p.y - (size * k), size)
+				|| prm_moves(cub->map,(p.x / size),(p.y / size) - k))
 			break;
 	}
 	det_distance_r(&p,cub);
