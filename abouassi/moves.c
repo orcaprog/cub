@@ -6,7 +6,7 @@
 /*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 14:42:41 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/25 11:58:06 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/06/25 16:17:38 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,12 +94,11 @@ void    move_right(t_info *data,int size)
     cor_rd = ((3.14159265359 * (data->corner + 90))/180.0000);
     t_point	p1;
 	t_point	p2;
-	int k[2];
     double r;
     int grid = MOVE_SPEED;
     det_direction(data, cor_rd);
-	p1 = det_coord_x(data, cor_rd,k,size);
-	p2 = det_coord_y(data, cor_rd,k,size);
+	p1 = det_coord_x(data, cor_rd,0,size);
+	p2 = det_coord_y(data, cor_rd,0,size);
     r = p1.r;
 	if ((p2.r) < (p1.r))
     {
@@ -145,12 +144,11 @@ void    move_left(t_info *data,int size)
     cor_rd = ((3.14159265359 * (data->corner - 90))/180.0000) ;
     t_point	p1;
 	t_point	p2;
-	int k[2];
     double r;
     int grid = MOVE_SPEED;
     det_direction(data, cor_rd);
-	p1 = det_coord_x(data, cor_rd,k,size);
-	p2 = det_coord_y(data, cor_rd,k,size);
+	p1 = det_coord_x(data, cor_rd,0,size);
+	p2 = det_coord_y(data, cor_rd,0,size);
     r = p1.r;
 	if ((p2.r) < (p1.r))
     {
@@ -194,12 +192,11 @@ void    move_down(t_info *data,int size)
     cor_rd = ((M_PI * (data->corner - 180))/180.0000);
     t_point	p1;
 	t_point	p2;
-	int k[2];
     double r;
     int grid = MOVE_SPEED;
     det_direction(data, cor_rd);
-	p1 = det_coord_x(data, cor_rd,k,size);
-	p2 = det_coord_y(data, cor_rd,k,size);
+	p1 = det_coord_x(data, cor_rd,0,size);
+	p2 = det_coord_y(data, cor_rd,0,size);
     r = p1.r;
 	if ((p2.r) < (p1.r))
     {
@@ -245,12 +242,11 @@ void    move_up(t_info *data,int size)
     // printf("move up <<x = %f y = %f>>\n",data->x + cos(cor_rd) * MOVE_SPEED ,data->y - sin(cor_rd) * MOVE_SPEED  );
     t_point	p1;
 	t_point	p2;
-	int k[2];
     double r;
     int grid = MOVE_SPEED;
     det_direction(data, cor_rd);
-	p1 = det_coord_x(data, cor_rd,k,size);
-	p2 = det_coord_y(data, cor_rd,k,size);
+	p1 = det_coord_x(data, cor_rd,0,size);
+	p2 = det_coord_y(data, cor_rd,0,size);
     r = p1.r;
 	if ((p2.r) < (p1.r))
     {

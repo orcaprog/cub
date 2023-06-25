@@ -6,7 +6,7 @@
 /*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 11:54:43 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/24 13:59:10 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/06/25 16:31:59 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ int main(int ac , char **av)
 	char **map;
 	t_info *cub;
 
+	//30   -->    x
+	//100 --->  750
 	
 	cub = malloc(sizeof(t_info));
 	cub->mlx = malloc(sizeof(t_mlx));
