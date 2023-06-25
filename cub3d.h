@@ -6,7 +6,7 @@
 /*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 14:56:05 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/06/25 16:27:34 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/06/25 18:52:03 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,8 @@ typedef struct s_img
 typedef struct s_info
 {
 	int		size;
-	int		mini_x;
-	int		mini_y;
+	double	mini_x;
+	double		mini_y;
 	int		width;
 	double	width1;
 	int		d;
@@ -97,6 +97,10 @@ void	move_right(t_info *data,int size);
 void	move_left(t_info *data,int size);
 void	move_up(t_info *data,int size);
 void	move_down(t_info *data,int size);
+void	mini_move_right(t_info *data,int m_grid ,int check,double cor_rd);
+void	mini_move_left(t_info *data,int m_grid ,int check,double cor_rd);
+void	mini_move_up(t_info *data,int m_grid ,int check,double cor_rd);
+void	mini_move_down(t_info *data,int m_grid ,int check,double cor_rd);
 int		input_key(int key, t_info *data);
 int		prm_moves(char **map,int x ,int y);
 t_point	find_cord_x(t_info *data);

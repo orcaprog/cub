@@ -6,7 +6,7 @@
 /*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 14:42:41 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/25 16:17:38 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/06/25 18:47:13 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,36 +53,36 @@ int prm_moves(char **map,int x ,int y)
 
 void    put_pix(t_info *cub,t_img*img, int color)
 {
-    my_mlx_pixel_put(img, cub->x  , cub->y, color);
-	my_mlx_pixel_put(img, cub->x  - 1, cub->y, color);
-	my_mlx_pixel_put(img, cub->x  + 1, cub->y, color);
-	my_mlx_pixel_put(img, cub->x , cub->y - 1, color);
-	my_mlx_pixel_put(img, cub->x , cub->y + 1, color);
+    my_mlx_pixel_put(img, cub->mini_x  , cub->mini_y, color);
+	my_mlx_pixel_put(img, cub->mini_x  - 1, cub->mini_y, color);
+	my_mlx_pixel_put(img, cub->mini_x  + 1, cub->mini_y, color);
+	my_mlx_pixel_put(img, cub->mini_x , cub->mini_y - 1, color);
+	my_mlx_pixel_put(img, cub->mini_x , cub->mini_y + 1, color);
 	
-	my_mlx_pixel_put(img, cub->x  - 1, cub->y - 1, color);
-	my_mlx_pixel_put(img, cub->x  - 1, cub->y + 1, color);
-	my_mlx_pixel_put(img, cub->x  + 1, cub->y - 1, color);
-	my_mlx_pixel_put(img, cub->x  + 1, cub->y + 1, color);
+	my_mlx_pixel_put(img, cub->mini_x  - 1, cub->mini_y - 1, color);
+	my_mlx_pixel_put(img, cub->mini_x  - 1, cub->mini_y + 1, color);
+	my_mlx_pixel_put(img, cub->mini_x  + 1, cub->mini_y - 1, color);
+	my_mlx_pixel_put(img, cub->mini_x  + 1, cub->mini_y + 1, color);
  
-	my_mlx_pixel_put(img, cub->x  - 2, cub->y, color);
-	my_mlx_pixel_put(img, cub->x  + 2, cub->y, color);
-	my_mlx_pixel_put(img, cub->x , cub->y - 2, color);
-	my_mlx_pixel_put(img, cub->x , cub->y + 2, color);
+	my_mlx_pixel_put(img, cub->mini_x  - 2, cub->mini_y, color);
+	my_mlx_pixel_put(img, cub->mini_x  + 2, cub->mini_y, color);
+	my_mlx_pixel_put(img, cub->mini_x , cub->mini_y - 2, color);
+	my_mlx_pixel_put(img, cub->mini_x , cub->mini_y + 2, color);
 
-	my_mlx_pixel_put(img, cub->x  - 2, cub->y - 1, color);
-	my_mlx_pixel_put(img, cub->x  - 2, cub->y + 1, color);
-	my_mlx_pixel_put(img, cub->x  + 2, cub->y - 1, color);
-	my_mlx_pixel_put(img, cub->x  + 2, cub->y + 1, color);
+	my_mlx_pixel_put(img, cub->mini_x  - 2, cub->mini_y - 1, color);
+	my_mlx_pixel_put(img, cub->mini_x  - 2, cub->mini_y + 1, color);
+	my_mlx_pixel_put(img, cub->mini_x  + 2, cub->mini_y - 1, color);
+	my_mlx_pixel_put(img, cub->mini_x  + 2, cub->mini_y + 1, color);
 
-	my_mlx_pixel_put(img, cub->x  - 1, cub->y - 2, color);
-	my_mlx_pixel_put(img, cub->x  + 1, cub->y - 2, color);
-	my_mlx_pixel_put(img, cub->x  - 1, cub->y + 2, color);
-	my_mlx_pixel_put(img, cub->x  + 1, cub->y + 2, color);
+	my_mlx_pixel_put(img, cub->mini_x  - 1, cub->mini_y - 2, color);
+	my_mlx_pixel_put(img, cub->mini_x  + 1, cub->mini_y - 2, color);
+	my_mlx_pixel_put(img, cub->mini_x  - 1, cub->mini_y + 2, color);
+	my_mlx_pixel_put(img, cub->mini_x  + 1, cub->mini_y + 2, color);
 
-	my_mlx_pixel_put(img, cub->x  - 2, cub->y - 2, color);
-	my_mlx_pixel_put(img, cub->x  + 2, cub->y - 2, color);
-	my_mlx_pixel_put(img, cub->x  - 2, cub->y + 2, color);
-	my_mlx_pixel_put(img, cub->x  + 2, cub->y + 2, color);
+	my_mlx_pixel_put(img, cub->mini_x  - 2, cub->mini_y - 2, color);
+	my_mlx_pixel_put(img, cub->mini_x  + 2, cub->mini_y - 2, color);
+	my_mlx_pixel_put(img, cub->mini_x  - 2, cub->mini_y + 2, color);
+	my_mlx_pixel_put(img, cub->mini_x  + 2, cub->mini_y + 2, color);
    //mlx_put_image_to_window(cub->mlx->ptr, cub->mlx->win, cub->img->img, 0,0);
 }
 void    move_right(t_info *data,int size)
@@ -104,7 +104,7 @@ void    move_right(t_info *data,int size)
     {
         r = p2.r;
     }
-    printf("r -------> %f\n",r);
+    printf("r --> %f     cor ---> %lf\n",r,data->corner);
     if (r <= 20)
     {
         check = 0;        
@@ -112,29 +112,15 @@ void    move_right(t_info *data,int size)
     else if (20 > r - MOVE_SPEED)
         grid = r - 20;
      printf(" move right<<x = %f y = %f>>\n",data->x + cos(cor_rd) * MOVE_SPEED,data->y - sin(cor_rd) * MOVE_SPEED);
-    // if ((int)(data->x + cos(cor_rd) * MOVE_SPEED) % 100 == 0 || (int)(data->y - sin(cor_rd) * MOVE_SPEED) % 100 == 0)
-    // {
-    //     if ((int)data->y % 100 == 0)
-    //     {
-    //         if (prm_moves(data->map,((data->x + 5) / 100),((data->y )/ 100)) || prm_moves(data->map,((data->x + 5) / 100),((data->y )/ 100) - 1))
-    //             check = 0;
-    //     }
-    // if (prm_moves(data->map,((data->x ) / 100),((data->y - sin(cor_rd) * MOVE_SPEED)/ 100)))
-    // {
-    //     check = 0;        
-    // }
-    // if (prm_moves(data->map,((data->x + cos(cor_rd) * MOVE_SPEED) / 100),((data->y )/ 100)))
-    // {
-    //     check = 0;        
-    // }
-    // }
+
     if (check)
     {
     
         data->x = data->x + cos(cor_rd) * grid;
        data->y = data->y - sin(cor_rd) * grid;
        // put_pix(data,data->big_img,14753280);
-    }   
+     mini_move_right(data,grid ,check,cor_rd);
+    } 
 }
 void    move_left(t_info *data,int size)
 {
@@ -154,7 +140,7 @@ void    move_left(t_info *data,int size)
     {
         r = p2.r;
     }
-    printf("r -------> %f\n",r);
+    printf("r --> %f     cor ---> %lf\n",r,data->corner);
     if (r <= 20)
     {
         check = 0;        
@@ -163,24 +149,13 @@ void    move_left(t_info *data,int size)
         grid = r - 20;
      printf(" move left <<x = %f y = %f>>\n",data->x + cos(cor_rd) * MOVE_SPEED,data->y - sin(cor_rd) * MOVE_SPEED);
 
-    // if ((int)(data->x + cos(cor_rd) * MOVE_SPEED) % 100 == 0 || (int)(data->y - sin(cor_rd) * MOVE_SPEED) % 100 == 0)
-    // {
-    //     if ((int)data->y % 100 == 0){
-    //         if (prm_moves(data->map,((data->x  - 5 - 1)  / 100),((data->y)/ 100))
-    //                 || prm_moves(data->map,((data->x  - 5 - 1)  / 100),((data->y)/ 100) - 1))
-    //             check = 0;
-    //     }
-    // if (prm_moves(data->map,((data->x)  / 100),((data->y - sin(cor_rd) * MOVE_SPEED)/ 100)))
-    //     check = 0;    
-    // if (prm_moves(data->map,((data->x + cos(cor_rd) * MOVE_SPEED)  / 100),((data->y )/ 100)))
-    //     check = 0;        
-    // }
     if (check)
     {
 
         data->x = data->x + cos(cor_rd) * grid;
         data->y = data->y - sin(cor_rd) * grid;
        // put_pix(data,data->big_img,14753280);
+    mini_move_left(data,grid,check,cor_rd);
     }
     
 }
@@ -202,35 +177,20 @@ void    move_down(t_info *data,int size)
     {
         r = p2.r;
     }
-   // printf("r -------> %f\n",r);
+   printf("r --> %f     cor ---> %lf\n",r,data->corner);
     if (r <= 20)
         check = 0; 
     else if (20 > r - MOVE_SPEED)
         grid = r - 20;
-    //printf(" move down <<x = %f y = %f>>\n",data->x + cos(cor_rd) * grid ,(data->y - sin(cor_rd) * grid));
-    // if ((int)(data->y + sin(cor_rd) * MOVE_SPEED) % 100 == 0 || (int)(data->x - cos(cor_rd) * MOVE_SPEED) % 100 == 0)
-    // {
-    //     if ((int)data->x % 100 == 0)
-    //     {
-    //         if (prm_moves(data->map,((data->x ) / 100),((data->y  + 5)/ 100)) || prm_moves(data->map,((data->x ) / 100) - 1,((data->y  + 5)/ 100)))
-    //             check = 0;
-    //     }
-        // if (prm_moves(data->map,((data->x ) / 100),((data->y + sin(cor_rd) * MOVE_SPEED)/ 100)))
-        // {
-        //     check = 0;        
-        // }
-        // if (prm_moves(data->map,((data->x - cos(cor_rd) * MOVE_SPEED) / 100),((data->y )/ 100)))
-        // {
-        //     check = 0;        
-        // }
+
     if (check)
     {
   
         data->y = data->y - sin(cor_rd) * grid;
         data->x = data->x + cos(cor_rd) * grid;
        // put_pix(data,data->big_img,14753280);
-    }	
- 
+    mini_move_down(data,grid ,check,cor_rd);
+    }
     
 }
 void    move_up(t_info *data,int size)
@@ -252,35 +212,20 @@ void    move_up(t_info *data,int size)
     {
         r = p2.r;
     }
-   // printf("r -------> %f\n",r);
+   printf("r --> %f     cor ---> %lf\n",r,data->corner);
     if (r <= 20)
     {
         check = 0;        
     }
     else if (20 > r - MOVE_SPEED)
         grid = r - 20;
-    // if ((int)(data->y - sin(cor_rd) * MOVE_SPEED) % 100 == 0  || (int)(data->x + cos(cor_rd) * MOVE_SPEED) % 100 == 0)
-    // {
-    //     printf("enter here \n");
-        // if ((int)data->x % 100 == 0)
-        // {
-        //     if (prm_moves(data->map,((data->x ) / 100),((data->y - sin(cor_rd) * MOVE_SPEED -1)/ 100) ) || prm_moves(data->map,((data->x ) / 100) - 1,((data->y  - 5 - 1)/ 100)))
-        //         check = 0;
-        // }
-    //     if (prm_moves(data->map,((data->x) / 100),((data->y - sin(cor_rd) * MOVE_SPEED)/ 100)))
-    //     {
-    //         check = 0;        
-    //     }
-    //    if (prm_moves(data->map,((data->x + cos(cor_rd) * MOVE_SPEED) / 100),((data->y )/ 100)))
-    //     {
-    //         check = 0;        
-    //     }
-   // }
+
     if (check)
     {
       
         data->y = data->y - sin(cor_rd) * grid;
         data->x = data->x + cos(cor_rd) * grid;
        // put_pix(data,data->big_img,14753280);
-    }   
+    mini_move_up(data,grid ,check,cor_rd);
+    }
 }

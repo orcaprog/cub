@@ -6,7 +6,7 @@
 /*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 11:26:06 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/24 16:56:01 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/06/25 17:29:05 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,10 @@ void draw_myray(t_info *cub,double corner)
 	double x;
 	double y;
 	cor_rd = ((M_PI * corner)/180.0000);
-	x = cub->x ;
-	y = cub->y ;
+	x = cub->mini_x ;
+	y = cub->mini_y ;
 	r = 0;
-	while (r <= 20 && !prm_moves(cub->map,(int)(x /100),(int)( y/100)))
+	while (r <= 20 && !prm_moves(cub->map,(int)(x /30),(int)( y/30)))
 	{
 		my_mlx_pixel_put(cub->big_img,  x, y, 16777015);
 		x = x + cos(cor_rd) ;
@@ -72,7 +72,7 @@ void draw_mini_ray(t_info  *cub)
 void	my_mlx_pixel_put(t_img*data, int x, int y, int color)
 {
 	char	*dst;
-	if (x >= 1000 || y >= 500)
+	if (x >= 300 || y >= 210)
 		return ;
 	//printf("(%d,%d)\n",x,y);
 	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
@@ -84,10 +84,10 @@ void print_image_square( t_info *data,int x, int y)
 	// printf("x %d\n",x);
 	// printf("y %d\n",y);
 	i = y;
-    while(i < y + 100 )
+    while(i < y + 30 )
 	{
 		j = x;
-		while(j < x +100)
+		while(j < x + 30)
 		{
 			my_mlx_pixel_put(data->big_img,j,i ,0x00FF96FF);
 			j++;
@@ -103,12 +103,12 @@ void	draw_simple_map1(t_info *cub)
 
 	//cub->corner = 180;
 	
-	if (!cub->mlx->img_b)
-		ft_error();
-	while (y < 500)
+	// if (!cub->mlx->img_b)
+	// 	ft_error();
+	while (y < 210)
 	{
 		x = 0;
-		while (x < 1000)
+		while (x < 300)
 		{
 			my_mlx_pixel_put(cub->big_img,x ,y ,0x001637FF);
 			x++;
@@ -122,10 +122,10 @@ void	draw_simple_map1(t_info *cub)
 	{
 		x = 0;
 		while (cub->map[y][x]){
-			if (cub->map[y][x] == '1')
+			if (cub->map[y][x] == '1'  )
 			{
 				
-				print_image_square(cub,x * 100  ,y * 100);
+				print_image_square(cub,x * 30  ,y * 30);
 			}
 			x++;
 		}

@@ -6,7 +6,7 @@
 /*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 11:54:43 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/25 16:31:59 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/06/25 17:14:55 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,13 +58,16 @@ int main(int ac , char **av)
 	}
 	
 	point_of_view(cub);
+	cub->size = 100;
 	cub->x = 750;
 	cub->y = 250;
+	cub->mini_x = cub->x * 30/cub->size;
+	cub->mini_y = cub->y * 30/cub->size;
 	cub->corner = 180;
 	// if (!cub->mlx->img_b || !cub->mlx->img_n)
 	// 	ft_error();
 	// cub->img[0].ptr = mlx_new_image(cub->mlx->ptr, 1000,500);
-	cub->big_img->ptr = mlx_new_image(cub->mlx->ptr, 1000,500);
+	cub->big_img->ptr = mlx_new_image(cub->mlx->ptr, 300,210);
 	// cub->img[0].addr = mlx_get_data_addr(cub->img[0].ptr, &cub->img[0].bits_per_pixel,&cub->img[0].line_length, &cub->img[0].endian);
 	cub->big_img->addr = mlx_get_data_addr(cub->big_img->ptr, &cub->big_img->bits_per_pixel,&cub->big_img->line_length, &cub->big_img->endian);
 	draw_simple_map1(cub);
