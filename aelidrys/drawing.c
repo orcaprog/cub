@@ -6,7 +6,7 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 10:29:23 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/07/13 09:35:20 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/07/13 12:09:30 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,8 @@ void	draw_walls(t_info *cub, double cor_rad, t_point p)
 	start = (1000 - a * 2) / 2;
 	while (i <= start)
 	{
-		my_mlx_pixel_put(cub->big_img, cub->width, i, cub->c);
-		my_mlx_pixel_put(cub->big_img, cub->width, 500 + a + i++, cub->f);
+		my_mlx_pixel_put1(cub->big_img, cub->width, i, cub->c);
+		my_mlx_pixel_put1(cub->big_img, cub->width, 500 + a + i++, cub->f);
 	}
 }
 
@@ -174,6 +174,7 @@ void	draw_simple_map(t_info *cub)
 	draw_rays(cub, 0);
 	// put_pix(cub,&cub->img[1],14753280);
 	mlx_put_image_to_window(cub->mlx->ptr, cub->mlx->win, cub->big_img->ptr, 0, 0);
+	draw_mini_map(cub);
 	// void *img = mlx_new_image(cub->mlx->ptr, 300, 210);
 	// mlx_put_image_to_window(cub->mlx->ptr, cub->mlx->win, img, 0, 0);
 }

@@ -27,10 +27,9 @@
 |:-|:-|
 | **aelidrys** |    |
 | **abouassi** |    |
-<!-- <img src="w3schools.jpg" width="300" height="400"> -->
+
 ***
 
-	```
 		cos(o) = x/R           &&             sin(o) = y/R
 
 
@@ -38,7 +37,6 @@
 
 
 		x = y/tan(o)           &&             y = tan(o)*x
-	```
 
 
 
@@ -49,3 +47,4 @@
 
 ***
 #### link of github repo [gxxpython](https://github.com/gxxpython/cub)
+![](image2.png)
