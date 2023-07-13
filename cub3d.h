@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 14:56:05 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/07/13 09:35:35 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/07/13 10:20:47 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ int		prm_moves(char **map,int x ,int y);
 t_point	find_cord_x(t_info *data);
 int		a_event1(int key, t_info *cub);
 void	my_mlx_pixel_put(t_img *data, int x, int y, int color);
-void	draw_simple_map1(t_info *cub);
+void	draw_mini_map(t_info *cub);
 t_img	*new_img(t_info *cub,char *str, char c);
 void	add_img(t_img **lst, t_img *new);
 void	check_name_map(char *nmap);

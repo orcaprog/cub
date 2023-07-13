@@ -6,7 +6,7 @@
 /*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 08:13:25 by abouassi          #+#    #+#             */
-/*   Updated: 2023/07/12 21:18:25 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/07/13 10:20:47 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,20 +34,20 @@ int	a_event1(int key, t_info *cub)
 {
 	input_key(key, cub);
 	// mlx_clear_window(cub->mlx->ptr, cub->mlx->win);
-	draw_simple_map1(cub);
+	draw_mini_map(cub);
 	if ((int)cub->corner == 360)
 		cub->corner = 0;
 	if (key == 124)
 	{
 		cub->corner+=10;
 		// mlx_clear_window(cub->mlx->ptr, cub->mlx->win);
-		draw_simple_map1(cub);
+		draw_mini_map(cub);
 	}
 	if (key == 123)
 	{
 		cub->corner-=10;
 		// mlx_clear_window(cub->mlx->ptr, cub->mlx->win);
-		draw_simple_map1(cub);
+		draw_mini_map(cub);
 	}
 	return (0);
 }
@@ -65,7 +65,7 @@ void draw_myray(t_info *cub,double corner)
 	// printf("y /30 %f\n",y / 14);
 	while (r <= 20 )
 	{
-		my_mlx_pixel_put(cub->big_img,  x, y, 0x00FDFD96);
+		my_mlx_pixel_put(cub->mini_img,  x, y, 0x00FDFD96);
 		x = x + cos(cor_rd) ;
 		y = y  - sin(cor_rd) ;
 		r++;
@@ -108,14 +108,14 @@ void print_image_square( t_info *data,int x, int y,int color)
 		j = x;
 		while(j < x + MINI_GRID)
 		{
-			my_mlx_pixel_put(data->big_img,j,i ,color);
+			my_mlx_pixel_put(data->mini_img,j,i ,color);
 			j++;
 		}
 		i++;
 	}
 }
 
-void	draw_simple_map1(t_info *cub)
+void	draw_mini_map(t_info *cub)
 {
 	int x = 0;
 	int y = 0;
@@ -162,10 +162,10 @@ void	draw_simple_map1(t_info *cub)
 
 	draw_mini_ray(cub);
 
-	put_pix_mini(cub->big_img,175 - MINI_GRID / 2,105 -MINI_GRID / 2,0x00FF7F50);
+	put_pix_mini(cub->mini_img,175 - MINI_GRID / 2,105 -MINI_GRID / 2,0x00FF7F50);
 
 
-	mlx_put_image_to_window(cub->mlx->ptr, cub->mlx->win, cub->big_img->ptr, 0,0);
+	mlx_put_image_to_window(cub->mlx->ptr, cub->mlx->win, cub->mini_img->ptr, 0,0);
 
 	
 }

@@ -6,7 +6,7 @@
 /*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 09:01:55 by abouassi          #+#    #+#             */
-/*   Updated: 2023/07/11 13:39:28 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/07/13 10:23:57 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,13 @@ void	point_of_view(t_info *data)
 		while (data->map[i][j])
 		{
 			if (data->map[i][j] == 'N')
-				data->p_v = 1;
+				data->corner = 90;
 			if (data->map[i][j] == 'E')
-				data->p_v = 2;
+				data->corner = 90;
 			if (data->map[i][j] == 'S')
-				data->p_v = 3;
+				data->corner = 180;
 			if (data->map[i][j] == 'W')
-				data->p_v = 4;
+				data->corner = 270;
 			j++;
 		}
 		i++;
