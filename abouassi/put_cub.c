@@ -6,7 +6,7 @@
 /*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 08:13:25 by abouassi          #+#    #+#             */
-/*   Updated: 2023/07/13 11:39:51 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/07/13 12:23:54 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,10 +153,10 @@ void	draw_mini_map(t_info *cub)
 				else if (cub->map[y][x] == 'D')
 					print_image_square(cub,(x - start_x)* MINI_GRID,(y - start_y) * MINI_GRID,0x000000CD);
 				else
-					print_image_square(cub,(x - start_x)* MINI_GRID,(y - start_y) * MINI_GRID,0000);	
+					print_image_square(cub,(x - start_x)* MINI_GRID,(y - start_y) * MINI_GRID,0x00FF000080);	
 			}
 			else
-				print_image_square(cub,(x - start_x)* MINI_GRID,(y - start_y) * MINI_GRID,0000);
+				print_image_square(cub,(x - start_x)* MINI_GRID,(y - start_y) * MINI_GRID,0x00FF000080);
 			x++;
 		}
 		(y++);
