@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 14:56:05 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/07/12 20:13:15 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/07/13 09:09:18 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,11 +60,7 @@ typedef struct s_info
 {
 	int		x_mouse;
 	int		y_mouse;
-	double	move_x;
-	double	move_y;
 	int		size;
-	// double	mini_x;
-	// double		mini_y;
 	int		width;
 	double	width1;
 	int		d;
@@ -79,6 +75,7 @@ typedef struct s_info
 	double	p_y;
 	t_img	*img;
 	t_img	*big_img;
+	t_img	*mini_img;
 	char	**map;
 	char	**map0;
 	double	corner;

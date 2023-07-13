@@ -6,7 +6,7 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 10:29:23 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/06/25 18:02:43 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/07/13 08:30:07 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ void	draw_walls(t_info *cub, double cor_rad, t_point p)
 	start = (1000 - a * 2) / 2;
 	while (i <= start)
 	{
-		my_mlx_pixel_put(cub->big_img, cub->width, i, 2463422);
-		my_mlx_pixel_put(cub->big_img, cub->width, 500 + a + i++, 8011295);
+		my_mlx_pixel_put(cub->big_img, cub->width, i, cub->c);
+		my_mlx_pixel_put(cub->big_img, cub->width, 500 + a + i++, cub->f);
 	}
 }
 

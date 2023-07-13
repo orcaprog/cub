@@ -40,38 +40,12 @@
 		x = y/tan(o)           &&             y = tan(o)*x
 	```
 
-<div class="imge2">
-	<h5 style="text-align: center;">det coord with y</h5>
-	<img src="image2.png" width="300" height="400">
-</div>
 
-<div class="imge3">
-	<h5 style="text-align: center;">det coord with x</h5>
-	<img src="image3.png" width="300" height="400">
-</div>
-
-
-<style>
-	.imge2
-		{
-		display:flex;
-		/* justify-content:center;
-    	align-items: center; */
-		}
-	.imge3
-		{
-		display:flex;
-		justify-content:right;
-    	align-items: right;
-		position:relative;
-		top:-400px;
-		}
-</style>
 
 ***
 - ## Draw Walls
-	- [ ] darwing walls
-	- [ ] draw walls with texturs
+	- [x] darwing walls
+	- [x] draw walls with texturs
 
 ***
 #### link of github repo [gxxpython](https://github.com/gxxpython/cub)

@@ -1,7 +1,7 @@
-NO aelidrys/box.xpm
-SO aelidrys/bkgrnd.xpm
-WE ./path_to_the_west_texture
-EA ./path_to_the_east_texture
+NO W1.xpm
+SO W2.xpm
+WE W3.xpm
+EA W4.xpm
 F 220,100,0
 C 225,30,0
 
