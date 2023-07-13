@@ -6,11 +6,12 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 08:58:20 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/06/25 18:12:19 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/07/13 13:38:28 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
+
 
 int	is_coord_in_map_range(t_info *cub, double x, double y, int size)
 {
