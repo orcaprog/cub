@@ -6,11 +6,12 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 10:29:23 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/07/13 12:09:30 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/07/13 13:38:32 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
+
 
 void	start_cub(t_info *cub, char **av)
 {

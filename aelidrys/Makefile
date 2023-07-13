@@ -6,7 +6,6 @@ string_action.c parce_first_element.c main.c drawing_walls.c\
 drawing.c det_coord.c ../abouassi/linked.c ../abouassi/moves_mini_map.c\
 ../abouassi/put_cub.c
 
-
 OBJ = ${SRC:.c=.o}
 
 CFLAGS = -Wall -Werror -Wextra -fsanitize=address -g3
