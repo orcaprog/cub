@@ -6,14 +6,14 @@
 /*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 11:16:44 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/15 18:09:19 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/07/07 20:43:04 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
- 
+
 void    ft_puterr(char *err)
 {
-    ft_putendl_fd(err,2);
+    ft_putendl_fd(err, 2);
 	exit(1);
 }

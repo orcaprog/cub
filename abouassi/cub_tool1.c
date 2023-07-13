@@ -6,12 +6,12 @@
 /*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 09:01:55 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/15 18:09:02 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/07/11 13:39:28 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
-  
+
 int	rgb_to_int(int color1, int color2, int color3)
 {
 	int	rgbtoint;
@@ -22,8 +22,9 @@ int	rgb_to_int(int color1, int color2, int color3)
 
 int	my_color(char *color)
 {
-	int rgbtoint;
-	char **col;
+	int		rgbtoint;
+	char	**col;
+
 	col = ft_split(color, ',');
 	rgbtoint = rgb_to_int(ft_atoi(col[0]), ft_atoi(col[1]), ft_atoi(col[2]));
 	ft_free(col);
@@ -32,25 +33,62 @@ int	my_color(char *color)
 
 void	point_of_view(t_info *data)
 {
-	int i;
-	int j;
-	i = 0;
+	int	i;
+	int	j;
 
-	while(data->map[i])
+	i = 0;
+	while (data->map[i])
 	{
 		j = 0;
-		while(data->map[i][j])
+		while (data->map[i][j])
 		{
-			if(data->map[i][j] == 'N')
+			if (data->map[i][j] == 'N')
 				data->p_v = 1;
-			if(data->map[i][j] == 'E')
+			if (data->map[i][j] == 'E')
 				data->p_v = 2;
-			if(data->map[i][j] == 'S')
+			if (data->map[i][j] == 'S')
 				data->p_v = 3;
-			if(data->map[i][j] == 'W')
+			if (data->map[i][j] == 'W')
 				data->p_v = 4;
 			j++;
 		}
 		i++;
 	}
 }
+
+void	check_name_map(char *nmap)
+{
+	if (!nmap || ft_strcmp(&nmap[ft_strlen(nmap) - 4],".cub") != 0)
+	{
+		ft_puterr("Erorr name\n");
+	}
+	
+}
+t_info	get_position(char **str)
+{
+	int		x;
+	int		y;
+	t_info	pos;
+
+	x = 0;
+	while (str[x])
+	{
+		y = 0;
+		while (str[x][y])
+		{
+			if (str[x][y] == 'W' || str[x][y] == 'E' || str[x][y] == 'N' || str[x][y] == 'S')
+			{
+				pos.y = x;
+				pos.x = y;
+				return (pos);
+			}
+			y++;
+		}
+		x++;
+	}
+	pos.x = -1;
+	pos.y = -1;
+	return (pos);
+}
+
+

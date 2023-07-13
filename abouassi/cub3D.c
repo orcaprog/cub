@@ -6,16 +6,17 @@
 /*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 10:27:29 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/15 18:09:15 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/07/11 15:41:27 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
- 
+
 void	cheak_wall(char *map)
 {
 	int	i;
-	i  = 0;
+
+	i = 0;
 	while (map[i])
 	{
 		if (map[i] == '1' || map[i] == ' ')
@@ -27,13 +28,14 @@ void	cheak_wall(char *map)
 	}
 }
 
-void	check_s(char **map,size_t i, size_t j)
+void	check_s(char **map, int i, int j)
 {
-	if	(ft_strlen(map[i - 1]) <= j  || ft_strlen(map[i + 1]) <= j || j == 0)
+	if (ft_strlen(map[i - 1]) <= j || ft_strlen(map[i + 1]) <= j || j == 0)
 	{
 		ft_puterr("Error");
 	}
-	if (map[i - 1][j] == ' ' || map[i + 1][j] == ' ' || map[i][j - 1] == ' ' || map[i][j + 1] == ' '  || map[i][j + 1] == '\0')
+	if (map[i - 1][j] == ' ' || map[i + 1][j] == ' ' || map[i][j - 1] == ' '
+		|| map[i][j + 1] == ' ' || map[i][j + 1] == '\0')
 	{
 		ft_puterr("Error");
 	}
@@ -55,7 +57,8 @@ void	cheak_map(char **map)
 		j = 0;
 		while (map[i][j])
 		{
-			if(map[i][j] == '0' || map[i][j] == 'W' || map[i][j] == 'E' || map[i][j] == 'N' || map[i][j] == 'S')
+			if (map[i][j] == '0' || map[i][j] == 'W' || map[i][j] == 'E'
+				|| map[i][j] == 'N' || map[i][j] == 'S')
 				check_s(map, i, j);
 			j++;
 		}
@@ -79,5 +82,3 @@ char	**get_map(char *file)
 	map = ft_split(maping, '\n');
 	return (map);
 }
-
-

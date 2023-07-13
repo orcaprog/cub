@@ -6,12 +6,12 @@
 /*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 10:27:39 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/24 16:30:16 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/07/07 20:38:55 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
-  
+
 void	check_cmp(char **map)
 {
 	int	i;
@@ -49,7 +49,7 @@ void	check_cmp_valid(char **map)
 	i = 0;
 	while (map[i])
 	{
-		j =  0;
+		j = 0;
 		while (map[i][j])
 		{
 			if (map[i][j] != '0' && map[i][j] != '1' && map[i][j] != 'W'
@@ -106,29 +106,29 @@ void	check_nwline(char *map)
 	check_mult_new(map, i);
 }
 
-void store_info(char **map, t_info *cub)
+void	store_info(char **map, t_info *cub)
 {
-	int i;
-	char **line;
+	int		i;
+	char	**line;
+
 	cub->img = NULL;
 	i = 0;
 	while (i < 6)
 	{
 		line = get_element(map[i]);
-		if (!ft_strncmp(line[0],"NO",2))
-			add_img(&cub->img,new_img(cub,line[1],'N'));
-		if (!ft_strncmp(line[0],"SO",2))
-			add_img(&cub->img,new_img(cub,line[1],'S'));
-		if (!ft_strncmp(line[0],"WE",2))
-			add_img(&cub->img,new_img(cub,line[1],'W'));
-		if (!ft_strncmp(line[0],"EA",2))
-			add_img(&cub->img,new_img(cub,line[1],'E'));
-		if (!ft_strncmp(line[0],"F",1))
+		if (!ft_strncmp(line[0], "NO", 2))
+			add_img(&cub->img, new_img(cub, line[1], 'N'));
+		if (!ft_strncmp(line[0], "SO", 2))
+			add_img(&cub->img, new_img(cub, line[1], 'S'));
+		if (!ft_strncmp(line[0], "WE", 2))
+			add_img(&cub->img, new_img(cub, line[1], 'W'));
+		if (!ft_strncmp(line[0], "EA", 2))
+			add_img(&cub->img, new_img(cub, line[1], 'E'));
+		if (!ft_strncmp(line[0], "F", 1))
 			cub->f = my_color(line[1]);
-		if (!ft_strncmp(line[0],"C",1))
+		if (!ft_strncmp(line[0], "C", 1))
 			cub->c = my_color(line[1]);
 		ft_free(line);
 		i++;
-	}
-	
+	}	
 }

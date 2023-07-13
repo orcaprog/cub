@@ -6,7 +6,7 @@
 /*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 14:42:41 by abouassi          #+#    #+#             */
-/*   Updated: 2023/06/25 18:47:13 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/07/12 20:14:13 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,40 +51,40 @@ int prm_moves(char **map,int x ,int y)
     
 }
 
-void    put_pix(t_info *cub,t_img*img, int color)
-{
-    my_mlx_pixel_put(img, cub->mini_x  , cub->mini_y, color);
-	my_mlx_pixel_put(img, cub->mini_x  - 1, cub->mini_y, color);
-	my_mlx_pixel_put(img, cub->mini_x  + 1, cub->mini_y, color);
-	my_mlx_pixel_put(img, cub->mini_x , cub->mini_y - 1, color);
-	my_mlx_pixel_put(img, cub->mini_x , cub->mini_y + 1, color);
+// void    put_pix(t_info *cub,t_img*img, int color)
+// {
+//     my_mlx_pixel_put(img, cub->mini_x  , cub->mini_y, color);
+// 	my_mlx_pixel_put(img, cub->mini_x  - 1, cub->mini_y, color);
+// 	my_mlx_pixel_put(img, cub->mini_x  + 1, cub->mini_y, color);
+// 	my_mlx_pixel_put(img, cub->mini_x , cub->mini_y - 1, color);
+// 	my_mlx_pixel_put(img, cub->mini_x , cub->mini_y + 1, color);
 	
-	my_mlx_pixel_put(img, cub->mini_x  - 1, cub->mini_y - 1, color);
-	my_mlx_pixel_put(img, cub->mini_x  - 1, cub->mini_y + 1, color);
-	my_mlx_pixel_put(img, cub->mini_x  + 1, cub->mini_y - 1, color);
-	my_mlx_pixel_put(img, cub->mini_x  + 1, cub->mini_y + 1, color);
+// 	my_mlx_pixel_put(img, cub->mini_x  - 1, cub->mini_y - 1, color);
+// 	my_mlx_pixel_put(img, cub->mini_x  - 1, cub->mini_y + 1, color);
+// 	my_mlx_pixel_put(img, cub->mini_x  + 1, cub->mini_y - 1, color);
+// 	my_mlx_pixel_put(img, cub->mini_x  + 1, cub->mini_y + 1, color);
  
-	my_mlx_pixel_put(img, cub->mini_x  - 2, cub->mini_y, color);
-	my_mlx_pixel_put(img, cub->mini_x  + 2, cub->mini_y, color);
-	my_mlx_pixel_put(img, cub->mini_x , cub->mini_y - 2, color);
-	my_mlx_pixel_put(img, cub->mini_x , cub->mini_y + 2, color);
+// 	my_mlx_pixel_put(img, cub->mini_x  - 2, cub->mini_y, color);
+// 	my_mlx_pixel_put(img, cub->mini_x  + 2, cub->mini_y, color);
+// 	my_mlx_pixel_put(img, cub->mini_x , cub->mini_y - 2, color);
+// 	my_mlx_pixel_put(img, cub->mini_x , cub->mini_y + 2, color);
 
-	my_mlx_pixel_put(img, cub->mini_x  - 2, cub->mini_y - 1, color);
-	my_mlx_pixel_put(img, cub->mini_x  - 2, cub->mini_y + 1, color);
-	my_mlx_pixel_put(img, cub->mini_x  + 2, cub->mini_y - 1, color);
-	my_mlx_pixel_put(img, cub->mini_x  + 2, cub->mini_y + 1, color);
+// 	my_mlx_pixel_put(img, cub->mini_x  - 2, cub->mini_y - 1, color);
+// 	my_mlx_pixel_put(img, cub->mini_x  - 2, cub->mini_y + 1, color);
+// 	my_mlx_pixel_put(img, cub->mini_x  + 2, cub->mini_y - 1, color);
+// 	my_mlx_pixel_put(img, cub->mini_x  + 2, cub->mini_y + 1, color);
 
-	my_mlx_pixel_put(img, cub->mini_x  - 1, cub->mini_y - 2, color);
-	my_mlx_pixel_put(img, cub->mini_x  + 1, cub->mini_y - 2, color);
-	my_mlx_pixel_put(img, cub->mini_x  - 1, cub->mini_y + 2, color);
-	my_mlx_pixel_put(img, cub->mini_x  + 1, cub->mini_y + 2, color);
+// 	my_mlx_pixel_put(img, cub->mini_x  - 1, cub->mini_y - 2, color);
+// 	my_mlx_pixel_put(img, cub->mini_x  + 1, cub->mini_y - 2, color);
+// 	my_mlx_pixel_put(img, cub->mini_x  - 1, cub->mini_y + 2, color);
+// 	my_mlx_pixel_put(img, cub->mini_x  + 1, cub->mini_y + 2, color);
 
-	my_mlx_pixel_put(img, cub->mini_x  - 2, cub->mini_y - 2, color);
-	my_mlx_pixel_put(img, cub->mini_x  + 2, cub->mini_y - 2, color);
-	my_mlx_pixel_put(img, cub->mini_x  - 2, cub->mini_y + 2, color);
-	my_mlx_pixel_put(img, cub->mini_x  + 2, cub->mini_y + 2, color);
-   //mlx_put_image_to_window(cub->mlx->ptr, cub->mlx->win, cub->img->img, 0,0);
-}
+// 	my_mlx_pixel_put(img, cub->mini_x  - 2, cub->mini_y - 2, color);
+// 	my_mlx_pixel_put(img, cub->mini_x  + 2, cub->mini_y - 2, color);
+// 	my_mlx_pixel_put(img, cub->mini_x  - 2, cub->mini_y + 2, color);
+// 	my_mlx_pixel_put(img, cub->mini_x  + 2, cub->mini_y + 2, color);
+//    //mlx_put_image_to_window(cub->mlx->ptr, cub->mlx->win, cub->img->img, 0,0);
+// }
 void    move_right(t_info *data,int size)
 {
     int check;
@@ -112,14 +112,15 @@ void    move_right(t_info *data,int size)
     else if (20 > r - MOVE_SPEED)
         grid = r - 20;
      printf(" move right<<x = %f y = %f>>\n",data->x + cos(cor_rd) * MOVE_SPEED,data->y - sin(cor_rd) * MOVE_SPEED);
-
     if (check)
     {
     
+        data->map[(int)(data->y / 100) ][(int)(data->x/100)] = '0';
         data->x = data->x + cos(cor_rd) * grid;
-       data->y = data->y - sin(cor_rd) * grid;
+        data->y = data->y - sin(cor_rd) * grid;
+        data->map[(int)(data->y/100)][(int)(data->x/100)] = 'N';
        // put_pix(data,data->big_img,14753280);
-     mini_move_right(data,grid ,check,cor_rd);
+     //mini_move_right(data,grid ,check,cor_rd);
     } 
 }
 void    move_left(t_info *data,int size)
@@ -151,11 +152,12 @@ void    move_left(t_info *data,int size)
 
     if (check)
     {
-
+        data->map[(int)(data->y / 100) ][(int)(data->x/100)] = '0';
         data->x = data->x + cos(cor_rd) * grid;
         data->y = data->y - sin(cor_rd) * grid;
+        data->map[(int)(data->y/100)][(int)(data->x/100)] = 'N';
        // put_pix(data,data->big_img,14753280);
-    mini_move_left(data,grid,check,cor_rd);
+    //mini_move_left(data,grid,check,cor_rd);
     }
     
 }
@@ -185,11 +187,13 @@ void    move_down(t_info *data,int size)
 
     if (check)
     {
-  
+        data->map[(int)(data->y / 100) ][(int)(data->x/100)] = '0';
         data->y = data->y - sin(cor_rd) * grid;
         data->x = data->x + cos(cor_rd) * grid;
+        data->map[(int)(data->y/100)][(int)(data->x / 100)] = 'N';
+
        // put_pix(data,data->big_img,14753280);
-    mini_move_down(data,grid ,check,cor_rd);
+    //mini_move_down(data,grid ,check,cor_rd);
     }
     
 }
@@ -222,10 +226,11 @@ void    move_up(t_info *data,int size)
 
     if (check)
     {
-      
+        data->map[(int)(data->y / 100) ][(int)(data->x/100)] = '0';
         data->y = data->y - sin(cor_rd) * grid;
         data->x = data->x + cos(cor_rd) * grid;
+        data->map[(int)(data->y/100)][(int)(data->x/100)] = 'N';
        // put_pix(data,data->big_img,14753280);
-    mini_move_up(data,grid ,check,cor_rd);
+    //mini_move_up(data,grid ,check,cor_rd);
     }
 }

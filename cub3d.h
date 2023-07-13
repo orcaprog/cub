@@ -6,7 +6,7 @@
 /*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 14:56:05 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/06/25 18:52:03 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/07/12 20:13:15 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # include "libft/libft.h"
 
 # define MOVE_SPEED 20
+# define MINI_GRID 14
 typedef struct s_mlx
 {
 	void	*ptr;
@@ -57,9 +58,13 @@ typedef struct s_img
 
 typedef struct s_info
 {
+	int		x_mouse;
+	int		y_mouse;
+	double	move_x;
+	double	move_y;
 	int		size;
-	double	mini_x;
-	double		mini_y;
+	// double	mini_x;
+	// double		mini_y;
 	int		width;
 	double	width1;
 	int		d;
@@ -82,7 +87,7 @@ typedef struct s_info
 	t_mlx	*mlx;
 }	t_info;
 
-
+int		mouse_view(int x, int y, t_info *cub);
 void	check_cmp(char **map);
 void	ft_puterr(char *err);
 void	check_cmp_valid(char **map);
@@ -109,6 +114,8 @@ void	my_mlx_pixel_put(t_img *data, int x, int y, int color);
 void	draw_simple_map1(t_info *cub);
 t_img	*new_img(t_info *cub,char *str, char c);
 void	add_img(t_img **lst, t_img *new);
+void	check_name_map(char *nmap);
+t_info	get_position(char **str);
 
 // aelidrys
 void	ft_error(void);
