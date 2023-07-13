@@ -38,6 +38,7 @@ SRCS	=		ft_memset.c		\
 				ft_strmapi.c \
 				ft_strjoin_get.c\
 				get_next_line.c \
+				ft_strcmp.c\
 
 OBJS	= ${SRCS:.c=.o}
 
