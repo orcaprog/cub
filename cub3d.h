@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 14:56:05 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/07/13 10:20:47 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/07/13 12:08:21 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,6 +132,7 @@ void	draw_east_walls(t_info *cub, t_point p, int a);
 void	draw_west_walls(t_info *cub, t_point p, int a);
 void	draw_south_walls(t_info *cub, t_point p, int a);
 void	draw_north_walls(t_info *cub, t_point p, int a);
+void	my_mlx_pixel_put1(t_img *data, int x, int y, int color);
 t_point	det_coord_x(t_info *cub, double cor_rd, int k, int size);
 t_point	det_coord_y(t_info *cub, double cor_rd, int k, int size);
 int		is_coord_in_map_range(t_info *cub, double x, double y, int size);
