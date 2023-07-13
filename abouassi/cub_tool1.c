@@ -6,7 +6,7 @@
 /*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 09:01:55 by abouassi          #+#    #+#             */
-/*   Updated: 2023/07/13 10:23:57 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/07/13 15:42:08 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,12 +58,12 @@ void	point_of_view(t_info *data)
 
 void	check_name_map(char *nmap)
 {
-	if (!nmap || ft_strcmp(&nmap[ft_strlen(nmap) - 4],".cub") != 0)
+	if (!nmap || ft_strcmp(&nmap[ft_strlen(nmap) - 4], ".cub") != 0)
 	{
 		ft_puterr("Erorr name\n");
 	}
-	
 }
+
 t_info	get_position(char **str)
 {
 	int		x;
@@ -76,7 +76,8 @@ t_info	get_position(char **str)
 		y = 0;
 		while (str[x][y])
 		{
-			if (str[x][y] == 'W' || str[x][y] == 'E' || str[x][y] == 'N' || str[x][y] == 'S')
+			if (str[x][y] == 'W' || str[x][y] == 'E'
+				|| str[x][y] == 'N' || str[x][y] == 'S')
 			{
 				pos.y = x;
 				pos.x = y;
@@ -90,5 +91,3 @@ t_info	get_position(char **str)
 	pos.y = -1;
 	return (pos);
 }
-
-
