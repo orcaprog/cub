@@ -6,7 +6,7 @@
 /*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 10:27:39 by abouassi          #+#    #+#             */
-/*   Updated: 2023/07/07 20:38:55 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/07/13 11:35:55 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	check_cmp_valid(char **map)
 		{
 			if (map[i][j] != '0' && map[i][j] != '1' && map[i][j] != 'W'
 				&& map[i][j] != 'S' && map[i][j] != 'N' && map[i][j] != 'E'
-					&& map[i][j] != ' ')
+					&& map[i][j] != ' ' && map[i][j] != 'D')
 			{
 				ft_puterr("Error");
 			}

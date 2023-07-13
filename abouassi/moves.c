@@ -6,7 +6,7 @@
 /*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 14:42:41 by abouassi          #+#    #+#             */
-/*   Updated: 2023/07/12 20:14:13 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/07/13 11:35:22 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,10 +115,10 @@ void    move_right(t_info *data,int size)
     if (check)
     {
     
-        data->map[(int)(data->y / 100) ][(int)(data->x/100)] = '0';
+        
         data->x = data->x + cos(cor_rd) * grid;
         data->y = data->y - sin(cor_rd) * grid;
-        data->map[(int)(data->y/100)][(int)(data->x/100)] = 'N';
+        
        // put_pix(data,data->big_img,14753280);
      //mini_move_right(data,grid ,check,cor_rd);
     } 
@@ -152,10 +152,10 @@ void    move_left(t_info *data,int size)
 
     if (check)
     {
-        data->map[(int)(data->y / 100) ][(int)(data->x/100)] = '0';
+        
         data->x = data->x + cos(cor_rd) * grid;
         data->y = data->y - sin(cor_rd) * grid;
-        data->map[(int)(data->y/100)][(int)(data->x/100)] = 'N';
+        
        // put_pix(data,data->big_img,14753280);
     //mini_move_left(data,grid,check,cor_rd);
     }
@@ -187,7 +187,7 @@ void    move_down(t_info *data,int size)
 
     if (check)
     {
-        data->map[(int)(data->y / 100) ][(int)(data->x/100)] = '0';
+        
         data->y = data->y - sin(cor_rd) * grid;
         data->x = data->x + cos(cor_rd) * grid;
         data->map[(int)(data->y/100)][(int)(data->x / 100)] = 'N';
@@ -226,10 +226,10 @@ void    move_up(t_info *data,int size)
 
     if (check)
     {
-        data->map[(int)(data->y / 100) ][(int)(data->x/100)] = '0';
+        
         data->y = data->y - sin(cor_rd) * grid;
         data->x = data->x + cos(cor_rd) * grid;
-        data->map[(int)(data->y/100)][(int)(data->x/100)] = 'N';
+        
        // put_pix(data,data->big_img,14753280);
     //mini_move_up(data,grid ,check,cor_rd);
     }

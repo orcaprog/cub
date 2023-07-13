@@ -6,7 +6,7 @@
 /*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 08:13:25 by abouassi          #+#    #+#             */
-/*   Updated: 2023/07/13 10:20:47 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/07/13 11:39:51 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,10 +123,10 @@ void	draw_mini_map(t_info *cub)
 	int 	end_x;
 	int  start_y;
 	int end_y;
-	double org_x = get_position(cub->map).x;
-	double org_y = get_position(cub->map).y;
-	printf("%f				-> original x\n",org_x);
-	printf("%f				-> original y\n",org_y);
+	int org_x = cub->x/ 100;
+	int org_y = cub->y/ 100;
+	printf("%d				-> original x----->%f\n",org_x,cub->x/ 100);
+	printf("%d				-> original y----->%f\n",org_y,cub->y/ 100);
 	start_x = org_x - 12;
 	start_y = org_y - 7;
 	end_x = org_x + 12;
@@ -150,6 +150,8 @@ void	draw_mini_map(t_info *cub)
 					print_image_square(cub,(x - start_x)* MINI_GRID,(y - start_y) * MINI_GRID,0x00F5F5DC);
 				else if ( (cub->map[y][x] == '0' || cub->map[y][x] == 'N'|| cub->map[y][x] == 'W'|| cub->map[y][x] == 'S'|| cub->map[y][x] == 'E') )
 					print_image_square(cub,(x - start_x)* MINI_GRID,(y - start_y) * MINI_GRID,0x00708090);
+				else if (cub->map[y][x] == 'D')
+					print_image_square(cub,(x - start_x)* MINI_GRID,(y - start_y) * MINI_GRID,0x000000CD);
 				else
 					print_image_square(cub,(x - start_x)* MINI_GRID,(y - start_y) * MINI_GRID,0000);	
 			}
