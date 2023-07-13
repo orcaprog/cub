@@ -6,7 +6,7 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 14:56:05 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/07/13 09:09:18 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/07/13 09:35:35 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,6 +123,7 @@ int		str_comp(char *s1, char *s2);
 void	draw_simple_map(t_info *cub);
 int		a_event(int key, t_info *cub);
 int		check_first_element(char **arry);
+void	start_cub(t_info *cub, char **av);
 t_point	draw_ray(t_info *cub, double cor_rd);
 int		get_color(t_img *data, int x, int y);
 int		draw_rays(t_info *cub, double cor_rd);
