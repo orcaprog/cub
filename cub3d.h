@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 14:56:05 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/07/13 12:08:21 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/07/13 20:39:22 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # include "libft/libft.h"
 
 # define MOVE_SPEED 20
-# define MINI_GRID 14
+# define M_G 14
 typedef struct s_mlx
 {
 	void	*ptr;
@@ -55,6 +55,19 @@ typedef struct s_img
 	struct s_img *next;
 } t_img;
 
+typedef struct s_var
+{
+	int		x;
+	int		y;
+	int		s_x;
+	int		end_x;
+	int		s_y;
+	int		end_y;
+	int		org_x;
+	int		org_y;
+	int		check;
+	double	cor_rd;
+} t_var;
 
 typedef struct s_info
 {
@@ -113,6 +126,7 @@ t_img	*new_img(t_info *cub,char *str, char c);
 void	add_img(t_img **lst, t_img *new);
 void	check_name_map(char *nmap);
 t_info	get_position(char **str);
+void	put_pix_mini(t_img*img, double x, double y, int color);
 
 // aelidrys
 void	ft_error(void);

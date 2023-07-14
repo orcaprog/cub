@@ -6,7 +6,7 @@
 /*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 14:42:41 by abouassi          #+#    #+#             */
-/*   Updated: 2023/07/13 20:33:23 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/07/14 07:32:23 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	prm_moves(char **map, int x, int y)
 {
-	if (map[y][x] == '1')
+	if (map[y][x] == '1' || map[y][x] == 'D')
 	{
 		return (1);
 	}
