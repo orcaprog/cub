@@ -48,7 +48,7 @@
 ***
 #### link of github repo [gxxpython](https://github.com/gxxpython/cub)
 
-###determine the coordonate of intersiction with y
+### determine the coordonate of intersiction with y
 ![](image2.png)
-###determine the coordonate of intersiction with x
+### determine the coordonate of intersiction with x
 ![](image3.png)
