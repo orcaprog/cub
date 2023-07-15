@@ -6,7 +6,7 @@
 /*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 14:56:05 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/07/13 20:39:22 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/07/15 16:21:59 by abouassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,19 @@ typedef struct s_mlx
 	void	*img_s;
 	void	*img_w;
 	void	*img_e;
+	void	*i_w0;
+	void	*i_w1;
+	void	*i_w2;
+	void	*i_w3;
+	void	*i_c;
+	void	*i_c1;
+	void	*k_0;
+	void	*k_1;
+	void	*k_2;
+	void	*k_3;
+	void	*p_s;
+	
+	
 }	t_mlx;
 
 typedef struct s_point
@@ -71,6 +84,9 @@ typedef struct s_var
 
 typedef struct s_info
 {
+	int		check_shot;
+	int		numb_shot;
+	int		change_wap;
 	int		x_mouse;
 	int		y_mouse;
 	int		size;
@@ -112,13 +128,8 @@ void	move_right(t_info *data,int size);
 void	move_left(t_info *data,int size);
 void	move_up(t_info *data,int size);
 void	move_down(t_info *data,int size);
-void	mini_move_right(t_info *data,int m_grid ,int check,double cor_rd);
-void	mini_move_left(t_info *data,int m_grid ,int check,double cor_rd);
-void	mini_move_up(t_info *data,int m_grid ,int check,double cor_rd);
-void	mini_move_down(t_info *data,int m_grid ,int check,double cor_rd);
 int		input_key(int key, t_info *data);
 int		prm_moves(char **map,int x ,int y);
-t_point	find_cord_x(t_info *data);
 int		a_event1(int key, t_info *cub);
 void	my_mlx_pixel_put(t_img *data, int x, int y, int color);
 void	draw_mini_map(t_info *cub);
@@ -127,6 +138,13 @@ void	add_img(t_img **lst, t_img *new);
 void	check_name_map(char *nmap);
 t_info	get_position(char **str);
 void	put_pix_mini(t_img*img, double x, double y, int color);
+void	change_wap(t_info *cub);
+void	draw_wap(t_info *cub,void *img,int x,int  y);
+void	put_pistol(t_info *cub);
+void	put_knife(t_info *cub);
+void	get_xpm_file(t_info *cub);
+int		draw_wapeans(t_info *cub);
+
 
 // aelidrys
 void	ft_error(void);
