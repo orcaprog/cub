@@ -6,11 +6,25 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 10:22:27 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/07/14 10:59:30 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/07/15 12:37:27 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
+
+void	ft_imge_door(t_info *cub)
+{
+	t_img	*img;
+
+	cub->img_d = NULL;
+	add_img(&cub->img_d, new_img(cub, "do1.xpm", 'D'));
+	add_img(&cub->img_d, new_img(cub, "do2.xpm", 'D'));
+	add_img(&cub->img_d, new_img(cub, "do3.xpm", 'D'));
+	img = new_img(cub, "do4.xpm", 'D');
+	img->next = cub->img_d;
+	add_img(&cub->img_d, img);
+
+}
 
 void	start_cub(t_info *cub, char **av)
 {
@@ -19,6 +33,8 @@ void	start_cub(t_info *cub, char **av)
 	cub->big_img = malloc(sizeof(t_img));
 	cub->mini_img = malloc(sizeof(t_img));
 	cub->img = NULL;
+	cub->open_d = 0;
+	cub->check_o_d = 0;
 	cub->map0 = get_map(av[1]);
 	check_first_element(cub->map0);
 	cub->map = cub->map0+6;
@@ -27,7 +43,7 @@ void	start_cub(t_info *cub, char **av)
 	check_cmp_valid(cub->map);
 	cub->mlx->ptr = mlx_init();
 	cub->mlx->win = mlx_new_window(cub->mlx->ptr, 1200, 1000, "CUB");
-	cub->img_d = new_img(cub, "D1.xpm", 'D');
+	ft_imge_door(cub);
 	store_info(cub->map0, cub);
 	cub->x = get_position(cub->map).x * 100 + 50;
 	cub->y = get_position(cub->map).y * 100 + 50;
