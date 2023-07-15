@@ -6,7 +6,7 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 07:36:49 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/07/13 13:38:25 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/07/14 09:21:48 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,8 @@ void	draw_east_walls(t_info *cub, t_point p, int a)
 	t_img	*img;
 
 	img = get_img(cub, 'E');
-	// if (sin(cub->r_corner) > 0)
-	// 	if (cub->map[(int)(p.y / 100)][(int)(p.x / 100)] == 'D')
-	// 		img = get_img(cub, 'D');
+	if (cub->map[(int)(p.y / 100)][(int)(p.x / 100)] == 'D')
+		img = cub->img_d;
 	grid_y = (img->heigth * 1.0)/(a * 2);
 	if (a > 500)
 		y = (a - 500) * grid_y;
@@ -60,9 +59,8 @@ void	draw_west_walls(t_info *cub, t_point p, int a)
 	t_img	*img;
 
 	img = get_img(cub, 'W');
-	// if (sin(cub->r_corner) > 0)
-	// 	if (cub->map[(int)(p.y / 100)][(int)(p.x / 100)] == 'D')
-	// 		img = get_img(cub, 'D');
+	if (cub->map[(int)(p.y / 100)][(int)(p.x / 100) - 1] == 'D')
+		img = cub->img_d;
 	grid_y = (img->heigth * 1.0)/(a * 2);
 	if (a > 500)
 		y = (a - 500) * grid_y;
@@ -85,9 +83,8 @@ void	draw_north_walls(t_info *cub, t_point p, int a)
 	t_img	*img;
 
 	img = get_img(cub, 'N');
-	// if (sin(cub->r_corner) > 0)
-	// 	if (cub->map[(int)(p.y / 100)][(int)(p.x / 100)] == 'D')
-	// 		img = get_img(cub, 'D');
+	if (cub->map[(int)(p.y / 100) - 1][(int)(p.x / 100)] == 'D')
+		img = cub->img_d;
 	grid_y = (img->heigth * 1.0) / (a * 2);
 	if (a > 500)
 		y = (a - 500) * grid_y;
@@ -109,9 +106,8 @@ void	draw_south_walls(t_info *cub, t_point p, int a)
 	t_img	*img;
 
 	img = get_img(cub, 'S');
-	// if (sin(cub->r_corner) > 0)
-	// 	if (cub->map[(int)(p.y / 100)][(int)(p.x / 100)] == 'D')
-	// 		img = get_img(cub, 'D');
+	if (cub->map[(int)(p.y / 100)][(int)(p.x / 100)] == 'D')
+		img = cub->img_d;
 	grid_y = (img->heigth * 1.0) / (a * 2);
 	if (a > 500)
 		y = (a - 500) * grid_y;
