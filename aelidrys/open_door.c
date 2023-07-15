@@ -6,7 +6,7 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 16:26:51 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/07/15 16:28:19 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/07/15 16:42:47 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	check_open_door(t_info *cub, int key)
 		px = py;
 	if (px.r > 150 || key != 49)
 		return ;
-	if (prm_denied())
+	// if (prm_denied())
 	cub->check_o_d = 1;
 }
 

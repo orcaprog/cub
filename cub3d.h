@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   cub3d1.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 14:56:05 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/07/15 16:21:59 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/07/15 16:37:12 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ typedef struct s_mlx
 	void	*k_2;
 	void	*k_3;
 	void	*p_s;
-	
-	
+
+
 }	t_mlx;
 
 typedef struct s_point
@@ -98,11 +98,14 @@ typedef struct s_info
 	int		x_d;
 	int		y_d;
 	int		p_v;
+	int		open_d;
+	int		check_o_d;
 	double	x;
 	double	y;
 	double	p_x;
 	double	p_y;
 	t_img	*img;
+	t_img	*img_d;
 	t_img	*big_img;
 	t_img	*mini_img;
 	char	**map;
@@ -110,6 +113,7 @@ typedef struct s_info
 	double	corner;
 	double	r_corner;
 	double	last_r;
+	t_point	*p;
 	t_mlx	*mlx;
 }	t_info;
 
@@ -149,11 +153,13 @@ int		draw_wapeans(t_info *cub);
 // aelidrys
 void	ft_error(void);
 void	ft_free(char **str);
+int		open_door(t_info *cub);
 char	**get_element(char *str);
 int		size_of_arry(char **arry);
 int		str_comp(char *s1, char *s2);
-void	draw_simple_map(t_info *cub);
+int		draw_simple_map(t_info *cub);
 int		a_event(int key, t_info *cub);
+// int		a_event0(int key, t_info *cub);
 int		check_first_element(char **arry);
 void	start_cub(t_info *cub, char **av);
 t_point	draw_ray(t_info *cub, double cor_rd);

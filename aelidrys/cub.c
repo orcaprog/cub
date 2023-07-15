@@ -6,7 +6,7 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 10:22:27 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/07/15 12:37:27 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/07/15 17:08:49 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,18 @@ void	ft_imge_door(t_info *cub)
 	img->next = cub->img_d;
 	add_img(&cub->img_d, img);
 
+}
+
+int	get_color(t_img *img, int x, int y)
+{
+	char	*dst;
+	int color = 0;
+
+	if (x < 0 || x >= img->width || y < 0 || y >= img->heigth)
+		return 0;
+	dst = img->addr + (y * img->line_length + x * (img->bits_per_pixel / 8));
+	color = *(int*)dst;
+	return (color);
 }
 
 void	start_cub(t_info *cub, char **av)
