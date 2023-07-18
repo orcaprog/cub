@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 18:10:25 by abouassi          #+#    #+#             */
-/*   Updated: 2023/07/11 15:39:46 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/07/18 21:42:55 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n);
 void	*ft_memset(void *b, int c, size_t len);
 char	*ft_strchr( const char *str, int c);
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
-int     ft_strlen(const char *str);
+int		ft_strlen(const char *str);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 char	*ft_strrchr(const char *str, int c);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
@@ -54,7 +54,7 @@ void	ft_putnbr_fd(int n, int fd);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 void	*ft_memmove(void *dest, const void *src, size_t n);
-char    *ft_strjoin_get(char *s1, char *s2);
+char	*ft_strjoin_get(char *s1, char *s2);
 char	*get_next_line(int fd);
 int		ft_strcmp(char *str1, char *str2);
 #endif
