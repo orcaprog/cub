@@ -6,7 +6,7 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 10:27:39 by abouassi          #+#    #+#             */
-/*   Updated: 2023/07/17 21:16:58 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/07/20 11:15:54 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,8 @@ void	check_cmp_valid(char **map)
 		j = 0;
 		while (map[i][j])
 		{
-			if (!is_in_str("0 1NSEW2", map[i][j]))
-			{
-				ft_puterr("Error");
-			}
+			if (!is_in_str("0 1NSEWAHIJKLMNOPQRS", map[i][j]))
+				ft_puterr("Error\ninvalid charactere in map");
 			j++;
 		}
 		i++;
@@ -72,7 +70,7 @@ void	check_mult_new(char *map, int i)
 	{
 		if (map[i] == '\n' && map[i + 1] == '\n')
 		{
-			ft_puterr("Error");
+			ft_puterr("Error\n multible newlines in map");
 		}
 		i++;
 	}

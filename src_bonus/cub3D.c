@@ -6,25 +6,11 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 10:27:29 by abouassi          #+#    #+#             */
-/*   Updated: 2023/07/18 09:07:35 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/07/20 15:02:22 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
-
-int	check_door_moves(t_info *cub, t_point *p)
-{
-	if (p->dir == 'N' && is_in_str("5678",
-			cub->map[(int)(p->y / 100) - 1][(int)(p->x / 100)]))
-		return (0);
-	if (p->dir == 'W' && is_in_str("5678",
-			cub->map[(int)(p->y / 100)][(int)(p->x / 100) - 1]))
-		return (0);
-	if ((p->dir == 'E' || p->dir == 'S') && is_in_str("5678",
-			cub->map[(int)(p->y / 100)][(int)(p->x / 100)]))
-		return (0);
-	return (1);
-}
 
 void	cheak_wall(char *map)
 {
@@ -36,17 +22,17 @@ void	cheak_wall(char *map)
 		if (map[i] == '1' || map[i] == ' ')
 			i++;
 		else
-			ft_puterr("Error");
+			ft_puterr("Error\ninvalid wall");
 	}
 }
 
 void	check_s(char **map, int i, int j)
 {
 	if (ft_strlen(map[i - 1]) <= j || ft_strlen(map[i + 1]) <= j || j == 0)
-		ft_puterr("Error");
+		ft_puterr("Error3");
 	if (map[i - 1][j] == ' ' || map[i + 1][j] == ' ' || map[i][j - 1] == ' '
 		|| map[i][j + 1] == ' ' || map[i][j + 1] == '\0')
-		ft_puterr("Error");
+		ft_puterr("Error\ninvalid space in map");
 }
 
 void	cheak_map(char **map)
@@ -65,8 +51,7 @@ void	cheak_map(char **map)
 		j = 0;
 		while (map[i][j])
 		{
-			if (map[i][j] == '0' || map[i][j] == 'W' || map[i][j] == 'E'
-				|| map[i][j] == 'N' || map[i][j] == 'S')
+			if (!is_in_str("1HJIKLMOPQR ", map[i][j]))
 				check_s(map, i, j);
 			j++;
 		}
@@ -83,7 +68,7 @@ char	**get_map(char *file)
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
 	{
-		ft_puterr("Error");
+		ft_puterr("Error\n in open file");
 	}
 	maping = get_next_line(fd);
 	check_nwline(maping);

@@ -6,7 +6,7 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 10:29:23 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/07/18 21:05:55 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/07/20 16:15:50 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,10 +96,10 @@ int	a_event(int key, t_info *cub)
 
 int	draw_cub3d(t_info *cub)
 {
-	rays_casting(cub, 0, "12");
+	rays_casting(cub, 0, "1AHIJKLMNOPQR");
 	mlx_put_image_to_window(cub->mlx->ptr, cub->mlx->win, cub->big_img->ptr,
 		0, 0);
-	rays_casting(cub, 0, "12345678");
+	rays_casting(cub, 0, "1ABCDEFGHIJKLMNOPQR");
 	mlx_put_image_to_window(cub->mlx->ptr, cub->mlx->win, cub->big_img->ptr,
 		0, 0);
 	change_wap(cub);

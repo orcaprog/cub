@@ -52,11 +52,11 @@ CC = cc
 
 all : ${NAME}
 
-bonus	: ${NAME_BONUS}
-
 ${NAME} : ${OBJ}
 		make -C libft
 		${CC} ${CFLAGS} ${OBJ} libft/libft.a -o ${NAME} $(MLX_FLAG)
+
+bonus	: ${NAME_BONUS}
 
 ${NAME_BONUS} : ${OBJ_BONUS}
 		make -C libft

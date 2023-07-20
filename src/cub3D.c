@@ -6,7 +6,7 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 10:27:29 by abouassi          #+#    #+#             */
-/*   Updated: 2023/07/18 21:43:10 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/07/20 12:03:12 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,7 @@ void	cheak_map(char **map)
 		j = 0;
 		while (map[i][j])
 		{
-			if (map[i][j] == '0' || map[i][j] == 'W' || map[i][j] == 'E'
-				|| map[i][j] == 'N' || map[i][j] == 'S')
+			if (map[i][j] != '1')
 				check_s(map, i, j);
 			j++;
 		}

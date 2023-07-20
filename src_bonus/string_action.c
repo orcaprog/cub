@@ -6,7 +6,7 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 18:30:14 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/07/18 14:16:00 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/07/20 15:30:40 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,17 @@ int	str_comp(char *s1, char *s2)
 	if (s1[x] != s2[x])
 		return (0);
 	return (1);
+}
+
+int	is_in_str(char *str, char c)
+{
+	int	i;
+
+	i = 0;
+	while (str && str[i])
+		if (c == str[i++])
+			return (1);
+	return (0);
 }
 
 char	**get_element(char *str)

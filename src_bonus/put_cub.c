@@ -6,7 +6,7 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 08:13:25 by abouassi          #+#    #+#             */
-/*   Updated: 2023/07/18 10:11:32 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/07/20 11:16:07 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	print_mini_map(t_info *cub, t_var var, int x, int y)
 	if ((y >= 0 && y < size_of_arry(cub->map)
 			&& x <= ft_strlen(cub->map[y]) && x >= 0))
 	{
-		if (cub->map[y][x] == '1')
+		if (is_in_str("1HIJKLMNOPQRS", cub->map[y][x]))
 			print_image_square(cub, (x - var.s_x) * M_G,
 				(y - var.s_y) * M_G, 0x00D3D3D3);
 		else if ((cub->map[y][x] == '0' || cub->map[y][x] == 'N'
@@ -77,7 +77,7 @@ void	print_mini_map(t_info *cub, t_var var, int x, int y)
 					|| cub->map[y][x] == 'S' || cub->map[y][x] == 'E'))
 			print_image_square(cub, (x - var.s_x) * M_G,
 				(y - var.s_y) * M_G, 0x0036454F);
-		else if (is_in_str("2345678", cub->map[y][x]))
+		else if (is_in_str("ABCDEFG", cub->map[y][x]))
 			print_image_square(cub, (x - var.s_x) * M_G,
 				(y - var.s_y) * M_G, 0x000000CD);
 		else
