@@ -6,19 +6,19 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 08:58:20 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/07/18 10:08:09 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/07/21 12:30:44 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
-int	is_coord_in_map_range(t_info *cub, float x, float y, int size)
+int	is_coord_in_map_range(t_info *cub, int x, int y, int size)
 {
 	float	x1;
 	float	y1;
 
-	x1 = floor(x / size);
-	y1 = floor(y / size);
+	x1 = x / size;
+	y1 = y / size;
 	if (y1 <= 0 || x1 <= 0)
 		return (0);
 	if (y1 >= size_of_arry(cub->map) - 1

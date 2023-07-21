@@ -6,7 +6,7 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 09:16:12 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/07/18 18:52:58 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/07/21 20:52:57 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,21 +22,20 @@ void	my_mlx_pixel_put1(t_img *data, int x, int y, int color)
 	*(unsigned int *)dst = color;
 }
 
-t_point	draw_ray(t_info *cub, double cor_rad)
+void	stop_movs(t_info *cub)
 {
-	t_point	px;
-	t_point	py;
-
-	det_direction(cub, cor_rad);
-	px = det_coord_x(cub, cor_rad, "1", cub->size);
-	py = det_coord_y(cub, cor_rad, "1", cub->size);
-	if (px.r > py.r)
-		px = py;
-	return (px);
+	cub->m_r = 0;
+	cub->m_l = 0;
+	cub->m_u = 0;
+	cub->m_d = 0;
+	cub->l_cor = 0;
+	cub->r_cor = 0;
 }
 
 int	input_key_relese(int key, t_info *cub)
 {
+	if (key == 259)
+		stop_movs(cub);
 	if (key == 2)
 		cub->m_r = 0;
 	if (key == 0)
@@ -54,10 +53,10 @@ int	input_key_relese(int key, t_info *cub)
 
 void	motion(t_info *cub)
 {
-	move_right(cub, 100);
-	move_left(cub, 100);
-	move_down(cub, 100);
-	move_up(cub, 100);
+	move_right(cub, cub->size);
+	move_left(cub, cub->size);
+	move_down(cub, cub->size);
+	move_up(cub, cub->size);
 	if (cub->l_cor == 1)
 		cub->corner += 3;
 	if (cub->r_cor == 1)

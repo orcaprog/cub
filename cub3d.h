@@ -6,7 +6,7 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 14:56:05 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/07/21 09:13:17 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/07/21 12:31:24 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,15 +168,14 @@ void	draw_west_walls(t_info *cub, t_point p, int a);
 void	draw_north_walls(t_info *cub, t_point p, int a);
 void	my_mlx_pixel_put1(t_img *data, int x, int y, int color);
 t_point	det_coord_x(t_info *cub, float cor_rd, char *str, int size);
-int		is_coord_in_map_range(t_info *cub, float x, float y, int size);
+int		is_coord_in_map_range(t_info *cub, int x, int y, int size);
 t_point	det_coord_y(t_info *cub, float cor_rd, char *str, int size);
-void check_coll(t_point p,t_info *data, float cor_rad,int grid);
+void	check_coll(t_point p, t_info *data, t_var *var, int grid);
 int		rays_casting(t_info *cub, float cor_rd, char *str);
 void	draw_south_walls(t_info *cub, t_point p, int a);
 int		prm_moves1(char **map, char *str, int x, int y);
 int		check_door_moves(t_info *cub, t_point *p);
 int		input_key_relese(int key, t_info *cub);
-t_point	draw_ray(t_info *cub, double cor_rd);
 int		check_first_element(char **arry);
 int		a_event(int key, t_info *cub);
 int		str_comp(char *s1, char *s2);

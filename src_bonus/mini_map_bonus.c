@@ -6,7 +6,7 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 08:13:25 by abouassi          #+#    #+#             */
-/*   Updated: 2023/07/21 08:05:08 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/07/21 10:52:20 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	print_mini_map(t_info *cub, t_var var, int x, int y)
 	if ((y >= 0 && y < size_of_arry(cub->map)
 			&& x <= ft_strlen(cub->map[y]) && x >= 0))
 	{
-		if (is_in_str("1hijklmnopqr", cub->map[y][x]))
+		if (is_in_str("1hijklmnopqrst", cub->map[y][x]))
 			print_image_square(cub, (x - var.s_x) * M_G,
 				(y - var.s_y) * M_G, 0x00D3D3D3);
 		else if ((cub->map[y][x] == '0' || cub->map[y][x] == 'N'

@@ -6,7 +6,7 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 14:42:41 by abouassi          #+#    #+#             */
-/*   Updated: 2023/07/18 18:57:44 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/07/21 11:42:59 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	move_right(t_info *data, int size)
 		return ;
 	grid = MOVE_SPEED;
 	var.check = 1;
-	var.cor_rd = ((3.14159265359 * (data->corner + 90)) / 180.0000);
+	var.cor_rd = ((M_PI * (data->corner + 90)) / 180.0000);
 	det_direction(data, var.cor_rd);
 	px = det_coord_x(data, var.cor_rd, "1", size);
 	py = det_coord_y(data, var.cor_rd, "1", size);
@@ -51,7 +51,7 @@ void	move_left(t_info *data, int size)
 		return ;
 	grid = MOVE_SPEED;
 	var.check = 1;
-	var.cor_rd = ((3.14159265359 * (data->corner - 90)) / 180.0000);
+	var.cor_rd = ((M_PI * (data->corner - 90)) / 180.0000);
 	det_direction(data, var.cor_rd);
 	px = det_coord_x(data, var.cor_rd, "1", size);
 	py = det_coord_y(data, var.cor_rd, "1", size);
@@ -106,7 +106,7 @@ void	move_up(t_info *data, int size)
 	if (data->m_u == 0)
 		return ;
 	grid = MOVE_SPEED;
-	var.cor_rd = (3.14159265359 * data->corner) / 180.0000;
+	var.cor_rd = (M_PI * data->corner) / 180.0000;
 	var.check = 1;
 	det_direction(data, var.cor_rd);
 	px = det_coord_x(data, var.cor_rd, "1", size);

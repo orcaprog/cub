@@ -6,7 +6,7 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 10:22:27 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/07/21 09:38:16 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/07/21 21:25:41 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,22 +26,22 @@ void	ft_init_img(t_info *cub)
 	cub->img_d[8] = new_img(cub, "img/robot2.xpm", 'i');
 	cub->img_d[9] = new_img(cub, "img/robot3.xpm", 'j');
 	cub->img_d[10] = new_img(cub, "img/robot5.xpm", 'k');
-	cub->img_d[11] = new_img(cub, "img/fa1.xpm", 'l');
-	cub->img_d[12] = new_img(cub, "img/fa2.xpm", 'm');
-	cub->img_d[13] = new_img(cub, "img/fa3.xpm", 'n');
-	cub->img_d[14] = new_img(cub, "img/robot4.xpm", 'o');
-	cub->img_d[15] = new_img(cub, "img/robot4.xpm", 'p');
-	cub->img_d[16] = new_img(cub, "img/robot4.xpm", 'q');
-	cub->img_d[17] = new_img(cub, "img/robot4.xpm", 'r');
-	cub->img_d[18] = new_img(cub, "img/robot4.xpm", 's');
-	cub->img_d[19] = new_img(cub, "img/robot4.xpm", 't');
+	cub->img_d[11] = new_img(cub, "img/wpblckj.xpm", 'l');
+	cub->img_d[12] = new_img(cub, "img/wpblckj.xpm", 'm');
+	cub->img_d[13] = new_img(cub, "img/W_7.xpm", 'n');
+	cub->img_d[14] = new_img(cub, "img/wpblck.xpm", 'o');
+	cub->img_d[15] = new_img(cub, "img/stone_k.xpm", 'p');
+	cub->img_d[16] = new_img(cub, "img/stone_s.xpm", 'q');
+	cub->img_d[17] = new_img(cub, "img/stone_a.xpm", 'r');
+	cub->img_d[18] = new_img(cub, "img/elevator.xpm", 's');
+	cub->img_d[19] = new_img(cub, "img/W_6.xpm", 't');
 }
 
 void	ft_init_var(t_info *cub)
 {
 	cub->stop_move = 0;
 	cub->corner = 0;
-	cub->size = 60;
+	cub->size = 100;
 	cub->m_r = 0;
 	cub->m_l = 0;
 	cub->m_d = 0;

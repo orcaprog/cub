@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   drawing_walls.c                                    :+:      :+:    :+:   */
+/*   drawing_walls_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 07:36:49 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/07/21 07:24:46 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/07/21 20:24:59 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	draw_east_walls(t_info *cub, t_point p, int a)
 
 	img = get_img(cub, 'E');
 	c = cub->map[(int)(p.y / cub->size)][(int)(p.x / cub->size)];
-	if (is_in_str("abcdefgkl", c))
+	if (is_in_str("abcdefgklpt", c))
 		img = cub->img_d[c - 97];
 	grid_y = (img->heigth * 1.0) / (a * 2);
 	if (a > 500)
@@ -63,7 +63,7 @@ void	draw_west_walls(t_info *cub, t_point p, int a)
 
 	c = cub->map[(int)(p.y / cub->size)][(int)(p.x / cub->size) - 1];
 	img = get_img(cub, 'W');
-	if (is_in_str("abcdefgim", c))
+	if (is_in_str("abcdefgimnr", c))
 		img = cub->img_d[c - 97];
 	grid_y = (img->heigth * 1.0) / (a * 2);
 	if (a > 500)
@@ -90,7 +90,7 @@ void	draw_north_walls(t_info *cub, t_point p, int a)
 
 	c = cub->map[(int)(p.y / cub->size) - 1][(int)(p.x / cub->size)];
 	img = get_img(cub, 'N');
-	if (is_in_str("abcdefgjr", c))
+	if (is_in_str("abcdefgj", c))
 		img = cub->img_d[c - 97];
 	grid_y = (img->heigth * 1.0) / (a * 2);
 	if (a > 500)
@@ -117,7 +117,7 @@ void	draw_south_walls(t_info *cub, t_point p, int a)
 
 	c = cub->map[(int)(p.y / cub->size)][(int)(p.x / cub->size)];
 	img = get_img(cub, 'S');
-	if (is_in_str("abcdefgho", c))
+	if (is_in_str("abcdefghosq", c))
 		img = cub->img_d[c - 97];
 	grid_y = (img->heigth * 1.0) / (a * 2);
 	if (a > 500)

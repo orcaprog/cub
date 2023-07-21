@@ -6,29 +6,29 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 14:42:41 by abouassi          #+#    #+#             */
-/*   Updated: 2023/07/21 09:38:48 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/07/21 21:29:11 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
-void check_coll(t_point p,t_info *data, float cor_rad,int grid)
+void	check_coll(t_point p, t_info *data, t_var *var, int grid)
 {
-	if((p.dir == 'S' ||p.dir == 'N')
-		&& is_coord_in_map_range(data,data->x + cos(cor_rad) * grid, data->y, data->size))
-	{
-		if(!prm_moves1(data->map,"12",
-			(data->x + cos(cor_rad) * grid)/ data->size, data->y / data->size ))
-				data->x = data->x + cos(cor_rad) * grid;
-	}
-	if((p.dir == 'W' ||  p.dir == 'E')
-		&& is_coord_in_map_range(data, data->x, data->y - sin(cor_rad) * grid, data->size))
-	{
-		if(!prm_moves1(data->map,"12",data->x / data->size,
-			(data->y - sin(cor_rad) * grid) / data->size ))
-			data->y = data->y - sin(cor_rad) * grid;
+	float	cor;
 
-	}
+	cor = var->cor_rd;
+	if ((p.dir == 'S' || p.dir == 'N')
+		&& is_coord_in_map_range(data, data->x + cos(cor) * grid,
+			data->y, data->size))
+		if (!prm_moves1(data->map, "1ahijklmnopqrts", (data->x + cos(cor) * grid)
+				/ data->size, data->y / data->size))
+			data->x = data->x + cos(cor) * grid;
+	if ((p.dir == 'W' || p.dir == 'E')
+		&& is_coord_in_map_range(data, data->x, data->y - sin(cor) * grid,
+			data->size))
+		if (!prm_moves1(data->map, "1ahijklmnopqrts", data->x / data->size,
+				(data->y - sin(cor) * grid) / data->size))
+			data->y = data->y - sin(cor) * grid;
 }
 
 void	move_right(t_info *data, int size)
@@ -42,10 +42,10 @@ void	move_right(t_info *data, int size)
 		return ;
 	grid = MOVE_SPEED;
 	var.check = 1;
-	var.cor_rd = ((3.14159265359 * (data->corner + 90)) / 180.0000);
+	var.cor_rd = ((M_PI * (data->corner + 90)) / 180.0000);
 	det_direction(data, var.cor_rd);
-	px = det_coord_x(data, var.cor_rd, "1abcdefghijklmnopqr", size);
-	py = det_coord_y(data, var.cor_rd, "1abcdefghijklmnopqr", size);
+	px = det_coord_x(data, var.cor_rd, "1abcdefghijklmnopqrts", size);
+	py = det_coord_y(data, var.cor_rd, "1abcdefghijklmnopqrts", size);
 	if ((py.r) < (px.r))
 		px = py;
 	if (px.r <= 20)
@@ -70,10 +70,10 @@ void	move_left(t_info *data, int size)
 		return ;
 	grid = MOVE_SPEED;
 	var.check = 1;
-	var.cor_rd = ((3.14159265359 * (data->corner - 90)) / 180.0000);
+	var.cor_rd = ((M_PI * (data->corner - 90)) / 180.0000);
 	det_direction(data, var.cor_rd);
-	px = det_coord_x(data, var.cor_rd, "1abcdefghijklmnopqr", size);
-	py = det_coord_y(data, var.cor_rd, "1abcdefghijklmnopqr", size);
+	px = det_coord_x(data, var.cor_rd, "1abcdefghijklmnopqrts", size);
+	py = det_coord_y(data, var.cor_rd, "1abcdefghijklmnopqrts", size);
 	if ((py.r) < (px.r))
 		px = py;
 	if (px.r <= 20)
@@ -100,8 +100,8 @@ void	move_down(t_info *data, int size)
 	var.cor_rd = ((M_PI * (data->corner - 180)) / 180.0000);
 	var.check = 1;
 	det_direction(data, var.cor_rd);
-	px = det_coord_x(data, var.cor_rd, "1abcdefghijklmnopqr", size);
-	py = det_coord_y(data, var.cor_rd, "1abcdefghijklmnopqr", size);
+	px = det_coord_x(data, var.cor_rd, "1abcdefghijklmnopqrts", size);
+	py = det_coord_y(data, var.cor_rd, "1abcdefghijklmnopqrts", size);
 	if ((py.r) < (px.r))
 		px = py;
 	if (px.r <= 20)
@@ -114,7 +114,7 @@ void	move_down(t_info *data, int size)
 		data->x = data->x + cos(var.cor_rd) * grid;
 	}
 	else
-		check_coll(px,data,var.cor_rd,grid);
+		check_coll(px, data, &var, grid);
 }
 
 void	move_up(t_info *data, int size)
@@ -127,11 +127,11 @@ void	move_up(t_info *data, int size)
 	if (data->m_u == 0)
 		return ;
 	grid = MOVE_SPEED;
-	var.cor_rd = (3.14159265359 * data->corner) / 180.0000;
+	var.cor_rd = (M_PI * data->corner) / 180.0000;
 	var.check = 1;
 	det_direction(data, var.cor_rd);
-	px = det_coord_x(data, var.cor_rd, "1abcdefghijklmnopqr", size);
-	py = det_coord_y(data, var.cor_rd, "1abcdefghijklmnopqr", size);
+	px = det_coord_x(data, var.cor_rd, "1abcdefghijklmnopqrts", size);
+	py = det_coord_y(data, var.cor_rd, "1abcdefghijklmnopqrts", size);
 	if ((py.r) < (px.r))
 		px = py;
 	if (px.r <= 20 && check_door_moves(data, &px))
@@ -144,5 +144,5 @@ void	move_up(t_info *data, int size)
 		data->x = data->x + cos(var.cor_rd) * grid;
 	}
 	else
-		check_coll(px,data,var.cor_rd,grid);
+		check_coll(px, data, &var, grid);
 }

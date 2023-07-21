@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   drawing.c                                          :+:      :+:    :+:   */
+/*   drawing_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 10:29:23 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/07/21 07:21:17 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/07/21 20:50:00 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,10 +97,10 @@ int	a_event(int key, t_info *cub)
 
 int	draw_cub3d(t_info *cub)
 {
-	rays_casting(cub, 0, "1ahijklmnopqr");
+	rays_casting(cub, 0, "1ahijklmnopqrts");
 	mlx_put_image_to_window(cub->mlx->ptr, cub->mlx->win, cub->big_img->ptr,
 		0, 0);
-	rays_casting(cub, 0, "1abcdefghijklmnopqr");
+	rays_casting(cub, 0, "1abcdefghijklmnopqrts");
 	mlx_put_image_to_window(cub->mlx->ptr, cub->mlx->win, cub->big_img->ptr,
 		0, 0);
 	change_wap(cub);

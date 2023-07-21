@@ -6,7 +6,7 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 10:29:23 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/07/18 18:54:03 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/07/21 20:50:18 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,8 @@ int	a_event(int key, t_info *cub)
 		cub->l_cor = 1;
 	if (key == 123)
 		cub->r_cor = 1;
+	if (key == 259)
+		stop_movs(cub);
 	motion(cub);
 	return (0);
 }

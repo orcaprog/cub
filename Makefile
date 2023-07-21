@@ -23,7 +23,7 @@ SRC_BONUS =	src_bonus/cub3D_bonus.c\
 		src_bonus/cub3D_parce_bonus.c\
 		src_bonus/free_err_bonus.c\
 		src_bonus/cub_tool1_bonus.c\
-		src_bonus/put_cub_bonus.c\
+		src_bonus/mini_map_bonus.c\
 		src_bonus/moves_bonus.c\
 		src_bonus/functions_mlx_bonus.c\
 		src_bonus/linked_bonus.c\
@@ -76,4 +76,4 @@ fclean	:	clean
 		$(RM) $(NAME)
 		$(RM) $(NAME_BONUS)
 
-re	:	fclean all
+re	:	fclean all bonus

@@ -6,7 +6,7 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 10:27:29 by abouassi          #+#    #+#             */
-/*   Updated: 2023/07/21 09:06:54 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/07/21 20:26:19 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	cheak_wall(char *map)
 	i = 0;
 	while (map[i])
 	{
-		if (is_in_str("1hjiklmnopqr ", map[i]))
+		if (is_in_str("1hjiklmnopqrts ", map[i]))
 			i++;
 		else
 			ft_puterr("Error\ninvalid wall");
@@ -51,7 +51,7 @@ void	cheak_map(char **map)
 		j = 0;
 		while (map[i][j])
 		{
-			if (!is_in_str("1hjiklmnopqr ", map[i][j]))
+			if (!is_in_str("1hjiklmnopqrts ", map[i][j]))
 				check_s(map, i, j);
 			j++;
 		}

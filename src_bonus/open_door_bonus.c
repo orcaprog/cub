@@ -6,7 +6,7 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 16:26:51 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/07/21 08:13:02 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/07/21 10:51:36 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ int	check_door_moves(t_info *cub, t_point *p)
 int	prm_denied(t_info *cub, t_point p)
 {
 	if (p.dir == 'S')
-		if (is_in_str("abcdefg", cub->map[(int)(p.y / cub->size)][(int)(p.x / cub->size)]))
+		if (is_in_str("abcdefg", cub->map[(int)(p.y / cub->size)][(int)(p.x
+			/ cub->size)]))
 			return (1);
 	if (p.dir == 'N')
 		if (is_in_str("abcdefg", cub->map[(int)(p.y / cub->size) - 1][(int)(p.x
@@ -40,7 +41,8 @@ int	prm_denied(t_info *cub, t_point p)
 			/ cub->size) - 1]))
 			return (1);
 	if (p.dir == 'E')
-		if (is_in_str("abcdefg", cub->map[(int)(p.y / cub->size)][(int)(p.x / cub->size)]))
+		if (is_in_str("abcdefg", cub->map[(int)(p.y / cub->size)][(int)(p.x
+			/ cub->size)]))
 			return (1);
 	return (0);
 }
@@ -56,8 +58,8 @@ void	check_open_door(t_info *cub, int key)
 		return ;
 	cor_rad = (M_PI * cub->corner) / 180.0;
 	det_direction(cub, cor_rad);
-	px = det_coord_x(cub, cor_rad, "1abcdefghijklmnopqr", cub->size);
-	py = det_coord_y(cub, cor_rad, "1abcdefghijklmnopqr", cub->size);
+	px = det_coord_x(cub, cor_rad, "1abcdefg", cub->size);
+	py = det_coord_y(cub, cor_rad, "1abcdefg", cub->size);
 	if (px.r > py.r)
 		px = py;
 	if (px.r > cub->size * 2)
@@ -96,13 +98,17 @@ int	open_door(t_info *cub)
 		cub->open_d = 60;
 	cub->open_d++;
 	if (cub->p.dir == 'S')
-		draw_door(cub, (int)(cub->p.x / cub->size), (int)(cub->p.y / cub->size));
+		draw_door(cub, (int)(cub->p.x / cub->size),
+			(int)(cub->p.y / cub->size));
 	else if (cub->p.dir == 'N')
-		draw_door(cub, (int)(cub->p.x / cub->size), (int)(cub->p.y / cub->size - 1));
+		draw_door(cub, (int)(cub->p.x / cub->size),
+			(int)(cub->p.y / cub->size - 1));
 	else if (cub->p.dir == 'W')
-		draw_door(cub, (int)(cub->p.x / cub->size - 1), (int)(cub->p.y / cub->size));
+		draw_door(cub, (int)(cub->p.x / cub->size - 1),
+			(int)(cub->p.y / cub->size));
 	else if (cub->p.dir == 'E')
-		draw_door(cub, (int)(cub->p.x / cub->size), (int)(cub->p.y / cub->size));
+		draw_door(cub, (int)(cub->p.x / cub->size),
+			(int)(cub->p.y / cub->size));
 	if (cub->open_d == 71)
 	{
 		cub->open_d = 0;

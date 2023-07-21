@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3D_parce.c                                      :+:      :+:    :+:   */
+/*   cub3D_parce_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 10:27:39 by abouassi          #+#    #+#             */
-/*   Updated: 2023/07/21 07:17:28 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/07/21 20:26:38 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	check_cmp_valid(char **map)
 		j = 0;
 		while (map[i][j])
 		{
-			if (!is_in_str("0 1NSEWahijklmnopqr", map[i][j]))
+			if (!is_in_str("0 1NSEWahijklmnopqrts", map[i][j]))
 				ft_puterr("Error\ninvalid charactere in map");
 			j++;
 		}
