@@ -52,3 +52,8 @@
 ![](img/image2.png)
 ### determine the coordonate of intersiction with x
 ![](img/image3.png)
+
+|charcetrs|object|
+|:-|:-|
+|"abcdefg"|door|
+|"hijk"|robot|

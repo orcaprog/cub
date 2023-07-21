@@ -6,7 +6,7 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 14:56:05 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/07/20 16:22:28 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/07/21 09:13:17 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ typedef struct s_var
 
 typedef struct s_info
 {
+	int		stop_move;
 	int		r_cor;
 	int		l_cor;
 	int		m_r;
@@ -132,14 +133,11 @@ void	store_info(char **map, t_info *cub);
 int		my_color(char *color);
 void	point_of_view(t_info *data);
 void	cheak_map(char **map);
-void	put_pix(t_info *cub, t_img *img, int color);
 void	move_right(t_info *data, int size);
 void	move_left(t_info *data, int size);
 void	move_up(t_info *data, int size);
 void	move_down(t_info *data, int size);
 int		input_key(int key, t_info *data);
-int		prm_moves(char **map, int x, int y);
-int		a_event1(int key, t_info *cub);
 void	my_mlx_pixel_put(t_img *data, int x, int y, int color);
 void	draw_mini_map(t_info *cub);
 t_img	*new_img(t_info *cub, char *str, char c);
@@ -172,6 +170,7 @@ void	my_mlx_pixel_put1(t_img *data, int x, int y, int color);
 t_point	det_coord_x(t_info *cub, float cor_rd, char *str, int size);
 int		is_coord_in_map_range(t_info *cub, float x, float y, int size);
 t_point	det_coord_y(t_info *cub, float cor_rd, char *str, int size);
+void check_coll(t_point p,t_info *data, float cor_rad,int grid);
 int		rays_casting(t_info *cub, float cor_rd, char *str);
 void	draw_south_walls(t_info *cub, t_point p, int a);
 int		prm_moves1(char **map, char *str, int x, int y);
@@ -183,6 +182,7 @@ int		a_event(int key, t_info *cub);
 int		str_comp(char *s1, char *s2);
 int		size_of_arry(char **arry);
 int		draw_cub3d(t_info *cub);
+void	stop_movs(t_info *cub);
 void	ft_free(char **str);
 
 #endif

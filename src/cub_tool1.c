@@ -6,7 +6,7 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 09:01:55 by abouassi          #+#    #+#             */
-/*   Updated: 2023/07/18 19:04:27 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/07/21 08:14:39 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	point_of_view(t_info *data)
 			if (data->map[i][j] == 'N')
 				data->corner = 90;
 			if (data->map[i][j] == 'E')
-				data->corner = 90;
+				data->corner = 0;
 			if (data->map[i][j] == 'W')
 				data->corner = 180;
 			if (data->map[i][j] == 'S')
