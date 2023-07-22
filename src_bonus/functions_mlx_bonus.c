@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   functions_mlx.c                                    :+:      :+:    :+:   */
+/*   functions_mlx_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 14:45:40 by abouassi          #+#    #+#             */
-/*   Updated: 2023/07/20 16:22:23 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/07/22 12:40:46 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ void	get_xpm_file(t_info *cub)
 
 int	mouse_view(int x, int y, t_info *cub)
 {
+	if (cub->start == 0)
+		return (0);
 	if (x < 0 || x > 1200 || y < 0 || y > 1000)
 		return (0);
 	if (x > cub->x_mouse)
@@ -73,6 +75,10 @@ int	mouse_view(int x, int y, t_info *cub)
 
 int	input_key(int key, t_info *cub)
 {
+	if (key == 53)
+		exit(0);
+	if (!cub->start)
+		return (0);
 	if (key == 2)
 		cub->m_r = 1;
 	if (key == 0)
@@ -81,7 +87,5 @@ int	input_key(int key, t_info *cub)
 		cub->m_d = 1;
 	if (key == 126 || key == 13)
 		cub->m_u = 1;
-	if (key == 53)
-		exit(0);
 	return (0);
 }

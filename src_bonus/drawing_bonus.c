@@ -6,7 +6,7 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 10:29:23 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/07/22 11:34:23 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/07/22 12:40:02 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,9 +75,9 @@ int	a_event(int key, t_info *cub)
 {
 	if (key == 49)
 		cub->start = 1;
+	input_key(key, cub);
 	if (cub->start == 0)
 		return (0);
-	input_key(key, cub);
 	if ((int)cub->corner == 360)
 		cub->corner = 0;
 	if (key == 124)
