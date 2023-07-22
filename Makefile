@@ -42,7 +42,7 @@ OBJ = ${SRC:.c=.o}
 OBJ_BONUS = ${SRC_BONUS:.c=.o}
 
 
-CFLAGS = -Wall -Werror -Wextra -fsanitize=address -g
+CFLAGS = -Wall -Werror -Wextra #-fsanitize=address -g
 
 MLX_FLAG = -lmlx -framework OpenGL -framework AppKit
 

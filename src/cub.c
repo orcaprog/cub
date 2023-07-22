@@ -6,7 +6,7 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 10:22:27 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/07/21 12:40:32 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/07/22 10:32:49 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	ft_init_var(t_info *cub)
 {
+	cub->stop_move = 0;
 	cub->m_r = 0;
 	cub->m_l = 0;
 	cub->m_d = 0;
@@ -70,8 +71,8 @@ void	start_cub(t_info *cub, char **av)
 	cub->mlx->ptr = mlx_init();
 	cub->mlx->win = mlx_new_window(cub->mlx->ptr, 1200, 1000, "CUB");
 	ft_init_var(cub);
-	store_info(cub->map0, cub);
 	point_of_view(cub);
+	store_info(cub->map0, cub);
 	cub->big_img->ptr = mlx_new_image(cub->mlx->ptr, 1200, 1000);
 	cub->big_img->addr = mlx_get_data_addr(cub->big_img->ptr,
 			&cub->big_img->bits_per_pixel,

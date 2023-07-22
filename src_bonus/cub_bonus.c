@@ -6,7 +6,7 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 10:22:27 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/07/21 21:25:41 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/07/22 10:30:09 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void	ft_init_img(t_info *cub)
 
 void	ft_init_var(t_info *cub)
 {
+	cub->start = 0;
 	cub->stop_move = 0;
 	cub->corner = 0;
 	cub->size = 100;
@@ -50,6 +51,9 @@ void	ft_init_var(t_info *cub)
 	cub->r_cor = 0;
 	cub->open_d = 0;
 	cub->check_o_d = 1;
+	cub->check_shot = 0;
+	cub->numb_shot = 0;
+	cub->change_wap = 0;
 	cub->x = get_position(cub->map).x * cub->size + cub->size / 2;
 	cub->y = get_position(cub->map).y * cub->size + cub->size / 2;
 	ft_init_img(cub);

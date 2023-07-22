@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abouassi <abouassi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 14:56:05 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/07/22 08:42:15 by abouassi         ###   ########.fr       */
+/*   Updated: 2023/07/22 10:46:58 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <math.h>
 # include "libft/libft.h"
 
-# define MOVE_SPEED 20
+# define MOVE_SPEED 30
 # define M_G 14
 
 typedef struct s_mlx
@@ -70,6 +70,7 @@ typedef struct s_img
 
 typedef struct s_var
 {
+	int		grid;
 	int		x;
 	int		y;
 	int		s_x;
@@ -80,11 +81,11 @@ typedef struct s_var
 	int		org_y;
 	int		check;
 	float	cor_rd;
-	int		grid;
 }	t_var;
 
 typedef struct s_info
 {
+	int		start;
 	int		stop_move;
 	int		r_cor;
 	int		l_cor;
