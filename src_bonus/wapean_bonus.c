@@ -6,7 +6,7 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 08:21:39 by abouassi          #+#    #+#             */
-/*   Updated: 2023/07/22 12:26:21 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/07/22 15:59:11 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	draw_wapeans(t_info *cub)
 			put_pistol(cub);
 		else if (cub->change_wap == 1)
 			put_knife(cub);
-		if (cub->numb_shot == 6)
+		if (cub->numb_shot == 12)
 		{
 			cub->numb_shot = 0;
 			cub->check_shot = 0;
@@ -55,32 +55,32 @@ void	draw_wap(t_info *cub, void *img, int x, int y)
 
 void	put_pistol(t_info *cub)
 {
-	if (cub->numb_shot == 1)
+	if (cub->numb_shot == 1 || cub->numb_shot == 2)
 		draw_wap(cub, cub->mlx->i_w1, 400, 600);
-	if (cub->numb_shot == 2)
+	if (cub->numb_shot == 3 || cub->numb_shot == 4)
 		draw_wap(cub, cub->mlx->i_w2, 400, 600);
-	if (cub->numb_shot == 3)
+	if (cub->numb_shot == 5 || cub->numb_shot == 6)
 		draw_wap(cub, cub->mlx->i_w3, 400, 600);
-	if (cub->numb_shot == 4)
+	if (cub->numb_shot == 7 || cub->numb_shot == 8)
 		draw_wap(cub, cub->mlx->i_w3, 400, 600);
-	if (cub->numb_shot == 5)
+	if (cub->numb_shot == 9 || cub->numb_shot == 10)
 		draw_wap(cub, cub->mlx->i_w1, 400, 600);
-	if (cub->numb_shot == 6)
+	if (cub->numb_shot == 11 || cub->numb_shot == 12)
 		draw_wap(cub, cub->mlx->i_w0, 400, 600);
 }
 
 void	put_knife(t_info *cub)
 {
-	if (cub->numb_shot == 1)
+	if (cub->numb_shot == 1 || cub->numb_shot == 2)
 		draw_wap(cub, cub->mlx->k_1, 400, 600);
-	if (cub->numb_shot == 2)
+	if (cub->numb_shot == 3 || cub->numb_shot == 4)
 		draw_wap(cub, cub->mlx->k_2, 400, 600);
-	if (cub->numb_shot == 3)
+	if (cub->numb_shot == 5 || cub->numb_shot == 6)
 		draw_wap(cub, cub->mlx->k_3, 400, 600);
-	if (cub->numb_shot == 4)
+	if (cub->numb_shot == 7 || cub->numb_shot == 8)
 		draw_wap(cub, cub->mlx->k_3, 400, 600);
-	if (cub->numb_shot == 5)
+	if (cub->numb_shot == 9 || cub->numb_shot == 10)
 		draw_wap(cub, cub->mlx->k_1, 400, 600);
-	if (cub->numb_shot == 6)
+	if (cub->numb_shot == 11 || cub->numb_shot == 12)
 		draw_wap(cub, cub->mlx->k_0, 400, 600);
 }

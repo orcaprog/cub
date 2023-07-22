@@ -6,7 +6,7 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 10:22:27 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/07/22 10:30:09 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/07/22 14:46:36 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ void	ft_init_img(t_info *cub)
 	cub->img_d[4] = new_img(cub, "door/d5.xpm", 'e');
 	cub->img_d[5] = new_img(cub, "door/d6.xpm", 'f');
 	cub->img_d[6] = new_img(cub, "door/d7.xpm", 'g');
-	cub->img_d[7] = new_img(cub, "img/robot1.xpm", 'h');
+	cub->img_d[7] = new_img(cub, "img/robot8.xpm", 'h');
 	cub->img_d[8] = new_img(cub, "img/robot2.xpm", 'i');
-	cub->img_d[9] = new_img(cub, "img/robot3.xpm", 'j');
-	cub->img_d[10] = new_img(cub, "img/robot5.xpm", 'k');
+	cub->img_d[9] = new_img(cub, "img/robot6.xpm", 'j');
+	cub->img_d[10] = new_img(cub, "img/robot3.xpm", 'k');
 	cub->img_d[11] = new_img(cub, "img/wpblckj.xpm", 'l');
 	cub->img_d[12] = new_img(cub, "img/wpblckj.xpm", 'm');
 	cub->img_d[13] = new_img(cub, "img/W_7.xpm", 'n');

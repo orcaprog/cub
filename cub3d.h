@@ -6,7 +6,7 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 14:56:05 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/07/22 10:46:58 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/07/22 15:39:59 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <math.h>
 # include "libft/libft.h"
 
-# define MOVE_SPEED 30
+# define MOVE_SPEED 20
 # define M_G 14
 
 typedef struct s_mlx

@@ -6,7 +6,7 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 09:16:12 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/07/22 10:44:28 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/07/22 16:00:46 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,9 @@ void	motion(t_info *cub)
 	move_down(cub, cub->size);
 	move_up(cub, cub->size);
 	if (cub->l_cor == 1)
-		cub->corner += 3;
+		cub->corner += 2;
 	if (cub->r_cor == 1)
-		cub->corner -= 3;
+		cub->corner -= 2;
 }
 
 void	det_direction(t_info *cub, float cor_rd)
